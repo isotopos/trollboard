@@ -19,7 +19,7 @@ class ProcessingCommitSpec extends Specification {
       def issueStatusResult = commitService.receiveAndProcessMessage(commit)
 
     then :
-      assert result == issueStatusResult
+      assert issueStatusResult == result
 
     where :
       commit                                 || result
