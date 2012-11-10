@@ -3,7 +3,7 @@ package org.isotopos.trollboard.api.service
 import org.eclipse.egit.github.core.client.GitHubClient
 import org.eclipse.egit.github.core.service.UserService
 import org.isotopos.trollboard.api.UserProfile
-import org.isotopos.trollboard.api.service.github.GitHubUserProfileUtil
+import org.isotopos.trollboard.api.service.github.GitHubUtils
 
 class GitHubUserProfileService implements UserProfileService {
 
@@ -11,7 +11,7 @@ class GitHubUserProfileService implements UserProfileService {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
     UserService userService = new UserService(client)
-    GitHubUserProfileUtil.fromGitHubUserProfile(userService.getUser())
+    GitHubUtils.fromGitHubUserProfile(userService.getUser())
   }
 
 }

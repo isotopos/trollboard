@@ -10,7 +10,7 @@ import org.isotopos.trollboard.api.UserProfile
  * Time: 14:53
  * To change this template use File | Settings | File Templates.
  */
-class GitHubUserProfileUtil {
+class GitHubUtils {
   static UserProfile fromGitHubUserProfile(User user) {
     UserProfile userProfile = new UserProfile()
     userProfile.avatar = user.avatarUrl
