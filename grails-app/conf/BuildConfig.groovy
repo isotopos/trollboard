@@ -51,6 +51,8 @@ grails.project.dependency.resolution = {
 
         runtime ":database-migration:1.1"
 
+        test ":spock:0.7"
+
         compile ':cache:1.0.0'
     }
 }
