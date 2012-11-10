@@ -18,37 +18,6 @@ task("dev", function() {
   return console.log("web-app builded for development enviroment.");
 });
 
-desc("task for development it only runs switch-config[field]");
-task("field", function() {
-  var t;
-  t = jake.Task["switch-config"];
-  t.invoke.apply(t, ["field"]);
-  return console.log("web-app builded for development enviroment.");
-});
-
-desc("task for development optimized it only runs switch-config[dev]");
-task("dev-build", function() {
-  var t;
-  t = jake.Task["switch-config"];
-  t.invoke.apply(t, ["dev-build"]);
-  return console.log("web-app builded for development enviroment.");
-});
-
-desc("task for switch config it only runs switch-config[dev]");
-task("dev-py", function() {
-  var t;
-  t = jake.Task["switch-config"];
-  t.invoke.apply(t, ["dev-py"]);
-  return console.log("web-app builded for development enviroment.");
-});
-
-desc("task for QA it only runs switch-config[qa]");
-task("qa", function() {
-  var t;
-  t = jake.Task["switch-config"];
-  t.invoke.apply(t, ["qa"]);
-  return console.log("web-app builded for qa enviroment.");
-});
 
 desc("task for prod it only runs switch-config[prod]");
 task("prod", function() {
@@ -58,47 +27,8 @@ task("prod", function() {
   return console.log("web-app builded for qa enviroment.");
 });
 
-desc("task to deploy qa ");
-task("deploy-qa", function() {
-  var cmds;
-  cmds = ["rm -rf www/target",
-  "jake qa",
-  "jake opt",
-  "rm -rf /var/www/lat/storeqa/*",
-  "cp -Rv target/www/* /var/www/lat/storeqa/"];
-  console.log("going to execute this");
-  console.log(cmds);
-  return jake.exec(cmds, (function() {
-    console.log("app qa ready");
-    return complete();
-  }), {
-    stdout: true
-  });
-});
-
-desc("task to deploy field");
-
-task("deploy-field", function() {
-  var cmds;
-  cmds = ["rm -rf www/target",
-  "jake field",
-  "jake opt",
-  "rm -rf  /var/www/lat/sowing_field/store/js/*",
-  "rm -rf  /var/www/lat/sowing_field/store/css/*",
-  "cp -Rv target/www/* /var/www/lat/sowing_field/store",
-  "cp www/index.html /var/www/lat/sowing_field"];
-  console.log("going to execute this");
-  console.log(cmds);
-  return jake.exec(cmds, (function() {
-    console.log("app field ready");
-    return complete();
-  }), {
-    stdout: true
-  });
-});
 
 desc("task to deploy prod");
-
 task("deploy-prod", function() {
   var cmds;
   //cmds = ["jake deploy-field",
@@ -106,10 +36,6 @@ task("deploy-prod", function() {
   "rm -rf www/target",
   "jake prod",
   "jake opt",
-  "rm -rf  /var/www/lat/store/store/js/*",
-  "rm -rf  /var/www/lat/store/store/css/*",
-  "cp -Rv target/www/* /var/www/lat/store"];
-  //"node /opt/apps/qa/stage/harvesting/harvesting.js /var/www/lat/ http://sowingfield.clickonero.com.mx/#store/ https://www.clickonero.com.mx/store;"];
   console.log("going to execute this");
   console.log(cmds);
   return jake.exec(cmds, (function() {
