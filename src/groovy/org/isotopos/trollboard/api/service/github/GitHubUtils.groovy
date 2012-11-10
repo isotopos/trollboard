@@ -1,6 +1,8 @@
 package org.isotopos.trollboard.api.service.github
 
+import org.eclipse.egit.github.core.Repository
 import org.eclipse.egit.github.core.User
+import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.UserProfile
 
 /**
@@ -20,5 +22,18 @@ class GitHubUtils {
     userProfile.username = user.login
 
     userProfile
+  }
+
+  static Project fromGitHubRepository(Repository repository) {
+    Project project = new Project()
+    project.description = repository.description
+    project.hasIssues = repository.hasIssues
+    project.id = repository.id
+    project.language = repository.language
+    project.name = repository.name
+    project.owner = fromGitHubUserProfile(repository.owner)
+    project.website = repository.htmlUrl
+
+    project
   }
 }
