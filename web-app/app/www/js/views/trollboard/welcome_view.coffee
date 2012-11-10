@@ -18,7 +18,7 @@ define [
     template: template
     template = null
     container: '#inner_container'
-    autoRender: index
+    autoRender: true
 
     initialize: ->
       super
