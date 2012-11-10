@@ -10,9 +10,9 @@ class UrlMappings {
     "/v1/user"(controller: 'userProfile', action: 'userProfile')
     "/v1/user/projects"(controller: 'userProfile', action: 'projects')
     "/v1/project/$id/issues"(controller: 'userProfile', action: 'projectIssues')
-    "/v1/user/teams"(controller: 'userProfile', action: 'teams')
-    "/v1/team/$id"(controller: 'userProfile', action: 'projects')
-    "/v1/team/$id/issues"(controller: 'userProfile', action: 'projects')
+    "/v1/user/organizations"(controller: 'userProfile', action: 'organizations')
+    "/v1/organization/$id"(controller: 'userProfile', action: 'projects')
+    "/v1/organization/$id/issues"(controller: 'userProfile', action: 'projects')
 
     "/"(view: "/index")
     "500"(view: '/error')
