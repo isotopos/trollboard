@@ -7,7 +7,7 @@ define [
 
   class View extends Chaplin.View
 
-    containerMethod: 'html'
+#    containerMethod: 'html'
 
     getTemplateFunction: ->
 
