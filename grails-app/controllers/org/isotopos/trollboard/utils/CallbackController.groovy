@@ -6,6 +6,6 @@ class CallbackController {
   	params.remove 'controller'
   	session.user = params
   	println session.user
-  	redirect uri: '/'
+  	redirect uri: '/app/www'
   }
 }
