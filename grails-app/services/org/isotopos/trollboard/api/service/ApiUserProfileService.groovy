@@ -5,6 +5,7 @@ import org.isotopos.trollboard.api.Project
 
 class ApiUserProfileService  {
   def gitHubUserProfileService
+  def gitHubRepositoryService
 
   UserProfile getUserProfile(String providerId, String token) {
     if(providerId == 'github') {
@@ -16,6 +17,10 @@ class ApiUserProfileService  {
 
 
   List<Project> getProjects(String providerId, String token) {
+    if(providerId == 'github') {
+      return gitHubRepositoryService.getProjects(token)
+    }
+
     null
   }
 }
