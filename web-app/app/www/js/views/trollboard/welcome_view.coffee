@@ -4,7 +4,7 @@ define [
   'chaplin'
   'cs!views/base/view'
   'text!templates/welcome.hbs'
-], (log, $, Chaplin, View, msg, template) ->
+], (log, $, Chaplin, View, template) ->
   'use strict'
 
   # Shortcut to the mediator
@@ -18,6 +18,7 @@ define [
     template: template
     template = null
     container: '#wrap'
+    id: "welcome"
     autoRender: true
 
     initialize: ->
