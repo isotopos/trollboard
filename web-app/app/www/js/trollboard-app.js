@@ -8,8 +8,8 @@ requirejs.config({
     handlebars:       'vendor/handlebars-1.0.0.beta.6',
     text:             'vendor/require-text-2.0.3',
     chaplin:          'vendor/chaplin-1.0.0-pre-ffd76c5',
-   'moment': 'vendor/moment-1.7.2',
-   'moment.es': 'vendor/localization/es',
+   'moment':          'vendor/moment-1.7.2',
+   'moment.es':       'vendor/localization/es',
     cs:               'vendor/require-cs-0.4.2',
     'coffee-script':  'vendor/coffee-script-1.4.0'
   },
