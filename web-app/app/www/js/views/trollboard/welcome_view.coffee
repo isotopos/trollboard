@@ -23,4 +23,5 @@ define [
     initialize: ->
       super
       log.info "weeee!"
+      console.log "test"
 
