@@ -1,6 +1,6 @@
 // Configure the AMD module loader
 requirejs.config({
-  baseUrl: 'coffee',
+  //baseUrl: 'coffee',
   paths: {
     jquery:           'vendor/jquery-1.8.2.min',
     underscore:       'vendor/underscore-1.4.2',

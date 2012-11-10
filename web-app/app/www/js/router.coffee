@@ -1,0 +1,37 @@
+define [
+  'conf/config'
+  'cs!controllers/store/main_controller'
+  'cs!controllers/checkout/main_controller'
+  'cs!controllers/account/main_controller'
+  'cs!controllers/store/info_controller'
+], (conf) ->
+  'use strict'
+
+  # The routes for the outletlication. This module returns a function.
+  # `match` is match method of the Router
+  (match) ->
+    match '', 'store/main#showAllSections'
+    match  '/', 'store/main#showAllSections'
+    match  'outlet/:section', 'store/main#showSection'
+    match  'outlet/:section/', 'store/main#showSection'
+    match  'outlet/:section/:campaign', 'store/main#showCampaign'
+    match  'outlet/:section/:campaign/', 'store/main#showCampaign'
+    match  'outlet/:section/:campaign', 'store/main#showCampaign'
+    match  'outlet/:section/:campaign/', 'store/main#showCampaign'
+    match  'outlet/:section/:campaign/:category', 'store/category#index'
+    match  'outlet/:section/:campaign/:category/', 'store/category#index'
+    match  'outlet/:section/:campaign/:category/:item', 'store/main#showItem'
+    match  'outlet/:section/:campaign/:category/:item/', 'store/main#showItem'
+    match  'outlet/:section/:campaign/:category/:item/:sku', 'store/main#showItem'
+    match  'outlet/:section/:campaign/:category/:item/:sku/', 'store/main#showItem'
+    match  conf.checkout, 'checkout/main#index'
+    match  conf.checkout + '/address', 'checkout/main#address'
+    match  conf.checkout + '/address/', 'checkout/main#address'
+    match  conf.checkout + '/payment', 'checkout/main#payment'
+    match  conf.checkout + '/payment/', 'checkout/main#payment'
+    match  conf.checkout + '/confirm', 'checkout/main#confirm'
+    match  conf.checkout + '/confirm/', 'checkout/main#confirm'
+    match  conf.account, 'account/main#index'
+    match  conf.account + '/', 'account/main#index'
+    match  'info' + '/:key', 'store/info#index'
+    #match '*anything', 'helloWorld#show'
