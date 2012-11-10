@@ -1,0 +1,66 @@
+define([
+], function(){
+
+  var config = {};
+  config.urlRoot = "{{urlRoot}}";
+  config.urlSecureRoot = "{{urlSecureRoot}}";
+  config.home = "{{home}}";
+  config.checkout = "{{checkout}}";
+  config.account = "{{account}}";
+  config.cooldeals = "{{cooldeals}}";
+  config.cooldealsSlash = "{{cooldealsSlash}}";
+  config.log = {{enableLog}};
+  config.dataFrom = "{{dataFrom}}";
+
+
+  config.serverUrl ={
+
+  urlItemsRelated : "{{urlSecureRoot}}coolApi/v3/item/",
+  urlItems : "{{urlSecureRoot}}coolApi/v3/sectionItem/",
+  urlSection : "{{urlSecureRoot}}coolApi/v3/sections?date=",
+  urlCampaign : "{{urlSecureRoot}}coolApi/v3/campaign/"
+
+
+  };
+
+  config.staticUrl ={
+  urlItemsRelated : "/{{home}}/coolApi/v3/item/",
+  urlItems : "/{{home}}/data/sectionItem/",
+  urlSection : "/{{home}}/data/section/",
+  urlCampaign : "/{{home}}/data/campaign/"
+  };
+
+
+  config.mockUrl = {
+    urlItemsRelated : "{{rootUrlJson}}/js/test-data/sugerencia-items.json",
+    urlItems : "{{rootUrlJson}}/js/test-data/items.json",
+    urlSection : "{{rootUrlJson}}/js/test-data/sections.json",
+    urlCampaign : "{{rootUrlJson}}/js/test-data/campaign.json",
+
+    urlCheckout : "{{urlCooldeals}}/padme/checkout/one",
+    urlCheckoutPost : "{{urlCooldeals}}/padme/checkout/payment"
+  };
+
+
+  config.urlCheckout = "{{urlCooldeals}}/padme/checkout/one";
+  config.urlCheckoutPost = "{{urlCooldeals}}/padme/checkout/payment";
+  config.urlTimeOut = "{{urlCooldeals}}/padme/checkout/timeOut";
+
+  config.urlAddressGet = "{{urlCooldeals}}/padme/address/get";
+  config.urlAddressPut = "{{urlCooldeals}}/padme/address/put";
+  config.urlAddressPost = "{{urlCooldeals}}/padme/address/post";
+  config.urlAddressDel = "{{urlCooldeals}}/padme/address/del";
+
+  config.urlPostalCode = "{{urlCooldeals}}/account/zc/";
+  config.urlRegister = "{{urlCooldeals}}/registerStore/user.js";
+  config.urlCompleteRegister = "{{urlCooldeals}}/registerStore/completeUser.js";
+
+  config.urlRecoveryPass = "{{urlCooldeals}}/account/remindPassword?ajax=true";
+
+  config.urlAccount = "{{urlCooldeals}}/accountApi.js";
+  config.urlUpdateData = "{{urlCooldeals}}/accountApi/updateData.js";
+  config.urlVerifySession = "{{urlCooldeals}}/account/ajaxSuccess";
+  config.urlLogout = "{{urlCooldeals}}/account/logout";
+
+  return config;
+});

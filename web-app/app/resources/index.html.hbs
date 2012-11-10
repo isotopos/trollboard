@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>clickOnero store</title>
+
+    <link rel="stylesheet" href="/{{home}}/css/winbits.css" />
+    <link rel="stylesheet" href="/{{home}}/css/prettify.css" />
+    <link rel="stylesheet" href="/{{home}}/css/cart.css" />
+    <link rel="stylesheet" type="text/css" href="/{{home}}/css/ui-lightness/jquery-ui-1.8.21.custom.css" />
+    <link rel="stylesheet" type="text/css" href="/{{home}}/css/ui-lightness/jquery.ui.selectmenu.css" />
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/{{home}}/css/winbits_IE8_up.css" />
+    <![endif]-->
+  </head>
+  <body>
+    <div id="cart" class="modal hide fade"></div>
+    <div id="modal-message" class="modal hide fade" data-backdrop="static" data-keyboard="false">
+      <div  class="modal-body" style="background-color:white;border-radius: 6px 6px 6px 6px;">
+      </div>
+    </div>
+    <div id="top-menu"></div>
+    <div id='header-main-container'></div>
+    <div id='menu-user'>
+      <div class="container" ></div>
+      <div id='panel-user-modal' class="modal hide fade"  ></div>
+    </div>
+    <div id='menu-filter' style="display:none">
+
+      <div class="container category-menu" id="filter-one">
+        <div class="row">
+          <div class="dropdown-trigger span2">
+            Tipo
+            <div class="dropdown-submenu nav" id="filter-one-val">
+            </div>
+          </div>
+          <div class="dropdown-trigger span2">
+            Atributos
+            <div class="dropdown-submenu nav" id="filter-two-val">
+            </div>
+          </div>
+          <p class="span4" id="granTotal">Mostrando: <strong id="total_showed"></strong> productos</p>
+        </div>
+      </div>
+      <div class="container" id="sub_menu-filter" style="display:none">
+        <div class="row">
+          <div class="span12">
+            <span class="breadcrumbs span5" id="campaignAncla"></span>
+            <span class="span4 pull-right sale-info" id="sale-info">
+              <span>La oferta termina:<span id="campaignEndDate" ></span></span>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="container row" id="checkout" style="display:none">
+      <div class="span9">
+        <div class="row steps" id="header_checkout"></div>
+        <div id="main_checkout"></div>
+      </div>
+      <div class="span2" id="detail_checkout" style="display:none"></div>
+    </div>
+    <div id="content">
+      <div class="inner">
+        <div class="loading row" style="text-align:center">
+          <img src="/{{home}}/img/loading.gif" alt="cargando" />
+          <p>Cargando...</p>
+        </div>
+        <div class="fallback row" style="text-align:center;display:none">
+          <img src="/{{home}}/img/404.jpg" alt="sin articulos" />
+          <p>No encontramos articulos...</p>
+        </div>
+        <div class="container" id="inner_container"></div>
+        <div class="container" id="sub_inner_container"></div>
+      </div>
+      <div class="more" id="more" style="display:none"></div>
+    </div>
+    <div id="pie">
+    </div>
+  </body>
+  <script data-main="/{{home}}/js/store-app" src="/{{home}}/js/vendor/require-2.0.6.js"></script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '{{trackingID}}']);
+    //    _gaq.push(['_trackPageview']);
+    var hash = location.hash;
+    _gaq.push(['_setDomainName', '{{domain}}']);
+
+    if ( !hash || hash == '') {
+      _gaq.push(['_trackPageview']);
+    } else {
+      var url = (hash[0] == '#') ? hash.substring(3): hash;
+      _gaq.push(['_trackPageview', url]);
+    }
+
+(function () {
+ var ga = document.createElement('script');
+ ga.type = 'text/javascript';
+ ga.async = true;
+ ga.src = 'https://ssl.google-analytics.com/ga.js';
+ (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+ })();
+</script>
+<script type="text/javascript" src="//www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+</html>
