@@ -13,4 +13,12 @@ class UserProfileController {
     render((profile ?: [:]) as JSON)
   }
 
+  def projects() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+
+    def projects = apiUserProfileService.getProjects(providerId, tokenProvider)
+    render((projects ?: [:]) as JSON)
+  }
+
 }

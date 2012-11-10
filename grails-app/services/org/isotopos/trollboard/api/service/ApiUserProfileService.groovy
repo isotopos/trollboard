@@ -1,6 +1,7 @@
 package org.isotopos.trollboard.api.service
 
 import org.isotopos.trollboard.api.UserProfile
+import org.isotopos.trollboard.api.Project
 
 class ApiUserProfileService  {
   def gitHubUserProfileService
@@ -11,5 +12,10 @@ class ApiUserProfileService  {
     }
 
     return null
+  }
+
+
+  List<Project> getProjects(String providerId, String token) {
+    null
   }
 }
