@@ -14,6 +14,6 @@ define [
     initialize:->
 
     showWelcome: (params) ->
-      log.info ['mainStore#showAllSection', JSON.stringify(params)]
-      #@view = new SectionsView collection: new Sections(null, options)
+      log.info ['mainStore#showWelcome', JSON.stringify(params)]
+      @view = new WelcomeView()
 
