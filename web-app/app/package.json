@@ -1,6 +1,6 @@
 {
   "name": "hisptore",
-  "description": "tienda clickonero",
+  "description": "trollboard",
   "version": "0.0.1-1",
   "dependencies": {
     "handlebars": "1.0.6-2",
