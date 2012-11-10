@@ -17,7 +17,7 @@ define [
     # In the end you might want to used precompiled templates.
     template: template
     template = null
-    container: '#inner_container'
+    container: '#wrap'
     autoRender: true
 
     initialize: ->
@@ -25,3 +25,6 @@ define [
       log.info "weeee!"
       console.log "test"
 
+    render:->
+      super
+      log.info "render"
