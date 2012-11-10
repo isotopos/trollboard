@@ -35,7 +35,7 @@ task("deploy-prod", function() {
   cmds = [
   "rm -rf www/target",
   "jake prod",
-  "jake opt",
+  "jake opt"]
   console.log("going to execute this");
   console.log(cmds);
   return jake.exec(cmds, (function() {

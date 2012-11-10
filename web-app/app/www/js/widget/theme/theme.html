@@ -1,0 +1,27 @@
+﻿<!--
+
+==== wTheme code (html code) =======
+
+This is standard html code.
+For the clarity of the projet, this code was isolated in this separated html file.
+This file will be dynamically loaded by jQuery ($.load, see http://api.jquery.com/load/).
+If you don't like dynamic load, you can copy/paste this code (actually it is just html code) anywhere you want to use it.
+
+ -->
+
+
+<div id="wTheme" class="mojitoPanel mojitoPanel-dark">
+	<div class="mojitoPanelHeader">
+		<i class="icon-picture"></i>Themes / Wallpapers
+		<button type="button" class="close" onclick="wTheme.Hide();">&times;</button>
+	</div>
+	<div class="mojitoPanelContent">
+		<img alt="" src="mojitoring/_img/theme/bokeh_100.png" class="img-rounded" onclick='wTheme.Change("bokeh");' data-title="Bokeh" />
+		<img alt="" src="mojitoring/_img/theme/irongrip_100.png" class="img-rounded" onclick='wTheme.Change("irongrip");' data-title="Iron grip" />
+		<img alt="" src="mojitoring/_img/theme/lemon_tea_100.png" class="img-rounded" onclick='wTheme.Change("lemontea");' data-title="Lemon tea" />
+		<img alt="" src="mojitoring/_img/theme/sand_100.png" class="img-rounded" onclick='wTheme.Change("sand");' data-title="Sand" />
+		<img alt="" src="mojitoring/_img/theme/shining_light_100.png" class="img-rounded" onclick='wTheme.Change("shininglight");' data-title="Shining light" />
+		<img alt="" src="mojitoring/_img/theme/woodenfloor_100.png" class="img-rounded" onclick='wTheme.Change("woodenfloor");' data-title="Wooden floor" />
+	</div>
+
+</div>

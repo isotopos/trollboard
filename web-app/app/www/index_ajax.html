@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Mojitoring</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.png" />
+
+	<!--
+		-=[ Mojitoring Admin ]=-
+		This is the Ajax version, please use this version for your development and production.
+		Components are loaded with Ajax (requires jQuery and jQueryMX)
+	-->
+	<!--
+	***************************
+		CSS
+	***************************
+	-->
+
+	<!-- Bootstrap (responsive, with icons) full css -->
+	<!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
+	<link href="js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+	<!-- Guidely css -->
+	<link href="js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css" />
+
+	<!-- Mojitoring css -->
+	<link href="css/monitoring.css" rel="stylesheet" type="text/css" />
+
+
+</head>
+<body>
+	<div id="wrap">
+		<!-- wTopmenu -->
+		<div id="wTopmenu">
+			<!-- Nav menu -->
+			<ul id="tabMenu" class="nav nav-tabs">
+				<li class="active"><a id="homeTab" href="#homePane" data-toggle="tab">Home</a></li>
+				<li><a id="userListTab" href="#userListPane" onclick='wUser.ShowUserList();' data-toggle="tab">User list</a></li>
+				<li><a id="uiTab" href="#uiPane" onclick='wUIComponent.Show();' data-toggle="tab">UI Components</a></li>
+				<li><a id="themeTab" href="#themePane" onclick='wTheme.Show();' data-toggle="tab">Themes</a></li>
+				<li class="hide"><a id="loginTab" href="#loginPane" data-toggle="tab">Login</a></li>
+			</ul>
+
+			<!-- wTopmenu footer -->
+			<div class="wtmFooter"></div>
+
+			<!-- User button -->
+			<button id="wUserButton" class="btn btn-success btn-small dropdown-toggle" data-toggle="dropdown">
+				John Doe (admin) <span class="caret"></span>
+			</button>
+			<ul id="wUserMenu" class="dropdown-menu pull-right">
+				<li><a href='javascript:wUser.Logout();'>Log in</a></li>
+				<li class="divider"></li>
+				<li><a href='javascript:wUser.Logout();'>Log out</a></li>
+			</ul>
+
+		</div>
+
+		<!-- core -->
+		<div id="core" class="tab-content">
+			<div id="homePane" class="container-fluid tab-pane active">
+				<!-- Take a tour -->
+				<button id="wTakeaTour" class="btn btn-danger" onclick="wTakeTour.Show();">Take a tour</button>
+
+				<!-- 1st row widgets -->
+				<div class="row-fluid ">
+					<!-- Misc widgets -->
+					<div id="wMisc" class="span3"></div>
+
+					<!-- Server Status 1 -->
+					<div id="wServerStatus1" class="wServerStatus mojitoPanel mojitoPanel-dark span3"></div>
+					<!-- Server status 2 -->
+					<div id="wServerStatus2" class="wServerStatus mojitoPanel mojitoPanel-dark span3"></div>
+
+					<!-- Database server status 2 -->
+					<div id="wDatabaseStatus" class="wServerStatus mojitoPanel mojitoPanel-dark span3"></div>
+				</div>
+
+				<!-- 2nd row widgets -->
+				<div class="row-fluid">
+					<div id="wRealtimeGraph" class="mojitoPanel span4" style="min-height: 300px;"></div>
+
+					<div id="wRealtimeData1" class="mojitoPanel span2" style="min-height: 300px;"></div>
+
+					<div id="wRealtimeData2" class="mojitoPanel span2" style="min-height: 300px"></div>
+
+					<div id="wAnalytics" class="mojitoPanel mojitoPanel-gray span2" style="min-height: 300px;"></div>
+
+					<div id="wUserFeature" class="mojitoPanel mojitoPanel-dark span2" style="min-height: 300px;"></div>
+				</div>
+
+				<!-- 3rd row widgets -->
+				<div class="row-fluid">
+					<!-- ErrorTracker Collection -->
+					<div id="wErrorTracker" class="mojitoPanel span6"></div>
+
+					<!-- wUserTracker Collection -->
+					<div id="wUserTracker" class="mojitoPanel span6"></div>
+				</div>
+			</div>
+
+			<!-- User list pane -->
+			<div id="userListPane" class="tab-pane mojitoPanel hide center"></div>
+
+			<!-- UI component pane -->
+			<div id="uiPane" class="tab-pane hide row-fluid"></div>
+
+			<!-- Theme pane -->
+			<div id="themePane" class="tab-pane hide center"></div>
+
+			<!-- Empty pane -->
+			<div id="loginPane" class="tab-pane hide center"></div>
+
+			<!-- Empty container -->
+			<div id="emptyContainer"></div>
+
+			<!-- ConfirmDelete Modal -->
+			<div id="confirmDelete" class="modal hide">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h5>Confirm delete</h5>
+				</div>
+				<div class="modal-body center">
+					Are sure to delete this item ?
+				</div>
+				<div class="modal-footer">
+					<a href="#" class="btn btn-small" data-dismiss="modal">Cancel</a>
+					<a href="#" class="btn btn-warning btn-small" data-dismiss="modal">I Confirm</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

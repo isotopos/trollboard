@@ -1,0 +1,29 @@
+﻿<!--
+
+==== wLogin widget (html code) =======
+
+This is standard html code.
+For the clarity of the projet, this code was isolated in this separated html file.
+This file will be dynamically loaded by jQuery ($.load, see http://api.jquery.com/load/).
+If you don't like dynamic load, you can copy/paste this code (actually it is just html code) anywhere you want to use it.
+
+ -->
+
+<div id="wLogin" class="mojitoPanel">
+	<div class="mojitoPanelHeader center">Log in</div>
+	<div class="mojitoPanelContent center">
+			<br />
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-user"></i></span><input type="text" id="inputEmail" placeholder="Email">
+			</div>
+			<div class="input-prepend">
+				<span class="add-on"><i class="icon-lock"></i></span><input type="text" id="inputPassword" placeholder="Password">
+			</div>
+	</div>
+	<br />
+	<div class="mojitoPanelFooter right">
+		<a href="#" class="floatLeft">I forgot my password..</a>
+		<button class="btn btn-inverse btn-small" onclick="wUser.Login();">Login</button>
+	</div>
+
+</div>
