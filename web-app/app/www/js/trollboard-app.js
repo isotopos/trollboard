@@ -5,7 +5,7 @@ requirejs.config({
     jquery:           'vendor/jquery-1.8.2.min',
     underscore:       'vendor/underscore-1.4.2',
     backbone:         'vendor/backbone-0.9.2',
-    handlebars:       'vendor/handlebars-1.0.rc.1',
+    handlebars:       'vendor/handlebars-1.0.0.beta.6',
     text:             'vendor/require-text-2.0.3',
     chaplin:          'vendor/chaplin-1.0.0-pre-ffd76c5',
    'moment':          'vendor/moment-1.7.2',
