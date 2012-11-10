@@ -21,4 +21,12 @@ class UserProfileController {
     render((projects ?: [:]) as JSON)
   }
 
+  def teams() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+
+    def projects = apiUserProfileService.getTeams(providerId, tokenProvider)
+    render((projects ?: [:]) as JSON)
+  }
+
 }
