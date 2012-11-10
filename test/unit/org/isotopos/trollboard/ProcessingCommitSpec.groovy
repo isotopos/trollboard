@@ -29,7 +29,7 @@ class ProcessingCommitSpec extends Specification {
       "#4 message commit"                    || []
       "Fix 1"                                || []
       "Fix #1 commit message"                || [ ["FIX" : ["#1"] ] ]
-      "Fix #2 wip #3 commit message"         || [ ["FIX" : ["#2"], "WIP" : ["#3"] ] ]
+      "Fix #2 wip #3 commit message"         || [ ["FIX" : ["#2"]], ["WIP" : ["#3"] ] ]
       "close #3 message"                     || [ ["CLOSE" : ["#3"] ] ]
       "test #5 message"                      || [ ["TEST" : ["#5"] ] ]
       "test #6 #7"                           || [ ["TEST" : ["#6", "#7"] ] ]
