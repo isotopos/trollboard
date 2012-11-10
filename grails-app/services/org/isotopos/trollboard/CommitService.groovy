@@ -7,7 +7,7 @@ class CommitService {
 
     if(message) {
       // "Fix #1 commit message"
-      def issueNumber = message =~ /\w+\s*#+\d+/
+      def issueNumber = message =~ /\w+(\s*#+\d+)*/
       def issues = issueNumber.collect { it }
 
       issues.each{ i ->

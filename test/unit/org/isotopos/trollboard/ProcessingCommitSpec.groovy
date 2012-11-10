@@ -10,7 +10,7 @@ import spock.lang.*
 @TestMixin(GrailsUnitTestMixin)
 class ProcessingCommitSpec extends Specification {
 
-  @Unroll("When commit is #commit the result is #result")
+  @Unroll("When commit is '#commit' the result is #result")
   def "Processing commit"(){
     setup : "Initializing service"
       def commitService = new CommitService()
