@@ -34,10 +34,12 @@ grails.project.dependency.resolution = {
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes eg.
 
-        // runtime 'mysql:mysql-connector-java:5.1.20'
+        runtime 'mysql:mysql-connector-java:5.1.20'
         compile 'org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.0'
 
         runtime 'com.github.groovy-wslite:groovy-wslite:0.7.1'
+
+        test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 
     plugins {
@@ -53,6 +55,10 @@ grails.project.dependency.resolution = {
         build ":tomcat:$grailsVersion"
 
         runtime ":database-migration:1.1"
+
+        test(":spock:0.7") {
+            exclude "spock-grails-support"
+        }
 
         compile ':cache:1.0.0'
     }

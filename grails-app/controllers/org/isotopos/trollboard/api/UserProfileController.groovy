@@ -3,6 +3,16 @@ package org.isotopos.trollboard.api
 import grails.converters.JSON
 
 class UserProfileController {
+  static allowedMethods = [
+    userProfile: 'GET',
+    projectIssues: 'GET',
+    addDefaultLabels: 'POST',
+    projects: 'GET',
+    organizations: 'GET',
+    projectMilestones: 'GET',
+    issuesByOrganization: 'GET',
+
+  ]
   def apiUserProfileService
 
   def userProfile() {
@@ -38,6 +48,16 @@ class UserProfileController {
     render((issues ?: [:]) as JSON)
   }
 
+  def projectMilestones() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def milestones = apiUserProfileService.getMilestones(providerId, tokenProvider, projectId, organizationId)
+    render((milestones ?: [:]) as JSON)
+  }
+
   def issuesByOrganization() {
     def providerId = params.providerId
     def tokenProvider = params.providerToken
@@ -45,6 +65,57 @@ class UserProfileController {
 
     def issues = apiUserProfileService.getIssuesByOrganization(providerId, tokenProvider, organizationId)
     render((issues ?: [:]) as JSON)
+  }
+
+  def addDefaultLabels() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    apiUserProfileService.createDefaultLabels(providerId, tokenProvider, organizationId, projectId)
+
+    render([done: true] as JSON)
+  }
+
+  def labelsByProject() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def labels = []
+
+    try {
+      labels = apiUserProfileService.getLabels(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      render([problemas: ''] as JSON)
+      return
+    }
+
+    render((labels ?: [:]) as JSON)
+  }
+
+  def projectLanes() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def result = []
+
+    try {
+      result = apiUserProfileService.getLanes(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      pedos.printStackTrace()
+      pedos.cause?.printStackTrace()
+      println pedos.dump()
+      render([problemas: ''] as JSON)
+      return
+    }
+
+
+    render((result ?: [:]) as JSON)
   }
 
 }

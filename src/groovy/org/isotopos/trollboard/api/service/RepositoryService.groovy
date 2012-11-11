@@ -1,5 +1,8 @@
 package org.isotopos.trollboard.api.service
 
+import org.isotopos.trollboard.api.Label
+import org.isotopos.trollboard.api.Lane
+import org.isotopos.trollboard.api.Milestone
 import org.isotopos.trollboard.api.Project
 
 /**
@@ -11,4 +14,12 @@ import org.isotopos.trollboard.api.Project
  */
 interface RepositoryService {
   List<Project> getProjects(String token)
+
+  void addDefaultLabels(String token, String user, String proyectId)
+
+  List<Milestone> getMilestones(String token, String user, String projectId)
+
+  List<Label> getLabels(String token, String user, String projectId)
+
+  List<Lane> getLanes(String token, String user, String projectId)
 }
