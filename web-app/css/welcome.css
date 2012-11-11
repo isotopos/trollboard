@@ -1,0 +1,40 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+.jumbotron .btn {
+  font-size: 21px;
+  padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 60px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/*.bitbucket-logo {*/
+  /*background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAAARCAYAAAArDQkmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABJxJREFUeNrsWQ9klGEYv20ZY1yOY4wxynJzc7nEMWKMOEqMZUSUZVlkU0YpYyylSNmUpSxLKdJczFLKZpGl2WmazaazaUpTGsd0rue5fm8er/f9vu+qlbGHn/vef8/773mf5/e+V5DNZn0kRYR9hJ2EGKGEEEF+hjBBSBNeAoPI35C/LAW0Ibvpt4dQSRgiPCGsEJYIi4RyQhmhlMB16wmzhKOoq4TLz2MTTTJPuE5YRroF/bK0Ey65jDVAeI9+2EC2/8N1ekqogxFuxVzWRmhDJrM/5QuhmVDMp8YAzm8hfEP9Ma28Iusu3EcV6neI/G6hp47QQ0gQKi3631vGuFaYFH2H/4K+Ksx5gHBAlm2iPUkRwgQ/4RrAkiSsEopRrsvib+w/99FJ2A/9r5H/StTh8lp8n1tTa/x/wuGhA98pWcAbMkWIGxqFXZROO5R9JWwW6VbCFXxvwe9jYEOEFLosbNqhbCqPfibEdzF+GwjjQCMhiu+IqNuHvG5NH8eRLkKCsECYI9zECWSpErpPGOLBONpKfR3IZ32f8d3lMCfuYwz1xsS8mgjPMaaPKG8R/TyFgSo5iDrDOR3kt2IGXz8jfD3/zhnqRBxiyBetLC7Kxi0xpMkh9ox4jFEJQ38JbSxSVGx8Z9H3xiGGJETeAPL6HcZ238Mc/IUWS2+Hpc7AdR3XyjMuJ0tJLay8T+TdstRNgoUtibxB5N2ztGEK/kyk42CE+UgDrF2e/IeIb0OWNnHh5pmRniSECAfE+gxBT1r0w2Pr1WLmBOZ4NVcXO7ug7RSfmmvCevVTNGdgDqYT0qG1Y0vzu7CsEZFfa9H/QegxtcnnhHSL9HkPLCsKD6KkDXVaRV6faNsp8g+5zD0X1JVVlGt+rR1Bly3wosGavUjaQBTYv+74w9i3CuIgSYRkcvkyP3lXcpM2QUzYui+L+KAkKthqSOQH3ZSrDemFeylBuhkXxWcIQPWizQqOmBe5DLBLGMGAIrhkrVdpFN9nLS8WEY2c5MWyfPB128D7VWyoB7upFzT3HOrlS1entZgTXMcbkrRsjhdZ9LohTNke4QjW8JMKoRqupRrpGgwm4fA84iTFa7hI0u0sO9QzGUImzzEeF300ad5DyQWsmY7bXl3WKtzVXfjjF2A7aeSXwc2UYlMyHha/WaRD8KtKWHeFh8nHxLuarj8Kw6jDo6i0QunPuewMXEjcxWqbkJ7H5nHfo1p93ozT4h2uB0Yr489uMMRRxM0y6Ltj6D+EsaVzXkRE+IGsN+m3MJEKj+3fgvvbmMaApU8v+oehY4vHsXDdEOG7iz79HlKEO4oSnktAvPOZ5LtghqY7FzPHXy6L5YYHy8843CO8CL8O78WJtMkFjTX5QDBWXXQzATmC71lYqC6vtRdqxTAPW1xdhcM6HBPpUzite9G3jXGqO9ID7S7iQ5m/AP+HyOPD1/xd2ltWEm6s1+XJJOzgh+e1SQew0GoBv2ple6BrEf2nML4SsDbllj6hvU7F1X88AbRNCndWBXc0rT2fxMSYUtA7i40JCqqbEc8npWKzVb8xje5OGVxfEeYYxNy5TvKHAAMAxWNwgda4WXEAAAAASUVORK5CYII=");*/
+  /*width: 101px;*/
+/*}*/

@@ -1,18 +1,35 @@
 package org.isotopos.trollboard.utils
 
-import org.isotopos.trollboard.Project
 import grails.converters.JSON
 
 class CallbackController {
 
+  def grailsApplication
+  def restGithubClient
   def commitService
   def gitHubIssuesService
 
   def index() {
   	params.remove 'controller'
-  	session.user = params
-  	println session.user
+    params << getProviderToken(params)
+    session.user = [github: params]
+
   	redirect uri: '/app/www'
+  }
+
+  Map getProviderToken(params) {
+    def config = grailsApplication?.config
+
+    def query = [client_id: config?.client.id,
+        client_secret: config?.client.secret,
+        state: params.state,
+        code: params.code]
+
+    def resp = restGithubClient.post(path: config?.github.uri.login.oauth){
+      json query
+    }
+
+    resp.json
   }
 
   def receive(){

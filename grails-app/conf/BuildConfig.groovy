@@ -12,7 +12,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
 
     repositories {
@@ -36,6 +36,9 @@ grails.project.dependency.resolution = {
 
         runtime 'mysql:mysql-connector-java:5.1.20'
         compile 'org.eclipse.mylyn.github:org.eclipse.egit.github.core:2.1.0'
+
+        runtime 'com.github.groovy-wslite:groovy-wslite:0.7.1'
+
         test "org.spockframework:spock-grails-support:0.7-groovy-2.0"
     }
 

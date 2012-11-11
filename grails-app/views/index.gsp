@@ -1,94 +1,80 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta name="layout" content="main"/>
-		<title>Welcome to Grails</title>
-		<style type="text/css" media="screen">
-			#status {
-				background-color: #eee;
-				border: .2em solid #fff;
-				margin: 2em 2em 1em;
-				padding: 1em;
-				width: 12em;
-				float: left;
-				-moz-box-shadow: 0px 0px 1.25em #ccc;
-				-webkit-box-shadow: 0px 0px 1.25em #ccc;
-				box-shadow: 0px 0px 1.25em #ccc;
-				-moz-border-radius: 0.6em;
-				-webkit-border-radius: 0.6em;
-				border-radius: 0.6em;
-			}
+		%{--<meta name="layout" content="main"/>--}%
+		<title>Welcome to Trollboard</title>
 
-			.ie6 #status {
-				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
-			}
+    <!-- Bootstrap (responsive, with icons) full css -->
+    <!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
+    <link href="app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
-			#status ul {
-				font-size: 0.9em;
-				list-style-type: none;
-				margin-bottom: 0.6em;
-				padding: 0;
-			}
-            
-			#status li {
-				line-height: 1.3;
-			}
+    <!-- Guidely css -->
+    <link href="app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
 
-			#status h1 {
-				text-transform: uppercase;
-				font-size: 1.1em;
-				margin: 0 0 0.3em;
-			}
+    <!-- Mojitoring css -->
+    <link href="app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
 
-			#page-body {
-				margin: 1em;
-			}
-
-			h2 {
-				margin-top: 1em;
-				margin-bottom: 0.3em;
-				font-size: 1em;
-			}
-
-			p {
-				line-height: 1.5;
-				margin: 0.25em 0;
-			}
-
-			#controller-list ul {
-				list-style-position: inside;
-			}
-
-			#controller-list li {
-				line-height: 1.3;
-				list-style-position: inside;
-				margin: 0.25em 0;
-			}
-
-			@media screen and (max-width: 480px) {
-				#status {
-					display: none;
-				}
-
-				#page-body {
-					margin: 0 1em 1em;
-				}
-
-				#page-body h1 {
-					margin-top: 0;
-				}
-			}
-		</style>
+    <!-- Default Grails styles -->
+    <link href="css/welcome.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
-		<a href="#page-body" class="skip">
-			<g:message code="default.link.skip.label" default="Skip to content&hellip;"/>
-		</a>
-		<div id="page-body" role="main">
-			<h1>Welcome to Trollboard!!!!</h1>
+    <div class="container-narrow">
 
-			<br/>
-			<a href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Ir a Github</a>
-		</div>
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">Trollboard</h3>
+      </div>
+
+      <hr>
+
+      <div class="jumbotron">
+        <h1>Welcome to Trollboard!!!!</h1>
+        <p class="lead">Trello('GitHub Issues') = Trollboard</p>
+        <a href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist" class="btn btn-large btn-success">
+          %{--<img height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x-hover.png?1337118066" class="github-logo-4x-hover" alt="GitHub">--}%
+          Sign in with Github
+        </a>
+        <a href="#" class="btn btn-large btn-success disabled">
+          %{--<span class="bitbucket-logo">Sig In with BitBucket</span>--}%
+          Sig In with BitBucket
+        </a>
+      </div>
+
+      <hr>
+
+      <div class="row-fluid marketing">
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="footer">
+        <p>Isotopos - Grails48</p>
+      </div>
+    </div>
 	</body>
 </html>

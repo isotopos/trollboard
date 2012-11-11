@@ -59,6 +59,12 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
+github.uri.login.oauth = '/login/oauth/access_token'
+client.id = '28e0b526536000c59092'
+state = 'trollboarders'
+client.secret = '9f094c887723847f42f6816d11d355d5ecfa7b6f'
+
+
 environments {
     development {
         grails.logging.jul.usebridge = true
