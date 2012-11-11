@@ -10,13 +10,16 @@
     <title><g:layoutTitle default="Trollboard"/></title>
     <!-- Bootstrap (responsive, with icons) full css -->
     <!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
-    <link href="/trollboard/app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/css', file: 'bootstrap-combined.min.css')}" rel="stylesheet">
 
     <!-- Guidely css -->
-    <link href="/trollboard/app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
+    <link href="${g.resource(dir: 'app/www/js/vendor/guidely', file: 'guidely.css')}" rel="stylesheet" type="text/css"/>
 
     <!-- Mojitoring css -->
-    <link href="/trollboard/app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
+    <link href="${g.resource(dir: 'app/www/css', file: 'monitoring.css')}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor', file: 'jquery-1.8.2.min.js')}"></script>
+    <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap.min.js')}"></script>
     <g:layoutHead/>
     <r:layoutResources/>
   </head>

@@ -3,11 +3,46 @@
   <head>
     <meta content="trollboard" name="layout">
     <link href="${g.resource(dir: 'css', file: 'project.css')}" rel="stylesheet" type="text/css"/>
+    <link href="http://harvesthq.github.com/chosen/chosen.css"/>
+    <script type="text/javascript" src="http://harvesthq.github.com/chosen/chosen/chosen.jquery.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        //$('.chzn-select').chosen();
+        $('#milestone-selector').change(function() {
+          var $milestonSelector = $(this);
+          var milestone = $milestonSelector.val();
+          if (milestone != 'null') {
+            var issueByMilestoneSelector = '.milestone-' + milestone;
+            $('.issue').hide();
+            $(issueByMilestoneSelector).show();
+          } else {
+            $('.issue').show();
+          }
+        });
+      });
+    </script>
   </head>
 
   <body>
     <div id="wrap">
+      <div id="wTopmenu">
+        <!-- User button -->
+        <div id="wUserButton" class="clearfix" style="top: 45px;">
+          <g:select name="milestone-selector" from="${milestones}" optionKey="number" optionValue="title" noSelection="['null': 'Filter by Milestone']"
+                    data-placeholder="Filter by Milestone" class="chzn-select"/>
+        </div>
+
+        <ul class="dropdown-menu pull-right" id="wUserMenu">
+          <li><a href="javascript:wUser.Logout();">Log in</a></li>
+          <li class="divider"></li>
+          <li><a href="javascript:wUser.Logout();">Log out</a></li>
+        </ul>
+
+      </div>
+
       <div id="core" style="margin-top: 70px;">
+        <a href="#" class="btn btn-danger" id="wTakeaTour" style="top: 40px;">${name}</a>
+
         <div class="row-fluid">
           <g:each in="${lanes}" var="lane">
             <div class="issue-wrapper wServerStatus mojitoPanel span2 ui-droppable"
@@ -28,15 +63,32 @@
               <div class="mojitoPanelContent issue-wrapper ui-droppable">
                 <g:each in="${lane.issues}" var="issue">
                   <!-- widget content -->
-                  <div style="position: relative;margin-left: 0px;" class="issue mojitoPanel mojitoPanel-dark span12 ui-draggable">
+                  <g:set var="milestoneClass" value="${issue.milestone ? ' milestone-' + issue.milestone.number : ''}"/>
+                  <div style="position: relative;margin-left: 0px;"
+                       class="issue mojitoPanel mojitoPanel-dark span12 ui-draggable${milestoneClass}">
                     <span class="inlineMarker hide">marker for the inline version</span>
 
-                    %{--<div class="mojitoPanelHeader mojitoPanelHeader-blue" id="wRealtimeGraphDD">--}%
-                      %{--<i class="icon-random"></i>${issue.number}--}%
-                    %{--</div>--}%
+                    <div class="mojitoPanelHeader mojitoPanelHeader-dark" id="wRealtimeGraphDD">
+                      <g:if test="${issue?.assignee}">
+                        <div>
+                          <img height="24" width="24" src="${issue.assignee.avatar}" alt="${issue.assignee.username}">
+                          <span style="font-size: 12px;">${issue.assignee.username}</span>
+                        </div>
+                      </g:if>
+                      <g:else>
+                        <div>
+                          <img height="24" width="24"
+                               src="https://secure.gravatar.com/avatar/9b855cf7a35aad6843b9ce0c826c038a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
+                               alt="Not assigned">
+                          <span style="font-size: 12px;">Not Assigned</span>
+                        </div>
+                      </g:else>
+                    %{--<i class="icon-random"></i>${issue.number}--}%
+                    </div>
 
                     <div style="padding: 16px;" class="mojitoPanelContent">
-                      <a href="${issue.htmlUrl}" target="_blank"><strong>#${issue.number}</strong></a> <span>${issue.title}</span>
+                      <a href="${issue.htmlUrl}" target="_blank"><strong>#${issue.number}</strong>
+                      </a> <span>${issue.title}</span>
                     </div>
                   </div>
 

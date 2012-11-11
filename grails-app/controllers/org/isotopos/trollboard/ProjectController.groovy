@@ -3,6 +3,7 @@ package org.isotopos.trollboard
 import grails.converters.JSON
 import org.isotopos.trollboard.api.Issue
 import org.isotopos.trollboard.api.Lane
+import org.isotopos.trollboard.api.Milestone
 
 class ProjectController {
 
@@ -21,7 +22,8 @@ class ProjectController {
         Issue issue -> issue.labels*.name.contains(lane.label.name)
       }.sort { Issue issue -> issue.number }]
     }
-    model.milestones = projectMilestones(projectId, organizationId)
+    model.milestones = projectMilestones(projectId, organizationId).sort { Milestone milestone -> milestone.dueOn }
+    model.name = projectId
     model
   }
 
