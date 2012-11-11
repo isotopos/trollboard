@@ -52,7 +52,7 @@ class GitHubIssuesService implements IssuesService {
     issues
   }
 
-  void addLabelToIssue(String token, String owner, String repoId, String issueId, labels){
+  void addLabelToIssue(String token, String owner, String repoId, String issueId, String label){
     println token
     println owner
     println repoId
@@ -66,17 +66,21 @@ class GitHubIssuesService implements IssuesService {
 
     def issue = issueService.getIssue(owner,repoId,issueId)
     println issue.dump()
+
+    def labelsInRepo = labelService.getLabels(owner, repoId)
+    println labelsInRepo
     
     def labelsFromIssue = issue.labels
     println labelsFromIssue
 
-    def labelsWithNoPrice = labelsFromIssue.findAll { label -> !label.name.contains("\$") }
+    def labelsWithNoPrice = labelsFromIssue*.name.findAll { labelName -> !labelName.contains("\$") }
     println labelsWithNoPrice
 
-    def newLabels = labelsWithNoPrice + labels
+    def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith(label+'\$') }
+
+    def newLabels = labelsWithNoPrice + labelToAdd
     println newLabels
 
-    def labelsInRepo = labelService.getLabels(owner, repoId)
-    println labelsInRepo
+    
   }
 }
