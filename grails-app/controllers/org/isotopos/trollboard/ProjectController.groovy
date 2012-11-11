@@ -1,8 +1,8 @@
 package org.isotopos.trollboard
 
 import grails.converters.JSON
-import org.isotopos.trollboard.api.Label
 import org.isotopos.trollboard.api.Issue
+import org.isotopos.trollboard.api.Lane
 
 class ProjectController {
 
@@ -16,16 +16,18 @@ class ProjectController {
     def lanes = projectLanes(projectId, organizationId)
     def issues = projectIssues(projectId)
     def model = [:]
-    model.lanes = lanes.collect { Label lane ->
-      [lane: lane, issues: issues.findAll { Issue issue -> issue.labels*.name.contains(lane.name) }.sort { Issue issue -> issue.number }]
+    model.lanes = lanes.collect { Lane lane ->
+      [lane: lane, issues: issues.findAll {
+        Issue issue -> issue.labels*.name.contains(lane.label.name)
+      }.sort { Issue issue -> issue.number }]
     }
     model.milestones = projectMilestones(projectId, organizationId)
     model
   }
 
-  def createAsync(){
+  def createAsync() {
     Project project = new Project(params)
-    project.save(flush:true)
+    project.save(flush: true)
     render project as JSON
   }
 
@@ -39,7 +41,7 @@ class ProjectController {
       apiUserProfileService.createDefaultLabels(providerId, tokenProvider, organizationId, projectId)
       lanes = apiUserProfileService.getLanes(providerId, tokenProvider, organizationId, projectId)
     }
-    lanes
+    lanes.sort { Lane lane -> lane.order }
   }
 
   private List projectIssues(def projectId) {
