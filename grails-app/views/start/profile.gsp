@@ -9,7 +9,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
   <head>
-    <meta content="layout" name="trollboard">
+    <meta content="trollboard" name="layout">
     <title></title>
   </head>
 
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="well">
-        <img src="${profile.avatar}" class="img-rounded"/>
+        <img src="${profile?.avatar}" class="img-rounded"/>
 
       </div>
     </div>

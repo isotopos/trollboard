@@ -10,13 +10,13 @@
     <title><g:layoutTitle default="Trollboard"/></title>
     <!-- Bootstrap (responsive, with icons) full css -->
     <!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
-    <link href="app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="/trollboard/app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
     <!-- Guidely css -->
-    <link href="app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
+    <link href="/trollboard/app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
 
     <!-- Mojitoring css -->
-    <link href="app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
+    <link href="/trollboard/app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
     <g:layoutHead/>
     <r:layoutResources/>
   </head>
