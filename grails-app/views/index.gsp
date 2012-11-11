@@ -161,31 +161,31 @@
           <p>Keep using the tools you love, no registration required, full integration with GitHub and Bitbucket coming soon.</p>
         </div>
         <div class="span4 feature">
-          <h3>Simple Layout</h3>
+          <h3>Projects overview</h3>
           <img src="assets/feature-layout.png" width="50" height="50" class="thumb" alt="thumb">
-          <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
+          <p>In one simple view you can see all your projects. If you are a member of an organization, you can see all the projects in that organization.</p>
         </div>      
         <div class="span4 feature">
-          <h3>Web Fonts</h3>
+          <h3>Kanban like board</h3>
           <img src="assets/feature-webfonts.png" class="thumb" alt="thumb">
-          <p>Originally built with only modern browsers in mind, Bootstrap has evolved to include support for all major browsers (even IE7!) and, with Bootstrap 2, tablets and smartphones, too.</p>
+          <p>See the issues in your proyect in a nice board, each board has several lanes, each of them in a specific order in your workflow.</p>
         </div>
       </div><!--/row-->
       <div class="row">
         <div class="span4 feature">
-          <h3>Modern Design</h3>
+          <h3>Issue classification</h3>
           <img src="assets/feature-design.png" class="thumb" alt="thumb">
-          <p>The best part about forms in Bootstrap is that all your inputs and controls look great no matter how you build them in your markup.</p>
+          <p>Classify your issues according to their own lifecycle steps. Every time you make progress, drag and drop the issue to the next lane. You can also move down to other lanes.</p>
         </div>
         <div class="span4 feature">
-          <h3>Easy to Customize</h3>
+          <h3>Automate classification</h3>
           <img src="assets/feature-customize.png" class="thumb" alt="thumb">
-          <p>Different types of form layouts require some changes to markup, but the controls themselves remain and behave the same.</p>
+          <p>Use commit messages to indicate where you want to move an issue, TrollBoard will handle all the necessary steps to integrate with GitHub and react to every single commit your team push Bitbucket integration is on the works.</p>
         </div>
         <div class="span4 feature">
-          <h3>Great Support</h3>
+          <h3>No setup</h3>
           <img src="assets/feature-support.png" class="thumb" alt="thumb">
-          <p>States like error, warning, and success are included for each type of form control. Also included are styles for disabled controls. States like error, warning, and success are included.</p>
+          <p>Don't waste your valuable time on setup TrollBoard, we care of all of it. Just enjoy the awesome job our developers made, focus on your project and be happy.</p>
         </div>
       </div><!--/row-->
     </section>
@@ -203,9 +203,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #5"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>OAuth integration</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>Use your existent account, no registration required.</p>
                 </div>
               </div>
             </li>             
@@ -213,9 +213,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #6"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>All your projects</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>See how your projects evolve in a very nice view.</p>
                 </div>
               </div>
             </li> 
@@ -223,9 +223,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #7"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>Make progress visually</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>Drag and drop the issues to make progress. You can also make regressions.</p>
                 </div>
               </div>
             </li>            
@@ -233,9 +233,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #8"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>Social Coding integration</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>Take advantage of TrollBoard's GitHub integration. Bitbucket is coming soon.</p>
                 </div>
               </div>
             </li>
@@ -247,7 +247,7 @@
     <section id="about">
       <div class="row">
         <div class="span12">
-          <h2><em><i class="icon-bookmark"></i> About & Legal</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
+          <h2><em><i class="icon-bookmark"></i> About & Info</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
         </div>
       </div>
       <div class="row">
