@@ -85,7 +85,6 @@ class ApiUserProfileService {
     if (providerId == 'github') {
       //Project p = new Project()
       gitHubRepositoryService.createHook(tokenProvider, organizationId, projectId)
-
     }
   }
 }

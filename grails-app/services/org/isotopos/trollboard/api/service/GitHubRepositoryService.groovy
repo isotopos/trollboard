@@ -148,6 +148,17 @@ class GitHubRepositoryService implements RepositoryService {
     ]
 
     repositoryService.createHook(repositoryId, repositoryHook)
+
+    /*try {
+      org.isotopos.trollboard.Project project =
+
+      project.providerId = 'github'
+      project.projectId = projectId
+      project.token = token
+
+    } catch (Throwable pedos) {
+
+    }*/
   }
 
   List<Project> getProjects(String token) {
