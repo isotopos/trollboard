@@ -1,7 +1,7 @@
 package org.isotopos.trollboard.utils
 
 import grails.converters.JSON
-import org.isotopos.trollboard.Project
+import javax.servlet.http.Cookie
 
 class CallbackController {
 
@@ -10,11 +10,19 @@ class CallbackController {
   def gitHubCallbackService
 
   def index() {
-  	params.remove 'controller'
-    params << getProviderToken(params)
-    session.user = [github: params]
+  	def providerId = params.providerId ?: 'github'
+    def profileCookie = g.cookie('trollboard-profile')
+    def profile
+    if (profileCookie) {
+      profile = JSON.parse(profileCookie.toString())
+    } else {
+      def providerToken = getProviderToken(params)
+      profile = ([providerId: providerId] + providerToken) as JSON
+      profileCookie = new Cookie('trollboard-profile', profile.toString())
+      response.addCookie(profileCookie)
+    }
 
-  	redirect uri: '/app/www'
+  	redirect controller: 'start', id: profile.username
   }
 
   Map getProviderToken(params) {
