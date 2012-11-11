@@ -20,11 +20,6 @@ class GitHubIssuesService implements IssuesService {
       it.user.username == organizationId
     }
 
-    UserService userService = new UserService(client)
-    String userId = userService.getUser().login
-
-
-
     organizations.each {
       def projects = it.getProjects()
       projects.each {Project project ->

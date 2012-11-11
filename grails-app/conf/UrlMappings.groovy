@@ -12,7 +12,12 @@ class UrlMappings {
     "/v1/user/organizations"(controller: 'userProfile', action: 'organizations')
     "/v1/project/$projectId/issues"(controller: 'userProfile', action: 'projectIssues')
     "/v1/organization/$organizationId/issues"(controller: 'userProfile', action: 'issuesByOrganization')
+    "/v1/project/$projectId/labels/"(controller: 'userProfile') {
+      action = [POST: "addDefaultLabels"]
+    }
 
+
+    "/v1/project/$projectId/milestones"(controller: 'userProfile', action: 'projectMilestones')
 
     "/v1/organization/$id"(controller: 'userProfile', action: 'projects')
 
