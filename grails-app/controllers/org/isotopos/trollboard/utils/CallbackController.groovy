@@ -14,6 +14,7 @@ class CallbackController {
   }
 
   def receive(){
+    println params
     def payload = params.payload
     def providerId = params.providerId
     Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
