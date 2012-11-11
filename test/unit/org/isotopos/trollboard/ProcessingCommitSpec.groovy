@@ -41,6 +41,6 @@ class ProcessingCommitSpec extends Specification {
       // "Correct, I fix issue #8 and test #9"  || [ ["FIX" : ["#8", "#10"], "TEST" : ["#9"] ] ]
       // "Correct, I fix issue #8, test #9"     || [ ["FIX" : ["#8"], "TEST" : ["#9"] ] ]
       // "Correct, I fix issue #8 #10, test #9" || [ ["FIX" : ["#8", "#10"], "TEST" : ["#9"] ] ]
-      "test #4, close #4"                    || [ ["TEST": ["#4"] ] ]
+      // "test #4, close #4"                    || [ ["TEST": ["#4"] ] ]
   }
 }
