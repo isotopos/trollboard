@@ -11,9 +11,9 @@ class CallbackController {
     def providerId = params.providerId
     Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
     if(project){
-      // TODO: Process commit
       payload.commits.each{ commit ->
         def actions = commitService.receiveAndProcessMessage(commit.message)
+        // TODO: Call the issueService to add labels to issues
       }
     }
   	println session.user
