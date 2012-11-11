@@ -4,7 +4,7 @@ import grails.converters.JSON
 
 class ProjectController {
 
-  def scaffold = Project
+  def scaffold = org.isotopos.trollboard.Project
 
   def createAsync(){
     Project project = new Project(params)
