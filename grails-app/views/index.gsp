@@ -308,15 +308,15 @@
       </div>
       <div class="row">
         <div class="span4">
-          <h3>Company Address</h3>
+          <h3>Isotopos</h3>
           <br>
           <div class="well">
-            <strong>Company:</strong>
+            <strong>Contact:</strong>
             <hr>
-            <p>Greg L. Denney<br/>
-              4209 Scenicview Drive<br/>
-              Redmond, WA 98052<br/>
-              Tel.: +1.123.456.789
+            <p>Domingo Suárez Torres/José Juan Reyes<br/>
+              San Lorenzo 1009, Piso 4.<br/>
+              Colonia del Valle, 03100<br/>
+              México, D. F.
             </p>
             <p>Don't hesitate to contact us about anything you want. We are open to questios, comments and suggestions.</p>
           </div>
@@ -345,7 +345,7 @@
         <div class="span4">
           <h3>How about a map?</h3>
           <br/>
-          <img class="framed" src="assets/map.png" alt=""/>
+          <iframe width="370" height="276" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.mx/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=San+Lorenzo+1009,+Piso+4.+Colonia+del+Valle,+03100+M%C3%A9xico,+D.+F.&amp;aq=&amp;sll=22.755921,-102.612305&amp;sspn=39.684683,51.459961&amp;ie=UTF8&amp;hq=&amp;hnear=San+Lorenzo+1009,+Del+Valle,+Benito+Ju%C3%A1rez,+Ciudad+de+M%C3%A9xico,+Distrito+Federal&amp;t=m&amp;ll=19.37241,-99.164271&amp;spn=0.011174,0.015922&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.mx/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=San+Lorenzo+1009,+Piso+4.+Colonia+del+Valle,+03100+M%C3%A9xico,+D.+F.&amp;aq=&amp;sll=22.755921,-102.612305&amp;sspn=39.684683,51.459961&amp;ie=UTF8&amp;hq=&amp;hnear=San+Lorenzo+1009,+Del+Valle,+Benito+Ju%C3%A1rez,+Ciudad+de+M%C3%A9xico,+Distrito+Federal&amp;t=m&amp;ll=19.37241,-99.164271&amp;spn=0.011174,0.015922&amp;z=15&amp;iwloc=A" style="color:#0000FF;text-align:left">Ver mapa más grande</a></small>
         </div>
       </div><!--/row-->
     </section>
