@@ -1,9 +1,13 @@
-trollboard
+TrollBoard
 ================
 
-GitHub issues with kanban style board
+Kanban like board + your favorite Social coding tool = TrollBoard
 
-Made for Grails48 2012
+### Motivation ###
+
+We love issues and boards
+
+Made in Grails48 2012 hackaton
 
 ### License ###
 
