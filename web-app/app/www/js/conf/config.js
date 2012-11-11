@@ -2,15 +2,15 @@ define([
 ], function(){
 
   var config = {};
-  config.urlRoot = 'http://localhost/';
+  config.urlRoot = 'http://trollboard.rs.af.cm/';
   config.home = 'trollboard';
   config.log = true;
 
-  config.urlVerifySession = 'http://localhost/trollboard/session';
+  config.urlVerifySession = 'http://trollboard.rs.af.cm/trollboard/session';
 
-  config.profile = 'http://localhost/trollboard/v1/user?providerId=github&providerToken='
-  config.project = 'http://localhost/trollboard/v1/user/projects?providerId=github&providerToken='
-  config.organization = 'http://localhost/trollboard/v1/user/organizations?providerId=github&providerToken='
+  config.profile = 'http://trollboard.rs.af.cm/v1/user?providerId=github&providerToken='
+  config.project = 'http://trollboard.rs.af.cm/v1/user/projects?providerId=github&providerToken='
+  config.organization = 'http://trollboard.rs.af.cm/v1/user/organizations?providerId=github&providerToken='
 
   return config;
 });
