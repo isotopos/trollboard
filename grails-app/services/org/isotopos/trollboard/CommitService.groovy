@@ -7,22 +7,30 @@ class CommitService {
 
     if(message) {
       // "Fix #1 commit message"
-      def issueNumber = message =~ /\w+(\s*#+\d+)*/
-      def issues = issueNumber.collect { it }
-
-      issues.each{ i ->
-        def statusAndNumber = i.split(' ')
-        println statusAndNumber
-        def label = statusAndNumber[0].trim().toUpperCase()
-        def issue = statusAndNumber[1].trim()
-        def mapa = [:]
-        mapa["$label"] = [issue]
-        issueStatus << mapa
+      def rawIssueLabels = message =~ /\w+\D.[?=\s#]/
+      def issueLabels = []
+      rawIssueLabels.each { it -> 
+        issueLabels << it.replace(" #",'') 
       }
 
+      def labelsAndIssues = [:]
+      int index = 0;
+      issueLabels.each { label ->
+        def start = message.indexOf(label)
+        def end = message.length()
+        if( issueLabels.size() > (index+1) ){
+          end = message.indexOf(issueLabels.get(++index))
+        }
+
+        def issueNumbers = message.substring(start, end) =~ /#\d+/
+        def issuesNumbers = []
+        issueNumbers.each{ issue ->
+          issuesNumbers << [issue]
+        }
+        labelsAndIssues."$label" = issuesNumbers
+      }
+
+      issueStatus 
     }
-
-    issueStatus 
   }
-
 }
