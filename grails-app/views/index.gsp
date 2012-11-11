@@ -156,9 +156,9 @@
       </div>
       <div class="row">   
         <div class="span4 feature">
-          <h3>HTML5</h3>
+          <h3>Same tools</h3>
           <img src="assets/feature-html5.png" width="50" height="50" class="thumb" alt="thumb">
-          <p><strong>HTML5</strong> Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
+          <p>Keep using the tools you love, no registration required, full integration with GitHub and Bitbucket coming soon.</p>
         </div>
         <div class="span4 feature">
           <h3>Simple Layout</h3>
