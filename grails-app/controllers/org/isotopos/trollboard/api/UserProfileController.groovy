@@ -78,4 +78,22 @@ class UserProfileController {
     render([done: true] as JSON)
   }
 
+  def labelsByProject() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def labels = []
+
+    try {
+      labels = apiUserProfileService.getLabels(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      render([problemas: ''] as JSON)
+      return
+    }
+
+    render((labels ?: [:]) as JSON)
+  }
+
 }
