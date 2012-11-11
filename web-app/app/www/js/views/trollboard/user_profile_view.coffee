@@ -3,17 +3,25 @@ define [
   'conf/config'
   'jquery'
   'chaplin'
+  'cs!models/profile'
   'cs!views/base/view'
-  'text!templates/welcome.hbs'
-], (log, config, $, Chaplin, View, template) ->
+  'text!templates/trollboard/user_profile.hbs'
+], (log, config, $, Chaplin, Profile, View, template) ->
   'use strict'
 
-  class WelcomeView extends View
+  mediator = Chaplin.mediator
+
+  class UserProfileView extends View
 
     template: template
     template = null
 
-    container: '#board-container'
+    container: '#user-profile'
     id: "board-content"
-    autoRender: true
 
+    initialize: ->
+      github = mediator.user.get 'github'
+      @model = new Profile({access_token:github.access_token}, {load: true})
+
+      if @model.state() isnt 'resolved'
+        @model.done @render
