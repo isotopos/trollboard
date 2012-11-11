@@ -8,7 +8,7 @@ class CallbackController {
   def index() {
   	params.remove 'controller'
     params << getProviderToken(params)
-    session.user = params
+    session.user = [github: params]
 
   	redirect uri: '/app/www'
   }

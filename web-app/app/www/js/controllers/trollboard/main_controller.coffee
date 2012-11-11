@@ -5,8 +5,9 @@ define [
   'chaplin'
   'cs!models/user'
   'cs!views/trollboard/welcome_view'
+  'cs!views/trollboard/user_profile_view'
   'conf/config'
-], (log, config, $, Chaplin, User, WelcomeView, conf) ->
+], (log, config, $, Chaplin, User, WelcomeView, UserProfileView, conf) ->
   'use strict'
 
   mediator = Chaplin.mediator
@@ -19,8 +20,9 @@ define [
     
     handlerVerifySession: (data) ->
       console.log 'data', data
-      if data.code 
+      if data.github.code
         mediator.user = new User data
         @view = new WelcomeView()
+        new UserProfileView()
       else
-        window.location = config.home
+        window.location = '/' + config.home
