@@ -40,7 +40,7 @@
           Sign in with GitHub
         </a>
         <a href="#" class="btn btn-large btn-success disabled">
-          %{--<span class="bitbucket-logo">Sig In with Bitbucket</span>--}%
+          %{--<span class="bitbucket-logo">Sign in with Bitbucket</span>--}%
           Sig In with Bitbucket
         </a>
       </div>
