@@ -16,22 +16,24 @@ class CallbackController {
 
   def receive(){
     println params
-    def payload = JSON.parse(params?.payload)
+    def payload = JSON?.parse(params?.payload)
     println "\n\n\n"
     println payload
     def providerId = params?.providerId
     //Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
     //if(project){
       payload?.commits?.each{ commit ->
-        println commit
-        //def actions = commitService.receiveAndProcessMessage(commit.message)
-        //actions.each{ action ->
-        //  action.each { k,v ->
-        //    v.each { issueNumber ->
-              // Set the label k to issueNumber
-        //    }
-        //  }
-        //}
+        def actions = commitService.receiveAndProcessMessage(commit.message)
+        println actions
+        actions.each{ action ->
+          println action
+          action.each { k,v ->
+            println "$k : $v"
+            v.each { issueNumber ->
+            // Set the label k to issueNumber
+            }
+          }
+        }
       }
     //}
     render params as JSON
