@@ -1,5 +1,7 @@
 package org.isotopos.trollboard.utils
 
+import org.isotopos.trollboard.Project
+
 class CallbackController {
 
   def commitService
@@ -7,6 +9,11 @@ class CallbackController {
   def index() {
   	params.remove 'controller'
   	session.user = params
+  	println session.user
+  	redirect uri: '/app/www'
+  }
+
+  def receive(){
     def payload = params.payload
     def providerId = params.providerId
     Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
@@ -16,7 +23,5 @@ class CallbackController {
         // TODO: Call the issueService to add labels to issues
       }
     }
-  	println session.user
-  	redirect uri: '/app/www'
   }
 }
