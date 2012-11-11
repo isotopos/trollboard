@@ -37,6 +37,10 @@ class GitHubUtils {
     project.name = repository.name
     project.owner = fromGitHubUserProfile(repository.owner)
     project.website = repository.htmlUrl
+    project.createdAt = repository.createdAt
+    project.isPrivate = repository.isPrivate()
+    project.updatedAt = repository.updatedAt
+
 
     project
   }

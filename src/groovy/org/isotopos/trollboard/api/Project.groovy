@@ -15,4 +15,7 @@ class Project {
   String name
   String language
   UserProfile owner
+  Boolean isPrivate
+  Date createdAt
+  Date updatedAt
 }
