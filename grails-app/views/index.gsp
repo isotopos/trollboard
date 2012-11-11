@@ -96,11 +96,11 @@
                     <img src="assets/slide-half-3.png" alt=""/>
                   </div>
                   <div class="span4 animated fadeInDownBig">
-                    <h2>You choose</h2>
-                    <p>Maybe you love GitHub or Bitbucket, still using them with us no problem.</p>
-                    <p>With TrollBoard your loving social coding tool will be better than ever.</p>
-                    <p>Our awesome issue board is designed to improve your workflow, gain visibility, track your activities with no pain and less effort, TrollBoard is a kick ass tool, you will love us.</p>
-
+                    <h2>&nbsp;</h2>
+                    <p>What are you using? Github or Bitbucket, it doesn't matter use it even better.</p>
+                    <p>Do it everything in the commit.</p>
+                    <p>Improve your workflow, gain visibility, track your activities with no pain and less effort.</p>
+                    <p>Do it fun. Kick ass project managers with effective and live communication.</p>
                     %{--<p>This is what you are looking for, this is us, this is TrollBoard.</p>--}%
                     <a class="btn btn-primary" href="#">Start Now!</a>
                   </div>
