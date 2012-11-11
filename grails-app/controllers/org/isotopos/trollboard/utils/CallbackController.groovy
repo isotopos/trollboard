@@ -38,7 +38,7 @@ class CallbackController {
                 project?.token,
                 payload?.repository?.owner?.name,
                 payload?.repository?.name,
-                issueNumber.replace("#","").trim(),[k])
+                issueNumber.replace("#","").trim(),k)
             }
           }
         }

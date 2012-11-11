@@ -53,11 +53,6 @@ class GitHubIssuesService implements IssuesService {
   }
 
   void addLabelToIssue(String token, String owner, String repoId, String issueId, String label){
-    println token
-    println owner
-    println repoId
-    println issueId
-    println labels
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
@@ -65,22 +60,17 @@ class GitHubIssuesService implements IssuesService {
     org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
 
     def issue = issueService.getIssue(owner,repoId,issueId)
-    println issue.dump()
 
     def labelsInRepo = labelService.getLabels(owner, repoId)
-    println labelsInRepo
     
     def labelsFromIssue = issue.labels
-    println labelsFromIssue
 
     def labelsWithNoPrice = labelsFromIssue*.name.findAll { labelName -> !labelName.contains("\$") }
-    println labelsWithNoPrice
 
     def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith(label+'\$') }
 
     def newLabels = labelsWithNoPrice + labelToAdd
-    println newLabels
 
-    
+    labelService.setLabels(owner, repoId,issueId, newLabels)
   }
 }
