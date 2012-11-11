@@ -59,9 +59,9 @@
       </div>
     </div>
 
-    <div class="container">
+    %{--<div class="container">--}%
       <g:layoutBody/>
-    </div>
+    %{--</div>--}%
 
     <div class="footer" role="contentinfo"></div>
     <g:javascript library="application"/>
