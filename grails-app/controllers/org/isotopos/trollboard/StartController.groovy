@@ -6,8 +6,19 @@ class StartController {
 
   def profile() {
     def trollboardProfile = session.trollboardProfile
-    def profile = apiUserProfileService.getUserProfile(trollboardProfile.provider_id, trollboardProfile.access_token)
 
-    [profile: profile]
+    if (!trollboardProfile) {
+      redirect uri: '/'
+      return
+    }
+
+    def providerId = trollboardProfile.provider_id
+    def accessToken = trollboardProfile.access_token
+
+    def profile = apiUserProfileService.getUserProfile(providerId, accessToken)
+    def projects = apiUserProfileService.getProjects(providerId, accessToken)
+    def organizations = apiUserProfileService.getTeams(providerId, accessToken)
+
+    [profile: profile, projects: projects, organizations: organizations]
   }
 }

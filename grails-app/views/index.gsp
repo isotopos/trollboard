@@ -96,9 +96,12 @@
                     <img src="assets/slide-half-3.png" alt=""/>
                   </div>
                   <div class="span4 animated fadeInDownBig">
-                    <h2>Customizable Slider</h2>
-                    <p>Use Bootstrap scaffolding goodness to arrange pictures and text the way you want.</p>
-                    <p>Place full width images or combine them with text block, links or more images using Bootstrap grid system.</p>
+                    <h2>You choose</h2>
+                    <p>Maybe you love GitHub or Bitbucket, still using them with us no problem.</p>
+                    <p>With TrollBoard your loving social coding tool will be better than ever.</p>
+                    <p>Our awesome issue board is designed to improve your workflow, gain visibility, track your activities with no pain and less effort, TrollBoard is a kick ass tool, you will love us.</p>
+
+                    %{--<p>This is what you are looking for, this is us, this is TrollBoard.</p>--}%
                     <a class="btn btn-primary" href="#">Start Now!</a>
                   </div>
                 </div>
@@ -116,9 +119,9 @@
                     </div>
                   </div>
                   <div class="span4 animated rotateInUpLeft">
-                    <h2>Responsive videos</h2>
-                    <p>Wrap each video in a predefined class container to achieve fluid width videos in your responsive web design.</p>
-                    <p>Every video will fit any screen width, inlcuding, desktop computers, tablets, smartphones and other devices.</p>
+                    <h2>Pitch video</h2>
+                    <p>Learn more about the motivations behind TrollBoard.</p>
+                    <p>Know the hard core developers who made possible this project in only 48 hours.</p>
                     <a class="btn btn-info" href="#">Mobile ready!</a>
                   </div>
                 </div><!--/row-->
@@ -137,10 +140,10 @@
     <div class="strip">
       <div class="row">
         <div class="span12">
-          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Sign in with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
-          <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Sig In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
-          <span class="call-to-action">Download a free sample of our great catalogue and portfolio now!</span>
-          <p>*Don't worry, we have 7 years in the market, we know our stuff.</p>
+          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Log In with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
+          <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Log In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
+          <span class="call-to-action">Use your existing accounts to sign in to TrollBoard</span>
+          <p>*Don't worry, we are good kids and only will use your token for play with you.</p>
         </div>
       </div>
     </div>
@@ -153,36 +156,36 @@
       </div>
       <div class="row">   
         <div class="span4 feature">
-          <h3>HTML5</h3>
-          <img src="assets/feature-html5.png" width="50" height="50" class="thumb" alt="thumb">
-          <p><strong>HTML5</strong> Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
+          <h3>Same tools</h3>
+          <img src="assets/octoBit.png" width="50" height="50" class="thumb" alt="thumb">
+          <p>Keep using the tools you love, no registration required, full integration with GitHub and Bitbucket coming soon.</p>
         </div>
         <div class="span4 feature">
-          <h3>Simple Layout</h3>
+          <h3>Projects overview</h3>
           <img src="assets/feature-layout.png" width="50" height="50" class="thumb" alt="thumb">
-          <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
+          <p>In one simple view you can see all your projects. If you are a member of an organization, you can see all the projects in that organization.</p>
         </div>      
         <div class="span4 feature">
-          <h3>Web Fonts</h3>
+          <h3>Kanban like board</h3>
           <img src="assets/feature-webfonts.png" class="thumb" alt="thumb">
-          <p>Originally built with only modern browsers in mind, Bootstrap has evolved to include support for all major browsers (even IE7!) and, with Bootstrap 2, tablets and smartphones, too.</p>
+          <p>See the issues in your proyect in a nice board, each board has several lanes, each of them in a specific order in your workflow.</p>
         </div>
       </div><!--/row-->
       <div class="row">
         <div class="span4 feature">
-          <h3>Modern Design</h3>
+          <h3>Issue classification</h3>
           <img src="assets/feature-design.png" class="thumb" alt="thumb">
-          <p>The best part about forms in Bootstrap is that all your inputs and controls look great no matter how you build them in your markup.</p>
+          <p>Classify your issues according to their own lifecycle steps. Every time you make progress, drag and drop the issue to the next lane. You can also move down to other lanes.</p>
         </div>
         <div class="span4 feature">
-          <h3>Easy to Customize</h3>
+          <h3>Automate classification</h3>
           <img src="assets/feature-customize.png" class="thumb" alt="thumb">
-          <p>Different types of form layouts require some changes to markup, but the controls themselves remain and behave the same.</p>
+          <p>Use commit messages to indicate where you want to move an issue, TrollBoard will handle all the necessary steps to integrate with GitHub and react to every single commit your team push Bitbucket integration is on the works.</p>
         </div>
         <div class="span4 feature">
-          <h3>Great Support</h3>
+          <h3>No setup</h3>
           <img src="assets/feature-support.png" class="thumb" alt="thumb">
-          <p>States like error, warning, and success are included for each type of form control. Also included are styles for disabled controls. States like error, warning, and success are included.</p>
+          <p>Don't waste your valuable time on setup TrollBoard, we care of all of it. Just enjoy the awesome job our developers made, focus on your project and be happy.</p>
         </div>
       </div><!--/row-->
     </section>
@@ -200,9 +203,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #5"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>OAuth integration</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>Use your existent account, no registration required.</p>
                 </div>
               </div>
             </li>             
@@ -210,9 +213,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #6"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>All your projects</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>See how your projects evolve in a very nice view.</p>
                 </div>
               </div>
             </li> 
@@ -220,9 +223,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #7"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>Make progress visually</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>Drag and drop the issues to make progress. You can also make regressions.</p>
                 </div>
               </div>
             </li>            
@@ -230,9 +233,9 @@
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #8"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
                 <div class="caption">
-                  <h4>Image Title</h4>
+                  <h4>Social Coding integration</h4>
                   <hr>
-                  <p>Short description for this Portfolio item.</p>
+                  <p>Take advantage of TrollBoard's GitHub integration. Bitbucket is coming soon.</p>
                 </div>
               </div>
             </li>
@@ -244,7 +247,7 @@
     <section id="about">
       <div class="row">
         <div class="span12">
-          <h2><em><i class="icon-bookmark"></i> About & Legal</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
+          <h2><em><i class="icon-bookmark"></i> About & Info</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
         </div>
       </div>
       <div class="row">
@@ -252,10 +255,18 @@
           <div class="well">
             <h3>Terms and Conditions</h3>
             <hr>
-            <p><span class="dropcap">1</span> Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-            <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-            <a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>
-            <div class="modal hide fade" id="myModal">
+            <p><span class="dropcap">1</span> 
+              Hi, is nice to have a great tool to communicate. We're happy of use it and share it, is for this reason that you can enjoy all the current features(and future features) only with your preferred social coding tool.
+            </p>
+            <p>
+              TrollBoard is free(for now), and you can use it as you wish. In fact, would be nice if you can tell us what other things you need to communicate effectively through a visual tool like TrollBoard.
+            </p>
+            <p>
+              Let us help you to improve the way you are working with code.
+            </p>
+            <br/>
+            %{--<a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a> --}%
+            %{--<div class="modal hide fade" id="myModal">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3>Frequently Asked Questions</h3>
@@ -271,27 +282,38 @@
                 <p>Not directly no. If you want to share the wealth then linking to each resource on Premium Pixels is encouraged and sincerely appreciated. Linking directly to the zip file, or worse, repackaging your own zip file, gets my goat :(</p>
               </div>
               <div class="modal-footer">
-                <a href="#" class="btn btn-red" data-dismiss="modal">Ok, I got it.</a>
+                <a href="https://github.com/isotopos/trollboard" class="btn btn-red" data-dismiss="modal">Ok, I got it.</a>
               </div>
-            </div>
+            </div>--}%
           </div>
         </div>
         <div class="span4">
           <div class="well">
-            <h3>Light Weight Defaults</h3>
+            <h3>Why we do this?</h3>
             <hr>
-            <span class="dropcap">2</span> <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-            <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-            <a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>
+            <span class="dropcap">2</span>
+            <p>
+              We are familiar with some agile and lean methods. Some techniques are useful for us, so, as part of our improvements in the communication process we decide to build a tool able to share our work with all the people involved.
+            </p>
+            <p>
+              Our tools are crucial to manage software development projects, we discover more and more tools through faced problems. But, we have the responsability of communicate what are we doing in a simple and clearly way. We want to eat our own food.
+            </p>
+            <p>
+              <i class="icon-github"></i>
+              <a href="https://github.com/isotopos/trollboard">Find us in Github.com!</a>
+            </p>
+            %{--<a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>--}%
           </div>
         </div>
         <div class="span4">
           <div class="well">
-            <h3>Simple & Flexible Markup</h3>
+            <h3>Who are the guys behind?</h3>
             <hr>
-            <p><span class="dropcap">3</span> Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-            <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-            <a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>
+            <p>
+              <span class="dropcap">3</span>
+              Developers from differents companies builded this product in 48 hours working together and sharing the same situation: we want better visibility and tracking. From 9 to 11 November 2012, we gathered to attend the Grails48 Hackathon organized by the Groovy and Grails community worldwide. We are in Mexico and we have enjoyed developing this product for our business use.</p>
+            <p>We're part of the mexican community <a href="http://grails.org.mx">GrailsMX</a>, and we share all our experience through the site, drinkups, podcast and videos. You can join us, you always will be welcome.</p>
+            %{--<a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>--}%
           </div>
         </div>
       </div><!--/row-->
@@ -305,15 +327,15 @@
       </div>
       <div class="row">
         <div class="span4">
-          <h3>Company Address</h3>
+          <h3>Isotopos</h3>
           <br>
           <div class="well">
-            <strong>Company:</strong>
+            <strong>Contact:</strong>
             <hr>
-            <p>Greg L. Denney<br/>
-              4209 Scenicview Drive<br/>
-              Redmond, WA 98052<br/>
-              Tel.: +1.123.456.789
+            <p>Domingo Suárez Torres/José Juan Reyes<br/>
+              San Lorenzo 1009, Piso 4.<br/>
+              Colonia del Valle, 03100<br/>
+              México, D. F.
             </p>
             <p>Don't hesitate to contact us about anything you want. We are open to questios, comments and suggestions.</p>
           </div>
@@ -342,7 +364,7 @@
         <div class="span4">
           <h3>How about a map?</h3>
           <br/>
-          <img class="framed" src="assets/map.png" alt=""/>
+          <iframe width="370" height="276" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com.mx/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=San+Lorenzo+1009,+Piso+4.+Colonia+del+Valle,+03100+M%C3%A9xico,+D.+F.&amp;aq=&amp;sll=22.755921,-102.612305&amp;sspn=39.684683,51.459961&amp;ie=UTF8&amp;hq=&amp;hnear=San+Lorenzo+1009,+Del+Valle,+Benito+Ju%C3%A1rez,+Ciudad+de+M%C3%A9xico,+Distrito+Federal&amp;t=m&amp;ll=19.37241,-99.164271&amp;spn=0.011174,0.015922&amp;z=15&amp;iwloc=A&amp;output=embed"></iframe><br /><small><a href="https://maps.google.com.mx/maps?f=q&amp;source=embed&amp;hl=es&amp;geocode=&amp;q=San+Lorenzo+1009,+Piso+4.+Colonia+del+Valle,+03100+M%C3%A9xico,+D.+F.&amp;aq=&amp;sll=22.755921,-102.612305&amp;sspn=39.684683,51.459961&amp;ie=UTF8&amp;hq=&amp;hnear=San+Lorenzo+1009,+Del+Valle,+Benito+Ju%C3%A1rez,+Ciudad+de+M%C3%A9xico,+Distrito+Federal&amp;t=m&amp;ll=19.37241,-99.164271&amp;spn=0.011174,0.015922&amp;z=15&amp;iwloc=A" style="color:#0000FF;text-align:left">Ver mapa más grande</a></small>
         </div>
       </div><!--/row-->
     </section>
