@@ -78,4 +78,44 @@ class UserProfileController {
     render([done: true] as JSON)
   }
 
+  def labelsByProject() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def labels = []
+
+    try {
+      labels = apiUserProfileService.getLabels(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      render([problemas: ''] as JSON)
+      return
+    }
+
+    render((labels ?: [:]) as JSON)
+  }
+
+  def projectLanes() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def result = []
+
+    try {
+      result = apiUserProfileService.getLanes(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      pedos.printStackTrace()
+      pedos.cause?.printStackTrace()
+      println pedos.dump()
+      render([problemas: ''] as JSON)
+      return
+    }
+
+
+    render((result ?: [:]) as JSON)
+  }
+
 }

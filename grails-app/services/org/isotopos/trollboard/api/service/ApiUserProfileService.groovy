@@ -1,9 +1,6 @@
 package org.isotopos.trollboard.api.service
 
-import org.isotopos.trollboard.api.Issue
-import org.isotopos.trollboard.api.Milestone
-import org.isotopos.trollboard.api.Project
-import org.isotopos.trollboard.api.UserProfile
+import org.isotopos.trollboard.api.*
 
 class ApiUserProfileService {
   def gitHubUserProfileService
@@ -65,5 +62,21 @@ class ApiUserProfileService {
     if (providerId == 'github') {
       gitHubRepositoryService.addDefaultLabels(tokenProvider, organizationId, projectId)
     }
+  }
+
+  List<Label> getLabels(String providerId, String tokenProvider, String organizationId, String projectId) {
+    if (providerId == 'github') {
+      return gitHubRepositoryService.getLabels(tokenProvider, organizationId, projectId)
+    }
+
+    null
+  }
+
+  List<Lane> getLanes(String providerId, String tokenProvider, String organizationId, String projectId) {
+    if (providerId == 'github') {
+      return gitHubRepositoryService.getLanes(tokenProvider, organizationId, projectId)
+    }
+
+    null
   }
 }
