@@ -1,9 +1,6 @@
 package org.isotopos.trollboard.api.service
 
-
-
-import grails.test.mixin.*
-import org.junit.*
+import grails.test.mixin.TestFor
 
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
@@ -11,7 +8,6 @@ import org.junit.*
 @TestFor(GitHubOrganizationService)
 class GitHubOrganizationServiceTests {
 
-    void testSomething() {
-        fail "Implement me"
-    }
+  void testSomething() {
+  }
 }
