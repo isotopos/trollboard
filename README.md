@@ -5,7 +5,7 @@ Kanban like board + your favorite Social coding tool = TrollBoard
 
 ### Motivation ###
 
-We love issues and boards
+We love issues and boards and trolling(isssues and boards)
 
 Made in Grails48 2012 hackaton
 
