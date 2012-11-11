@@ -147,11 +147,7 @@ class GitHubRepositoryService implements RepositoryService {
       content_type: 'json'
     ]
 
-    try {
-      repositoryService.createHook(repositoryId, repositoryHook)
-    } catch (Throwable throwable) {
-      throw throwable
-    }
+    repositoryService.createHook(repositoryId, repositoryHook)
   }
 
   List<Project> getProjects(String token) {
