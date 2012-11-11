@@ -8,20 +8,23 @@ class CallbackController {
   def grailsApplication
   def restGithubClient
   def gitHubCallbackService
+  def apiUserProfileService
 
   def index() {
   	def providerId = params.providerId ?: 'github'
-    def profileCookie = g.cookie('trollboard-profile')
-    def profile
+    def profileCookie = g.cookie(name: 'trollboard-profile')
+    def trollboardProfile
     if (profileCookie) {
-      profile = JSON.parse(profileCookie.toString())
+      trollboardProfile = JSON.parse(profileCookie.toString())
     } else {
       def providerToken = getProviderToken(params)
-      profile = ([providerId: providerId] + providerToken) as JSON
-      profileCookie = new Cookie('trollboard-profile', profile.toString())
+      trollboardProfile = ([provider_id: providerId] + providerToken) as JSON
+      profileCookie = new Cookie('trollboard-profile', trollboardProfile.toString())
       response.addCookie(profileCookie)
     }
 
+    def profile = apiUserProfileService.getUserProfile(trollboardProfile.provider_id, trollboardProfile.access_token)
+    flash.profile = profile
   	redirect controller: 'start', id: profile.username
   }
 

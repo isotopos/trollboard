@@ -8,13 +8,12 @@ class StartController {
   def apiUserProfileService
 
   def profile() {
-    def profile = getTrollboardProfile()
-    apiUserProfileService.getUserProfile()
+    def profile = flash.profile
     [profile: profile]
   }
 
   private JSONElement getTrollboardProfile() {
-    def profileCookie = g.cookie('trollboard-profile')
+    def profileCookie = g.cookie(name: 'trollboard-profile')
     JSON.parse(profileCookie.toString())
   }
 }
