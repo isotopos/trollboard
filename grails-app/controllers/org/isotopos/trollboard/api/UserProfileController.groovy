@@ -118,4 +118,21 @@ class UserProfileController {
     render((result ?: [:]) as JSON)
   }
 
+  def projectLive() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    try {
+      apiUserProfileService.makeLiveProject(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      response.status = 400
+      render([done: false, message: pedos.message ?: pedos.cause?.message] as JSON)
+      return
+    }
+
+    render([done: true] as JSON)
+  }
+
 }
