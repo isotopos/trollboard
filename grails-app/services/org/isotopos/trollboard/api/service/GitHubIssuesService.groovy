@@ -52,7 +52,31 @@ class GitHubIssuesService implements IssuesService {
     issues
   }
 
-  void setLabelToIssue(String token, String organizationId){
+  void addLabelToIssue(String token, String owner, String repoId, String issueId, labels){
+    println token
+    println owner
+    println repoId
+    println issueId
+    println labels
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+    org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
+
+    def issue = issueService.getIssue(owner,repoId,issueId)
+    println issue.dump()
     
+    def labelsFromIssue = issue.labels
+    println labelsFromIssue
+
+    def labelsWithNoPrice = labelsFromIssue.findAll { label -> !label.name.contains("\$") }
+    println labelsWithNoPrice
+
+    def newLabels = labelsWithNoPrice + labels
+    println newLabels
+
+    def labelsInRepo = labelService.getLabels(owner, repoId)
+    println labelsInRepo
   }
 }

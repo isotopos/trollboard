@@ -6,6 +6,7 @@ import grails.converters.JSON
 class CallbackController {
 
   def commitService
+  def gitHubIssuesService
 
   def index() {
   	params.remove 'controller'
@@ -33,6 +34,11 @@ class CallbackController {
             println "$k : $v"
             v.each { issueNumber ->
               println "Set the label $k to $issueNumber"
+              gitHubIssuesService.addLabelToIssue(
+                project?.token,
+                payload?.repository?.owner?.name,
+                payload?.repository?.name,
+                issueNumber.replace("#","").trim(),[])
             }
           }
         }
