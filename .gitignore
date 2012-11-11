@@ -1,4 +1,6 @@
+*.swp
 .idea
 target
 Trollboard-grailsPlugins.iml
 Trollboard.iml
+*.sublime-*

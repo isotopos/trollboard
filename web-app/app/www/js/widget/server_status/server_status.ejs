@@ -1,0 +1,56 @@
+﻿<!--
+	Server_status.ejs is a jQuery.EJS template (part of jQueryMX)
+	See: http://javascriptmvc.com/docs.html#!jQuery.EJS
+
+	EJS template combine html, javascript and processor tags (<% %>)
+	jQueryMX provides a simply way to use EJS templates
+	See: http://javascriptmvc.com/docs.html#!jQuery.View
+
+	Information: in this package, we use a custom jQueryMX (view, ejs and rsplit). Any package of jQueryMX (contains at least ejs) could be used instead.
+-->
+
+<!-- widget header -->
+<div class="mojitoPanelHeader mojitoPanelHeader-dark">
+	<i class="icon-plane"></i>
+	<span class="mojitoPanelHeaderTitle wssName"><%= serverName %></span>
+	<div class="floatRight">
+		<i data-xx-value="serverStatus" class="icon-white <%= serverStatus %>"></i>
+		<a class="btn btn-tiny btn-inverse" data-title='Reboot the server<br />(hardware)'>reboot</a>
+		<a class="btn btn-tiny btn-inverse" data-title='Restart the web server<br />(software)'>restart</a>
+	</div>
+
+</div>
+
+<!-- widget content -->
+<div class="mojitoPanelContent">
+	<div class="right floatRight">
+		<%= lastReboot.formatDateTime("yyyy-MM-dd HH:mm:ss") %><br />
+		<span data-xx-value="cpu"></span>%<br />
+		ok
+	</div>
+
+	<div class="serverBanner">
+		<span class="label-gray hidable">
+			START<br />
+			CPU<br />
+			STATUS
+		</span>
+	</div>
+
+	<div class="mojitoPanelSeparator"></div>
+	<table style="width: 100%;">
+		<tbody>
+			<!-- applicationCollection status template -->
+			<% for (var i = 0; i < applicationCollection.length; i++) { %>
+				<tr>
+					<td><%= applicationCollection[i].applicationName %></td>
+					<td class="right">
+						<i data-xx-value="application<%=i%>" class="icon-white <%=applicationCollection[i].applicationStatus%>"></i>
+						<a class="btn btn-tiny" data-placement="left" data-title="Restart the application" onclick=";">restart</a>
+					</td>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+					

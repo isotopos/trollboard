@@ -1,0 +1,111 @@
+﻿<!--
+	Table.ejs is a jQuery.EJS template (part of jQueryMX)
+	See: http://javascriptmvc.com/docs.html#!jQuery.EJS
+
+	EJS template combine html, javascript and processor tags (<% %>)
+	jQueryMX provides a simply way to use EJS templates
+	See: http://javascriptmvc.com/docs.html#!jQuery.View
+
+	Information: in this package, we use a custom jQueryMX (view, ejs and rsplit). Any package of jQueryMX (contains at least ejs) could be used instead.
+-->
+
+<!-- Ejs pre-processor -->
+<%
+	var pageSize = 10;
+	var max = data.length > pageSize ? pageSize: data.length;
+	var pageCount = Math.ceil(data.length / pageSize);
+%>
+
+<!-- widget header -->
+<div class="mojitoPanelHeader <%= options.headerClass %>">
+	<i class="<%= options.icon %>"></i><%= options.title %>
+	<% if (options.importantValue !== undefined) { %>
+		<span class="badge badge-important"><%=String(options.importantValue)%></span>
+	<% } %>
+</div>
+
+<!-- widget content -->
+<div class="mojitoPanelContent">
+	<% if (options.caption) { %>
+		<div class="alert">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<%=options.caption%>
+		</div>
+	<% } %>
+
+
+	<!-- Command panel -->
+	<% if (options.searchBar) { %>
+		<div class="btn-group floatLeft">
+			<a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+				Action
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="#">Delete</a></li>
+			</ul>
+		</div>
+	<% } %>
+
+	<!-- Search panel -->
+	<% if (options.searchBar) { %>
+		<div class="input-append floatRight right">
+			<input class="span2" id="appendedInputButton" size="32" type="text"></input>
+			<button class="btn btn-info" type="button">Search</button>
+		</div>
+	<% } %>
+
+
+	<table class="table table-bordered table-hover">
+		
+		<thead>
+			<tr>
+				<% if (options.searchBar) { %>
+					<td>&nbsp;</td>
+				<% } %>
+
+				<% for (var i = 0; i < options.columns.length; i++) { %>
+					<td class="<%= (options.columnsClass && options.columnsClass[i]) %>"><%= options.columns[i] %></td>
+				<% } %>
+				<td class="right">Action</td>
+			</tr>
+		</thead>
+		<tbody>
+			<% for (var x = 0; x < max; x++) { %>
+				<tr class="<%= data[x].cssClass %>">
+					<% if (options.searchBar) { %>
+						<td><input type="checkbox" /></td>
+					<% } %>
+
+
+					<% for (var i = 0; i < options.columns.length; i++) { %>
+						<td class="<%= options.columnsClass && options.columnsClass[i] %>"><%= data[x][options.columns[i]] %></td>
+					<% } %>
+					<td class="right">
+						<% if (options.actionView) { %>
+							<button type="button" class="btn btn-link btn-mini" data-placement="left" data-title="View the detail" onclick='<%=options.actionView%>("<%=data[x]["id"]%>");'><i class="icon-zoom-in"></i></button>
+						<% } %>
+						<% if (options.actionEdit) { %>
+							<button type="button" class="btn btn-link btn-mini" data-title="Edit" onclick='<%=options.actionEdit%>("<%=data[x]["id"]%>");'><i class="icon-edit"></i></button>
+						<% } %>
+						<% if (options.actionDelete) { %>
+							<button type="button" class="btn btn-link btn-mini" data-toggle="modal" data-target="#confirmDelete" data-title="Delete" ><i class="icon-remove"></i></button>
+						<% } %>
+					</td>
+				</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+
+<!-- Table pagination -->
+<% if ( pageCount > 1) { %>
+	<div class="pagination pagination-centered">
+		<ul>
+			<li class="active"><a href="#">1</a></li>
+			<% for (var i = 1; i < pageCount; i++) {%>
+				<li><a href="#"><%=String(i + 1)%></a></li>
+			<% } %>
+		</ul>
+	</div>
+<% } %>

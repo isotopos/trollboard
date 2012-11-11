@@ -22,8 +22,7 @@ define [
       # Application-specific scaffold
       @initControllers()
       # Register all routes and start routing
-      @initRouter router
-      #@initRouter routes, pushState: true, root: '/chaplinDemo/'
+      @initRouter router, pushState: false
 
       # Freeze the application instance to prevent further changes
       Object.freeze? this
