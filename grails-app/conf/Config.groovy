@@ -68,10 +68,11 @@ client.secret = '9f094c887723847f42f6816d11d355d5ecfa7b6f'
 environments {
     development {
         grails.logging.jul.usebridge = true
+        grails.serverURL = "http://localhost:8080/trollboard"
     }
     production {
         grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
+        grails.serverURL = "http://trollboard.rs.af.cm"
     }
 }
 
