@@ -22,4 +22,6 @@ interface RepositoryService {
   List<Label> getLabels(String token, String user, String projectId)
 
   List<Lane> getLanes(String token, String user, String projectId)
+
+  void createHook(String token, String user, String projectId)
 }

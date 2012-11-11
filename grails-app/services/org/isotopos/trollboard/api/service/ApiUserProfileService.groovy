@@ -79,4 +79,13 @@ class ApiUserProfileService {
 
     null
   }
+
+  void makeLiveProject(String providerId, String tokenProvider, String organizationId, String projectId) {
+
+    if (providerId == 'github') {
+      //Project p = new Project()
+      gitHubRepositoryService.createHook(tokenProvider, organizationId, projectId)
+
+    }
+  }
 }

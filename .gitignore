@@ -4,3 +4,5 @@ target
 Trollboard-grailsPlugins.iml
 Trollboard.iml
 *.sublime-*
+/devDb.lock.db
+/devDb.h2.db

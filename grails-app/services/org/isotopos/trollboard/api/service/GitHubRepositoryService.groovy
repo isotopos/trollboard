@@ -1,5 +1,7 @@
 package org.isotopos.trollboard.api.service
 
+import org.codehaus.groovy.grails.web.mapping.LinkGenerator
+import org.eclipse.egit.github.core.RepositoryHook
 import org.eclipse.egit.github.core.RepositoryId
 import org.eclipse.egit.github.core.client.GitHubClient
 import org.eclipse.egit.github.core.service.LabelService
@@ -12,14 +14,16 @@ import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.service.github.GitHubUtils
 
 class GitHubRepositoryService implements RepositoryService {
+  LinkGenerator grailsLinkGenerator
+
   def defaultLabels = [
-    [color: 'cccccc', name: 'Backlog$0'],
-    [color: 'cccccc', name: 'Ready$1'],
-    [color: 'cccccc', name: 'Coding$2'],
-    [color: 'cccccc', name: 'Testing$3'],
-    [color: 'cccccc', name: 'Approval$4'],
-    [color: 'cccccc', name: 'Done$5'],
-    [color: 'cccccc', name: 'Live$6'],
+    [color: '7B1E8A', name: 'Backlog$0'],
+    [color: '2D2BFA', name: 'Ready$1'],
+    [color: '36DA52', name: 'Coding$2'],
+    [color: 'C5AAFC', name: 'Testing$3'],
+    [color: 'BFE47A', name: 'Approval$4'],
+    [color: '070653', name: 'Done$5'],
+    [color: '00901A', name: 'Live$6'],
   ]
 
   void addDefaultLabels(String token, String user, String proyectId) {
@@ -118,6 +122,32 @@ class GitHubRepositoryService implements RepositoryService {
     }
 
     result
+  }
+
+  void createHook(String token, String user, String projectId) {
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    org.eclipse.egit.github.core.service.RepositoryService repositoryService = new org.eclipse.egit.github.core.service.RepositoryService(client)
+
+    UserService userService = new UserService(client)
+    if (!user) {
+      user = userService.getUser().login
+    }
+    RepositoryId repositoryId = new RepositoryId(user, projectId)
+
+    RepositoryHook repositoryHook = new RepositoryHook()
+    repositoryHook.active = true
+    repositoryHook.createdAt = new Date()
+    repositoryHook.name = "web"
+    repositoryHook.updatedAt = new Date()
+    repositoryHook.url = grailsLinkGenerator.resource(controller: 'callback', action: 'receive')
+    repositoryHook.config = [
+      url: grailsLinkGenerator.resource(controller: 'callback', action: 'receive', absolute: true),
+      content_type: 'json'
+    ]
+
+    repositoryService.createHook(repositoryId, repositoryHook)
   }
 
   List<Project> getProjects(String token) {
