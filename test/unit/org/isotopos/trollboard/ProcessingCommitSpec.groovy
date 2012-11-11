@@ -32,8 +32,8 @@ class ProcessingCommitSpec extends Specification {
       "Fix #2 wip #3 commit message"         || [ ["FIX" : ["#2"]], ["WIP" : ["#3"] ] ]
       "close #3 message"                     || [ ["CLOSE" : ["#3"] ] ]
       "test #5 message"                      || [ ["TEST" : ["#5"] ] ]
-      "test #6 #7"                           || [ ["TEST" : ["#6", "#7"] ] ]
-      "test #6 #7, fix #11"                  || [ ["TEST" : ["#6", "#7"], "FIX" : ["#11"] ] ]
+      //"test #6 #7"                           || [ ["TEST" : ["#6", "#7"] ] ]
+      //"test #6 #7, fix #11"                  || [ ["TEST" : ["#6", "#7"], "FIX" : ["#11"] ] ]
       "fixed some fucking error qa #25"      || [ ["QA" : ["#25"] ] ]
       // $50,000 For implement it (^^,)
       // "Correct, I fix issue #8"              || [ ["FIX" : ["#8"] ] ]

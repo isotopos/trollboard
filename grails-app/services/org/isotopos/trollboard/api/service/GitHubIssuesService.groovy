@@ -56,4 +56,8 @@ class GitHubIssuesService implements IssuesService {
 
     issues
   }
+
+  void setLabelToIssue(String token, String organizationId){
+    
+  }
 }

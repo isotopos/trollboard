@@ -1,6 +1,7 @@
 package org.isotopos.trollboard.utils
 
 import org.isotopos.trollboard.Project
+import grails.converters.JSON
 
 class CallbackController {
 
@@ -15,14 +16,24 @@ class CallbackController {
 
   def receive(){
     println params
-    def payload = params.payload
-    def providerId = params.providerId
-    Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
-    if(project){
-      payload.commits.each{ commit ->
-        def actions = commitService.receiveAndProcessMessage(commit.message)
-        // TODO: Call the issueService to add labels to issues
+    def payload = JSON.parse(params?.payload)
+    println "\n\n\n"
+    println payload
+    def providerId = params?.providerId
+    //Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
+    //if(project){
+      payload?.commits?.each{ commit ->
+        println commit
+        //def actions = commitService.receiveAndProcessMessage(commit.message)
+        //actions.each{ action ->
+        //  action.each { k,v ->
+        //    v.each { issueNumber ->
+              // Set the label k to issueNumber
+        //    }
+        //  }
+        //}
       }
-    }
+    //}
+    render params as JSON
   }
 }

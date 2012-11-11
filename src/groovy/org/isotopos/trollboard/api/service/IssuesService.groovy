@@ -12,4 +12,5 @@ import org.isotopos.trollboard.api.Issue
 interface IssuesService {
   List<Issue> getIssues(String token, String projectId)
   List<Issue> getIssuesByOrganization(String token, String organizationId)
+  void setLabelToIssue(String token, String organizationId)
 }
