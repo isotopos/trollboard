@@ -17,7 +17,7 @@ class ProjectController {
     def issues = projectIssues(projectId)
     def model = [:]
     model.lanes = lanes.collect { Label lane ->
-      [lane: lane, issues: issues.findAll { Issue issue -> issue.labels*.name.contains(lane.name) }]
+      [lane: lane, issues: issues.findAll { Issue issue -> issue.labels*.name.contains(lane.name) }.sort { Issue issue -> issue.number }]
     }
     model.milestones = projectMilestones(projectId, organizationId)
     model
