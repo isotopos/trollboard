@@ -1,0 +1,30 @@
+<div class="container container-fluid">
+  <button class="btn btn-danger">{{name}}</button>
+  {{#list lanes}}
+  <div class="issue-wrapper wServerStatus mojitoPanel mojitoPanel-dark span2 ui-droppable" id="wServerStatus1">
+    <div class="mojitoPanelHeader mojitoPanelHeader-dark">
+      <i class="icon-plane"></i>
+      <span class="mojitoPanelHeaderTitle wssName">{{name}}</span>
+    </div>
+
+    {{#list issues}}
+    <!-- widget content -->
+    <div class="mojitoPanelContent issue-wrapper ui-droppable">
+      <div style="min-height: 300px; position: relative;" class="issue mojitoPanel span12 ui-draggable" id="wRealtimeGraphLine">
+        <span class="inlineMarker hide">marker for the inline version</span>
+        <div style="height: 230px; padding: 16px;" class="mojitoPanelContent">
+          <a href="{{url}}">
+            <strong>{{id}}</strong> <span>{{title}}</span>
+          </a>
+        </div>
+      </div>
+      {{#if assigne}}
+      <div class="assignee">
+        <img src="{{avatar}}" alt="{{username}}"/>
+      </div>
+      {{/if}}
+    </div>
+    {{/list}}
+  </div>
+  {{/list}}
+</div>
