@@ -13,13 +13,13 @@ import org.isotopos.trollboard.api.service.github.GitHubUtils
 
 class GitHubRepositoryService implements RepositoryService {
   def defaultLabels = [
-    [color: 'cccccc', name: 'Backlog$0'],
-    [color: 'cccccc', name: 'Ready$1'],
-    [color: 'cccccc', name: 'Coding$2'],
-    [color: 'cccccc', name: 'Testing$3'],
-    [color: 'cccccc', name: 'Approval$4'],
-    [color: 'cccccc', name: 'Done$5'],
-    [color: 'cccccc', name: 'Live$6'],
+    [color: '7B1E8A', name: 'Backlog$0'],
+    [color: '2D2BFA', name: 'Ready$1'],
+    [color: '36DA52', name: 'Coding$2'],
+    [color: 'C5AAFC', name: 'Testing$3'],
+    [color: 'BFE47A', name: 'Approval$4'],
+    [color: '070653', name: 'Done$5'],
+    [color: '00901A', name: 'Live$6'],
   ]
 
   void addDefaultLabels(String token, String user, String proyectId) {
