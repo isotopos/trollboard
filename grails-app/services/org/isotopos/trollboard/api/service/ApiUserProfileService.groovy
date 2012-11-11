@@ -74,7 +74,7 @@ class ApiUserProfileService {
 
   List<Lane> getLanes(String providerId, String tokenProvider, String organizationId, String projectId) {
     if (providerId == 'github') {
-      return gitHubRepositoryService.getLabels(tokenProvider, organizationId, projectId)
+      return gitHubRepositoryService.getLanes(tokenProvider, organizationId, projectId)
     }
 
     null

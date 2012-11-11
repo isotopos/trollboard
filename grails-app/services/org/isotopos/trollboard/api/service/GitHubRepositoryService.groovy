@@ -111,7 +111,7 @@ class GitHubRepositoryService implements RepositoryService {
           if (tokens.get(1).isInteger()) {
             order = tokens.get(1).toInteger()
             name = tokens.get(0)
-            labels << new Lane(name: name, order: order, label: label)
+            result << new Lane(name: name, order: order, label: label)
           }
         }
       }

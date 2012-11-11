@@ -107,6 +107,9 @@ class UserProfileController {
     try {
       result = apiUserProfileService.getLanes(providerId, tokenProvider, organizationId, projectId)
     } catch (Throwable pedos) {
+      pedos.printStackTrace()
+      pedos.cause?.printStackTrace()
+      println pedos.dump()
       render([problemas: ''] as JSON)
       return
     }
