@@ -58,14 +58,12 @@ class GitHubIssuesService implements IssuesService {
 
     org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
     org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
-    UserService userService = new UserService(client)
-    String userId = userService.getUser().login
-    println userId
+
     //def issue = issueService.getIssue(owner,repoId,issueId)
-    def issue = issueService.getIssue(userId?:owner,repoId,issueId)
+    def issue = issueService.getIssue(owner,repoId,issueId)
 
     //def labelsInRepo = labelService.getLabels(owner, repoId)
-    def labelsInRepo = labelService.getLabels(userId?:owner, repoId)
+    def labelsInRepo = labelService.getLabels(owner, repoId)
     
     def labelsFromIssue = issue.labels
 
