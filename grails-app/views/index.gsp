@@ -96,9 +96,12 @@
                     <img src="assets/slide-half-3.png" alt=""/>
                   </div>
                   <div class="span4 animated fadeInDownBig">
-                    <h2>Customizable Slider</h2>
-                    <p>Use Bootstrap scaffolding goodness to arrange pictures and text the way you want.</p>
-                    <p>Place full width images or combine them with text block, links or more images using Bootstrap grid system.</p>
+                    <h2>You choose</h2>
+                    <p>Maybe you love GitHub or Bitbucket, still using them with us no problem.</p>
+                    <p>With TrollBoard your loving social coding tool will be better than ever.</p>
+                    <p>Our awesome issue board is designed to improve your workflow, gain visibility, track your activities with no pain and less effort, TrollBoard is a kick ass tool, you will love us.</p>
+
+                    %{--<p>This is what you are looking for, this is us, this is TrollBoard.</p>--}%
                     <a class="btn btn-primary" href="#">Start Now!</a>
                   </div>
                 </div>
@@ -116,8 +119,8 @@
                     </div>
                   </div>
                   <div class="span4 animated rotateInUpLeft">
-                    <h2>Responsive videos</h2>
-                    <p>Wrap each video in a predefined class container to achieve fluid width videos in your responsive web design.</p>
+                    <h2>Pitch video</h2>
+                    <p>Learn more, .</p>
                     <p>Every video will fit any screen width, inlcuding, desktop computers, tablets, smartphones and other devices.</p>
                     <a class="btn btn-info" href="#">Mobile ready!</a>
                   </div>
@@ -138,9 +141,9 @@
       <div class="row">
         <div class="span12">
           <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Sign in with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
-          <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Sig In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
-          <span class="call-to-action">Download a free sample of our great catalogue and portfolio now!</span>
-          <p>*Don't worry, we have 7 years in the market, we know our stuff.</p>
+          <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Sign In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
+          <span class="call-to-action">Use your existing accounts to sign in to TrollBoard</span>
+          <p>*Don't worry, we are good kids and only will use your token for play with you.</p>
         </div>
       </div>
     </div>
