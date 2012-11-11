@@ -20,7 +20,7 @@ define [
     
     handlerVerifySession: (data) ->
       console.log 'data', data
-      if data.github.code
+      if data?.github?.code
         mediator.user = new User data
         @view = new WelcomeView()
         new UserProfileView()
