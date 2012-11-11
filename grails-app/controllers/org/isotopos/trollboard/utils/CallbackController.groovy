@@ -10,6 +10,7 @@ class CallbackController {
 
   def index() {
     params.remove 'controller'
+    params.provider_id = params.provider_id?: 'github'
     params << getProviderToken(params)
     session.trollboardProfile = params
 
