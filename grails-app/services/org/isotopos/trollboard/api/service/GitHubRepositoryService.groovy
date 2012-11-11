@@ -6,6 +6,7 @@ import org.eclipse.egit.github.core.service.LabelService
 import org.eclipse.egit.github.core.service.MilestoneService
 import org.eclipse.egit.github.core.service.UserService
 import org.isotopos.trollboard.api.Label
+import org.isotopos.trollboard.api.Lane
 import org.isotopos.trollboard.api.Milestone
 import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.service.github.GitHubUtils
@@ -89,6 +90,31 @@ class GitHubRepositoryService implements RepositoryService {
 
     ghLabels.each {
       result << GitHubUtils.fromGitHubLabel(it)
+    }
+
+    result
+  }
+
+  List<Lane> getLanes(String token, String user, String projectId) {
+    def result = []
+
+    def labels = this.getLabels(token, user, projectId)
+
+    labels.each {
+
+      Integer order
+      Label label = it
+      String name = label.name
+      if (name.contains('$')) {
+        def tokens = name.tokenize('$')
+        if (tokens.size() == 2) {
+          if (tokens.get(1).isInteger()) {
+            order = tokens.get(1).toInteger()
+            name = tokens.get(0)
+            labels << new Lane(name: name, order: order, label: label)
+          }
+        }
+      }
     }
 
     result

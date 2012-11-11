@@ -96,4 +96,23 @@ class UserProfileController {
     render((labels ?: [:]) as JSON)
   }
 
+  def projectLanes() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def result = []
+
+    try {
+      result = apiUserProfileService.getLanes(providerId, tokenProvider, organizationId, projectId)
+    } catch (Throwable pedos) {
+      render([problemas: ''] as JSON)
+      return
+    }
+
+
+    render((result ?: [:]) as JSON)
+  }
+
 }

@@ -18,6 +18,9 @@ class UrlMappings {
     "/v1/project/$projectId/milestones"(controller: 'userProfile', action: 'projectMilestones')
 
 
+    "/v1/project/$projectId/lanes"(controller: 'userProfile', action: 'projectLanes')
+
+
     "/v1/organization/$id"(controller: 'userProfile', action: 'projects')
     "/"(view: "/index")
     "500"(view: '/error')
