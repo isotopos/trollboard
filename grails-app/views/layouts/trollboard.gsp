@@ -10,51 +10,50 @@
     <title><g:layoutTitle default="Trollboard"/></title>
     <!-- Bootstrap (responsive, with icons) full css -->
     <!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
-    <link href="app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="/trollboard/app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
     <!-- Guidely css -->
-    <link href="app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
+    <link href="/trollboard/app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
 
     <!-- Mojitoring css -->
-    <link href="app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
+    <link href="/trollboard/app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
     <g:layoutHead/>
     <r:layoutResources/>
   </head>
 
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="./index.html" class="brand">Bootstrap</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active">
-                <a href="./index.html">Home</a>
-              </li>
-              <li class="">
-                <a href="./getting-started.html">Get started</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">Scaffolding</a>
-              </li>
-              <li class="">
-                <a href="./base-css.html">Base CSS</a>
-              </li>
-              <li class="">
-                <a href="./components.html">Components</a>
-              </li>
-              <li class="">
-                <a href="./javascript.html">JavaScript</a>
-              </li>
-              <li class="">
-                <a href="./customize.html">Customize</a>
-              </li>
-            </ul>
+  <body class="irongrip">
+    <div>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a href="#" class="brand">Trollboard</a>
+
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+            <!--/.nav-collapse -->
+            <div class="btn-group pull-right">
+              <a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">
+                <i class="icon-user"></i> Super
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="/">Profile</a></li>
+                <li><a href="/">Settings</a></li>
+                <li><a href="#" class="cookie-delete">Delete Cookies</a></li>
+                <li class="divider"></li>
+                <li><a href="/logout">Logout</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
