@@ -255,10 +255,18 @@
           <div class="well">
             <h3>Terms and Conditions</h3>
             <hr>
-            <p><span class="dropcap">1</span> Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-            <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-            <a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>
-            <div class="modal hide fade" id="myModal">
+            <p><span class="dropcap">1</span> 
+              Hi, is nice to have a great tool to communicate. We're happy of use it and share it, is for this reason that you can enjoy all the current features(and future features) only with your preferred social coding tool.
+            </p>
+            <p>
+              TrollBoard is free(for now), and you can use it as you wish. In fact, would be nice if you can tell us what other things you need to communicate effectively through a visual tool like TrollBoard.
+            </p>
+            <p>
+              Let us help you to improve the way you are working with code.
+            </p>
+            <br/>
+            %{--<a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a> --}%
+            %{--<div class="modal hide fade" id="myModal">
               <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">×</button>
                 <h3>Frequently Asked Questions</h3>
@@ -274,27 +282,38 @@
                 <p>Not directly no. If you want to share the wealth then linking to each resource on Premium Pixels is encouraged and sincerely appreciated. Linking directly to the zip file, or worse, repackaging your own zip file, gets my goat :(</p>
               </div>
               <div class="modal-footer">
-                <a href="#" class="btn btn-red" data-dismiss="modal">Ok, I got it.</a>
+                <a href="https://github.com/isotopos/trollboard" class="btn btn-red" data-dismiss="modal">Ok, I got it.</a>
               </div>
-            </div>
+            </div>--}%
           </div>
         </div>
         <div class="span4">
           <div class="well">
-            <h3>Light Weight Defaults</h3>
+            <h3>Why we do this?</h3>
             <hr>
-            <span class="dropcap">2</span> <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-            <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-            <a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>
+            <span class="dropcap">2</span>
+            <p>
+              We are familiar with some agile and lean methods. Some techniques are useful for us, so, as part of our improvements in the communication process we decide to build a tool able to share our work with all the people involved.
+            </p>
+            <p>
+              Our tools are crucial to manage software development projects, we discover more and more tools through faced problems. But, we have the responsability of communicate what are we doing in a simple and clearly way. We want to eat our own food.
+            </p>
+            <p>
+              <i class="icon-github"></i>
+              <a href="https://github.com/isotopos/trollboard">Find us in Github.com!</a>
+            </p>
+            %{--<a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>--}%
           </div>
         </div>
         <div class="span4">
           <div class="well">
-            <h3>Simple & Flexible Markup</h3>
+            <h3>Who are the guys behind?</h3>
             <hr>
-            <p><span class="dropcap">3</span> Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-            <p>Bootstrap is designed to help people of all skill level—designer or developer, huge nerd or early beginner. Use it as a complete kit or use to start something more complex.</p>
-            <a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>
+            <p>
+              <span class="dropcap">3</span>
+              Developers from differents companies builded this product in 48 hours working together and sharing the same situation: we want better visibility and tracking. From 9 to 11 November 2012, we gathered to attend the Grails48 Hackathon organized by the Groovy and Grails community worldwide. We are in Mexico and we have enjoyed developing this product for our business use.</p>
+            <p>We're part of the mexican community <a href="http://grails.org.mx">GrailsMX</a>, and we share all our experience through the site, drinkups, podcast and videos. You can join us, you always will be welcome.</p>
+            %{--<a class="btn btn-red" data-toggle="modal" href="#myModal" >Launch Modal</a>--}%
           </div>
         </div>
       </div><!--/row-->
