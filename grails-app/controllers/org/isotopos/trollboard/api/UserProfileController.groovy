@@ -29,4 +29,22 @@ class UserProfileController {
     render((projects ?: [:]) as JSON)
   }
 
+  def projectIssues() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+
+    def issues = apiUserProfileService.getIssues(providerId, tokenProvider, projectId)
+    render((issues ?: [:]) as JSON)
+  }
+
+  def issuesByOrganization() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def organizationId = params.organizationId
+
+    def issues = apiUserProfileService.getIssuesByOrganization(providerId, tokenProvider, organizationId)
+    render((issues ?: [:]) as JSON)
+  }
+
 }
