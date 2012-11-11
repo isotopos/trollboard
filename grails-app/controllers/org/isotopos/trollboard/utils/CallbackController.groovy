@@ -1,6 +1,7 @@
 package org.isotopos.trollboard.utils
 
 import grails.converters.JSON
+import org.isotopos.trollboard.Project
 
 class CallbackController {
 
