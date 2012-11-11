@@ -1,44 +1,30 @@
 package org.isotopos.trollboard.utils
 
-import wslite.rest.ContentType
-import wslite.rest.RESTClient
-
 class CallbackController {
 
-  def restClient
+  def grailsApplication
+  def restGithubClient
 
   def index() {
   	params.remove 'controller'
-  	session.user = params
-  	println session.user
+    params << getProviderToken(params)
+    session.user = params
 
-    try{
-      getProviderToken(params)
-    } catch (e){
-      println 'ERROR message:' + e.message
-      e.printStackTrace()
-    }
   	redirect uri: '/app/www'
   }
 
-  def getProviderToken(params) {
+  Map getProviderToken(params) {
+    def config = grailsApplication?.config
 
-    def query = [client_id: '28e0b526536000c59092',
-        state: 'trollboarders',
-        client_secret: '9f094c887723847f42f6816d11d355d5ecfa7b6f',
+    def query = [client_id: config?.client.id,
+        client_secret: config?.client.secret,
+        state: params.state,
         code: params.code]
 
-    println 'Params for github login: ' + query
-    def client = new RESTClient('https://github.com/')
-    client.defaultCharset = "UTF-8"
-    def rest = client.post(path: '/login/oauth/access_token'){
-        type ContentType.JSON
-        json query
+    def resp = restGithubClient.post(path: config?.github.uri.login.oauth){
+      json query
     }
 
-    println 'rest.statusMessage:' +rest.statusMessage
-    println 'rest.access_token:' +rest.response.data
-//    println 'rest.token_type:' +rest.response.token_type
-    println 'response restClient: ' + rest.dump()
+    resp.json
   }
 }
