@@ -48,7 +48,7 @@
             <li class="active"><a class="anchorLink" href="#home">Home</a></li>
             <li><a class="anchorLink" href="#features">Features</a></li>
             <li><a class="anchorLink" href="#services">Services</a></li>
-            <!-- <li><a class="anchorLink" href="#portfolio">Portfolio</a></li> -->
+            <li><a class="anchorLink" href="#showcase">Showcase</a></li>
             <li><a class="anchorLink" href="#about">About</a></li>
             <li><a class="anchorLink" href="#contact">Contact</a></li>
           </ul>
@@ -291,55 +291,15 @@
       </div>
     </section>
   
-    <section id="portfolio">
+    <section id="showcase">
       <div class="row">
         <div class="span12">
-          <h2><em><i class="icon-bookmark"></i> Portfolio with LightBox</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
+          <h2><em><i class="icon-bookmark"></i> Showcase</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
         </div>
       </div>
       <div class="row">
         <div class="span12">
           <ul class="thumbnails">
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #1"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
-                <div class="caption">
-                  <h4>Image Title</h4>
-                  <hr>
-                  <p>Short description for this Portfolio item.</p>
-                </div>
-              </div>
-            </li> 
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #2"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
-                <div class="caption">
-                  <h4>Image Title</h4>
-                  <hr>
-                  <p>Short description for this Portfolio item.</p>
-                </div>
-              </div>
-            </li>            
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #3"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
-                <div class="caption">
-                  <h4>Image Title</h4>
-                  <hr>
-                  <p>Short description for this Portfolio item.</p>
-                </div>
-              </div>
-            </li>             
-            <li class="span3">
-              <div class="thumbnail">
-                <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #4"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
-                <div class="caption">
-                  <h4>Image Title</h4>
-                  <hr>
-                  <p>Short description for this Portfolio item.</p>
-                </div>
-              </div>
-            </li>  
             <li class="span3">
               <div class="thumbnail">
                 <a class="fancybox" rel="group" href="assets/portfolio-large-1.png" title="Portfolio Item #5"><img src="assets/portfolio-thumbnail-1.png" alt=""></a>
