@@ -7,8 +7,7 @@ class CallbackController {
 
   def grailsApplication
   def restGithubClient
-  def commitService
-  def gitHubIssuesService
+  def gitHubCallbackService
 
   def index() {
   	params.remove 'controller'
@@ -34,36 +33,10 @@ class CallbackController {
   }
 
   def receive(){
-    println params
+    def providerId = params?.providerId ?: "github"
+    def tokenProvider = params?.providerToken
     def payload = JSON.parse(params?.payload)
-    println "\n\n\n"
-    println payload
-    //def providerId = params?.providerId
-    def providerId = "github"
-    println "REPO: " + payload.repository.name
-    Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
-    if(project){
-      payload?.commits?.each{ commit ->
-        def actions = commitService.receiveAndProcessMessage(commit.message)
-        println actions
-        actions.each{ action ->
-          println action
-          action.each { k,v ->
-            println "$k : $v"
-            v.each { issueNumber ->
-              println "Set the label $k to $issueNumber"
-              gitHubIssuesService.addLabelToIssue(
-                project?.token,
-                payload?.repository?.owner?.name,
-                payload?.repository?.name,
-                issueNumber.replace("#","").trim(),k)
-            }
-          }
-        }
-      }
-      render project as JSON
-    }
-    else 
-      render [:] as JSON
+    def project = gitHubCallbackService.processPayload(tokenProvider,providerId,payload)
+    render((project ?: [:]) as JSON)
   }
 }

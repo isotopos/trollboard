@@ -10,6 +10,7 @@ define([
 
   config.profile = 'http://localhost/trollboard/v1/user?providerId=github&providerToken='
   config.project = 'http://localhost/trollboard/v1/user/projects?providerId=github&providerToken='
+  config.organization = 'http://localhost/trollboard/v1/user/organizations?providerId=github&providerToken='
 
   return config;
 });
