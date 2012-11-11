@@ -19,7 +19,7 @@
 	</head>
 	<body>
     <div class="container-narrow">
-
+<!-- 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="#">Home</a></li>
@@ -28,19 +28,20 @@
         </ul>
         <h3 class="muted">Trollboard</h3>
       </div>
+-->
 
       <hr>
 
       <div class="jumbotron">
-        <h1>Welcome to Trollboard!!!!</h1>
-        <p class="lead">Trello('GitHub Issues') = Trollboard</p>
+        <h1>Welcome to TrollBoard</h1>
+        <p class="lead">Kanban like board + your favorite Social coding tool = TrollBoard</p>
         <a href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist" class="btn btn-large btn-success">
           %{--<img height="30" src="https://a248.e.akamai.net/assets.github.com/images/modules/header/logov7@4x-hover.png?1337118066" class="github-logo-4x-hover" alt="GitHub">--}%
-          Sign in with Github
+          Sign in with GitHub
         </a>
         <a href="#" class="btn btn-large btn-success disabled">
-          %{--<span class="bitbucket-logo">Sig In with BitBucket</span>--}%
-          Sig In with BitBucket
+          %{--<span class="bitbucket-logo">Sig In with Bitbucket</span>--}%
+          Sig In with Bitbucket
         </a>
       </div>
 
