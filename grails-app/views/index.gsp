@@ -14,16 +14,6 @@
     padding-top: 60px;
     padding-bottom: 40px;
   }
-  .btn-github {
-    border-color: #D4D4D4;
-    background: #ECECEC;
-    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F4F4F4), to(#ECECEC));
-    background-image: -webkit-linear-gradient(#F4F4F4, #ECECEC);
-    background-image: -moz-linear-gradient(#F4F4F4, #ECECEC);
-    background-image: -ms-linear-gradient(#F4F4F4, #ECECEC);
-    background-image: -o-linear-gradient(#F4F4F4, #ECECEC);
-    background-image: linear-gradient(#F4F4F4, #ECECEC);
-  }
   </style>
   <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
   <link rel="stylesheet" href="css/animate.css">
@@ -147,7 +137,7 @@
     <div class="strip">
       <div class="row">
         <div class="span12">
-          <a class="btn btn-red btn-large" href="#">Sign in with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
+          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Sign in with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
           <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Sig In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
           <span class="call-to-action">Download a free sample of our great catalogue and portfolio now!</span>
           <p>*Don't worry, we have 7 years in the market, we know our stuff.</p>
