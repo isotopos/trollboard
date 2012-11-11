@@ -7,10 +7,10 @@ import org.eclipse.egit.github.core.client.GitHubClient
 import org.eclipse.egit.github.core.service.LabelService
 import org.eclipse.egit.github.core.service.MilestoneService
 import org.eclipse.egit.github.core.service.UserService
+import org.isotopos.trollboard.Project
 import org.isotopos.trollboard.api.Label
 import org.isotopos.trollboard.api.Lane
 import org.isotopos.trollboard.api.Milestone
-import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.service.github.GitHubUtils
 
 class GitHubRepositoryService implements RepositoryService {
@@ -141,24 +141,25 @@ class GitHubRepositoryService implements RepositoryService {
     repositoryHook.createdAt = new Date()
     repositoryHook.name = "web"
     repositoryHook.updatedAt = new Date()
-    repositoryHook.url = grailsLinkGenerator.resource(controller: 'callback', action: 'receive')
+    repositoryHook.url = grailsLinkGenerator.link(controller: 'callback', action: 'receive')
     repositoryHook.config = [
-      url: grailsLinkGenerator.resource(controller: 'callback', action: 'receive', absolute: true),
+      url: grailsLinkGenerator.link(controller: 'callback', action: 'receive', absolute: true),
       content_type: 'json'
     ]
 
     repositoryService.createHook(repositoryId, repositoryHook)
 
-    /*try {
-      org.isotopos.trollboard.Project project =
-
-      project.providerId = 'github'
+    Project project = Project.findByProviderIdAndProjectId('github', projectId)
+    if (!project) {
+      project = new Project()
       project.projectId = projectId
-      project.token = token
+      project.providerId = 'github'
+    }
 
-    } catch (Throwable pedos) {
+    project.token = token
 
-    }*/
+    project.save(flush: true)
+
   }
 
   List<Project> getProjects(String token) {
