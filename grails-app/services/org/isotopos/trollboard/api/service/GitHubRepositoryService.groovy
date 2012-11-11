@@ -3,11 +3,12 @@ package org.isotopos.trollboard.api.service
 import org.eclipse.egit.github.core.RepositoryId
 import org.eclipse.egit.github.core.client.GitHubClient
 import org.eclipse.egit.github.core.service.LabelService
+import org.eclipse.egit.github.core.service.MilestoneService
 import org.eclipse.egit.github.core.service.UserService
+import org.isotopos.trollboard.api.Label
+import org.isotopos.trollboard.api.Milestone
 import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.service.github.GitHubUtils
-import org.isotopos.trollboard.api.Milestone
-import org.eclipse.egit.github.core.service.MilestoneService
 
 class GitHubRepositoryService implements RepositoryService {
   def defaultLabels = [
@@ -63,6 +64,29 @@ class GitHubRepositoryService implements RepositoryService {
 
     ghmilestones.each {
       result << GitHubUtils.fromGitHubMilestone(it)
+    }
+
+    result
+  }
+
+  List<Label> getLabels(String token, String user, String projectId) {
+    def result = []
+
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    LabelService labelService = new LabelService(client)
+
+    UserService userService = new UserService(client)
+    if (!user) {
+      user = userService.getUser().login
+    }
+    RepositoryId repositoryId = new RepositoryId(user, projectId)
+
+    def ghLabels = labelService.getLabels(repositoryId)
+
+    ghLabels.each {
+      result << GitHubUtils.fromGitHubLabel(it)
     }
 
     result
