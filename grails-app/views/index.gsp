@@ -120,8 +120,8 @@
                   </div>
                   <div class="span4 animated rotateInUpLeft">
                     <h2>Pitch video</h2>
-                    <p>Learn more, .</p>
-                    <p>Every video will fit any screen width, inlcuding, desktop computers, tablets, smartphones and other devices.</p>
+                    <p>Learn more about the motivations behind TrollBoard.</p>
+                    <p>Know the hard core developers who made possible this project in only 48 hours.</p>
                     <a class="btn btn-info" href="#">Mobile ready!</a>
                   </div>
                 </div><!--/row-->
