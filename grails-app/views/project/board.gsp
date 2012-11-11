@@ -8,7 +8,7 @@
     <script type="text/javascript">
       $(function () {
         //$('.chzn-select').chosen();
-        $('#milestone-selector').change(function() {
+        $('#milestone-selector').change(function () {
           var $milestonSelector = $(this);
           var milestone = $milestonSelector.val();
           if (milestone != 'null') {
@@ -28,7 +28,8 @@
       <div id="wTopmenu">
         <!-- User button -->
         <div id="wUserButton" class="clearfix" style="top: 45px;">
-          <g:select name="milestone-selector" from="${milestones}" optionKey="number" optionValue="title" noSelection="['null': 'Filter by Milestone']"
+          <g:select name="milestone-selector" from="${milestones}" optionKey="number" optionValue="title"
+                    noSelection="['null': 'Filter by Milestone']"
                     data-placeholder="Filter by Milestone" class="chzn-select"/>
         </div>
 
@@ -87,8 +88,15 @@
                     </div>
 
                     <div style="padding: 16px;" class="mojitoPanelContent">
-                      <a href="${issue.htmlUrl}" target="_blank"><strong>#${issue.number}</strong>
-                      </a> <span>${issue.title}</span>
+                      <span>
+                        <a href="${issue.htmlUrl}" target="_blank"><strong>#${issue.number}</strong>
+                        </a> <strong>${issue.title}</strong>
+                      </span>
+
+                      <div style="margin-top:5px;font-size:12px;">${issue.body}</div>
+                      <div style="margin-top:5px;text-align: right">
+                        <img height="24" width="24" src="${issue.user.avatar}" alt="${issue.user.username}" title="${issue.user.username}"/>
+                      </div>
                     </div>
                   </div>
 
