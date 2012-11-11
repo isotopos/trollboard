@@ -157,7 +157,7 @@
       <div class="row">   
         <div class="span4 feature">
           <h3>Same tools</h3>
-          <img src="assets/feature-html5.png" width="50" height="50" class="thumb" alt="thumb">
+          <img src="assets/octoBit.png" width="50" height="50" class="thumb" alt="thumb">
           <p>Keep using the tools you love, no registration required, full integration with GitHub and Bitbucket coming soon.</p>
         </div>
         <div class="span4 feature">
