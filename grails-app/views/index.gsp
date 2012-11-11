@@ -32,12 +32,12 @@
     <div class="navbar-inner">
       <div class="container">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">Menu</a>
-        <a class="brand" href="#">TrollBoard</a>
+        
         <div id="primary-nav" class="nav-collapse">
           <ul class="nav">
             <li class="active"><a class="anchorLink" href="#home">Home</a></li>
             <li><a class="anchorLink" href="#features">Features</a></li>
-            <li><a class="anchorLink" href="#services">Services</a></li>
+            <!-- <li><a class="anchorLink" href="#services">Services</a></li> -->
             <li><a class="anchorLink" href="#showcase">Showcase</a></li>
             <li><a class="anchorLink" href="#about">About</a></li>
             <li><a class="anchorLink" href="#contact">Contact</a></li>
@@ -51,15 +51,15 @@
     <div class="container">
       <div class="row">
         <div class="span12 headline">
-          <h1>All solutions start at one place</h1>
-          <i class="description">And this is that place. So, let's get started right away</i>
+          <h1>This is TrollBoard</h1>
+          <i class="description">Kanban like board + your favorite social coding tool</i>
         </div><!--/span12-->
       </div><!--/row-->
       <div class="row animated fadeInUp">
         <div class="span12">
           <div id="myCarousel" class="carousel slide">
             <div class="carousel-inner">
-              <!--slide-->
+              <!--slide
               <div class="active item">
                 <div class="row">
                   <div class="span6">
@@ -73,8 +73,8 @@
                     <a class="btn btn-red" href="#">Awesome!</a>
                   </div>
                 </div>
-              </div>
-              <!--slide-->
+              </div> -->
+              <!--slide
               <div class="item">
                 <div class="row">
                   <div class="span6 animated rotateInDownLeft">
@@ -88,9 +88,9 @@
                     <a class="btn btn-red" href="#">Want to start now?</a>
                   </div>
                 </div>
-              </div>
+              </div> -->
               <!--slide-->
-              <div class="item">
+              <div class="active item">
                 <div class="row">
                   <div class="span6 animated fadeInUpBig">
                     <img src="assets/slide-half-3.png" alt=""/>
@@ -186,101 +186,7 @@
         </div>
       </div><!--/row-->
     </section>
-    
-    <section id="services">
-      <div class="row">
-        <div class="span12">
-        <h2><em><i class="icon-bookmark"></i> Products & Services</em> <a class="up anchorLink" href="#home"><i class="icon-chevron-up"></i></a></h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span4">
-          <img class="framed" src="assets/product-1.png" alt=""/>
-          <br/>
-        </div>
-        <div class="span5">
-          <h4>Product Overview</h4>
-          <p>HD movies and TV shows from iTunes. The entire Netflix streaming catalog. The latest hit shows from Hulu Plus. Live baseball, basketball, and hockey games. Apple TV makes you the master of <a href="#" rel="tooltip" title="fancy tooltip">your own media empire</a>.</p>
-          <p>Get to know the latest features available now. Don't forget to checke out our website on a regular basis:</p>
-          <ul>
-            <li><a href="#" rel="tooltip" title="fancy tooltip">Mobile ready</a></li>
-            <li><a href="#" rel="tooltip" title="fancy tooltip">Customizable</a></li>
-            <li><a href="#" rel="tooltip" title="fancy tooltip">Great customer support</a></li>
-            <li><a href="#" rel="tooltip" title="fancy tooltip">dropcapproof design</a></li>
-          </ul>
-        </div>
-        <div class="span3">
-          <div class="well">
-            <strong>Item Details</strong>
-            <hr>
-            <p><i class="icon-tag"></i> That’s perfect for spontaneous movie nights (or afternoons or mornings). Search by top movies, title, or genre. Can’t decide? Read reviews, watch trailers, and check out Rotten Tomatoes ratings.</p>
-          </div>
-        </div>
-      </div>
-      <br/>
-      <div class="row">
-        <div class="span4">
-          <img class="framed" src="assets/product-2.png" alt=""/>
-          <br/>
-        </div>
-        <div class="span5">
-          <h4>Second Product Overview</h4>
-          <p>Make any time prime time. Buy your favorite TV shows and watch them — without commercials — whenever you like. <a href="#"  rel="tooltip" title="fancy tooltip">Watch a show the day after it airs</a>, or camp out on your couch and catch up on past seasons with a marathon of back-to-back-to-back episodes. Apple TV keeps track of your favorite shows, so the next time you turn on your TV, you can quickly see which season you’re watching and which episodes are new. Just choose shows with a few clicks of the Apple Remote.</p>
-          <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. Bootstrap is built for you.</p>
-        </div>
-        <div class="span3">
-          <div class="well">
-            <strong>Item Details</strong>
-            <hr>
-            <p><i class="icon-tag"></i> That’s perfect for spontaneous movie nights (or afternoons or mornings). <a href="#" rel="tooltip" title="fancy tooltip">Search by top movie</a> title, or genre. Can’t decide? Read reviews, watch trailers, and check out Rotten Tomatoes ratings.</p>
-          </div>
-        </div>
-      </div>
-      <br/>
-      <div class="row">
-        <div class="span4">
-          <img class="framed" src="assets/product-3.png" alt=""/>
-          <br/>
-        </div>
-        <div class="span5">
-          <h4>Third Product Overview</h4>
-          <p>Make any time prime time. Buy your favorite TV shows and watch them — without commercials — whenever you like. Watch a show the day after it airs, or camp out on your couch and catch.</p>
-          <hr>
-          <blockquote>
-            <p>Best service I've ever experienced. Thank you very much for your time.</p>
-            <small>Lucida Console</small>
-          </blockquote>
-          <hr>
-        </div>
-        <div class="span3">
-          <div class="well">
-            <strong>Item Details</strong>
-            <hr>
-            <p><i class="icon-tag"></i> That’s perfect for spontaneous movie nights (or afternoons or mornings). Search by top movies, title, or genre. Can’t decide? Read reviews, watch trailers, and check out Rotten Tomatoes ratings.</p>
-          </div>
-        </div>
-      </div>
-      <br/>
-      <div class="row">
-        <div class="span4">
-          <img class="framed" src="assets/product-4.png" alt=""/>
-          <br/>
-        </div>
-        <div class="span5">
-          <h4>Fourth Product Overview</h4>
-          <p>Make any time prime time. Buy your favorite TV shows and watch them — without commercials — whenever you like. Watch a show the day after it airs, or camp out on your couch and catch.</p>
-          <p>Like you, we love building awesome products on the web. We love it so much, we decided to help people just like us do it easier, better, and faster. <a href="#" rel="tooltip" title="fancy tooltip">Bootstrap</a> is built for you.</p>
-        </div>
-        <div class="span3">
-          <div class="well">
-            <strong>Item Details</strong>
-            <hr>
-            <p><i class="icon-tag"></i> That’s perfect for spontaneous movie nights (or afternoons or mornings). Search by top movies, title, or genre. Can’t decide? Read reviews, watch trailers, and check out Rotten Tomatoes ratings.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  
+
     <section id="showcase">
       <div class="row">
         <div class="span12">
