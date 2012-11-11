@@ -22,7 +22,7 @@
   </head>
 
   <body class="irongrip">
-    <div id="wrap">
+    <div>
       <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
