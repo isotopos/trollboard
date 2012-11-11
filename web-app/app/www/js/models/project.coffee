@@ -4,7 +4,7 @@ define [
 ], (config, Model) ->
   'use strict'
 
-  class Profile extends Model
+  class Project extends Model
 
     initialize: (attributes, options)->
       super

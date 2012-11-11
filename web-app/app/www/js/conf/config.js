@@ -8,7 +8,8 @@ define([
 
   config.urlVerifySession = 'http://localhost/trollboard/session';
 
-  config.githubProfile = 'http://localhost/trollboard/v1/user?providerId=github&providerToken='
+  config.profile = 'http://localhost/trollboard/v1/user?providerId=github&providerToken='
+  config.project = 'http://localhost/trollboard/v1/user/projects?providerId=github&providerToken='
 
   return config;
 });
