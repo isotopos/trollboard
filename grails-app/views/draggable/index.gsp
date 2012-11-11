@@ -10,6 +10,17 @@
   body{
     padding-top: 50px;
   }
+  ul.connectedSortable {
+    margin: 0px;
+    border: 0px;
+    padding: 0px;
+  }
+  .no-style{
+    list-style: none;
+    padding-bottom: 70px;
+    border: 0px;
+  }
+
   </style>
 </head>
 
@@ -36,7 +47,7 @@
 
           <ul id="ui-draggable1" class="connectedSortable">
           <!-- widget content -->
-          <li>
+          <li class="no-style">
           <div class="issue mojitoPanel mojitoPanel-dark span12" >
             <span class="inlineMarker hide">marker for the inline version</span>
 
@@ -50,7 +61,7 @@
           </div>
           </li>
           <!-- widget content -->
-          <li>
+          <li class="no-style">
           <div class="issue mojitoPanel mojitoPanel-dark span12" >
             <span class="inlineMarker hide">marker for the inline version</span>
 
@@ -64,7 +75,7 @@
           </div>
           </li>
           <!-- widget content -->
-          <li>
+          <li class="no-style">
           <div class="issue mojitoPanel mojitoPanel-dark span12" >
             <span class="inlineMarker hide">marker for the inline version</span>
 
@@ -103,7 +114,7 @@
           
           <ul id="ui-draggable2" class="connectedSortable">
           <!-- widget content -->
-          <li>
+          <li class="no-style">
           <div class="issue mojitoPanel mojitoPanel-dark span12" >
             <span class="inlineMarker hide">marker for the inline version</span>
 
@@ -117,7 +128,7 @@
           </div>
           </li>
           <!-- widget content -->
-          <li>
+          <li class="no-style">
           <div class="issue mojitoPanel mojitoPanel-dark span12" >
             <span class="inlineMarker hide">marker for the inline version</span>
 
@@ -131,7 +142,7 @@
           </div>
           </li>
           <!-- widget content -->
-          <li>
+          <li class="no-style">
           <div class="issue mojitoPanel mojitoPanel-dark span12" >
             <span class="inlineMarker hide">marker for the inline version</span>
 
@@ -158,6 +169,13 @@
         connectWith: ".connectedSortable"
       });
       $( "#ui-draggable1,#ui-draggable2" ).disableSelection();
+      $(".connectedSortable").droppable({
+        drop:function(event, ui){
+          console.log(this);
+          console.log(event);
+          console.log(ui);
+        }
+      });
     });
     </script>
   </body>
