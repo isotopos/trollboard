@@ -9,6 +9,7 @@
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
     <script type="text/javascript">
       $(function () {
+        var organizationId = '${params.organization}';
         //$('.chzn-select').chosen();
         $('#milestone-selector').change(function () {
           var $milestonSelector = $(this);
@@ -30,12 +31,13 @@
           drop:function (event, ui) {
             var laneId = $(this).closest('div.lane').find('.lane-id').text();
             var issueId = ui.draggable.find('.issue-id').text();
+            var data = {providerToken:TrollBoard.providerToken, providerId:'github'};
+            if (organizationId && organizationId != '') data.organizationId = organizationId;
             $.ajax({
               url:(TrollBoard.appCtx + '/v1/project/' + TrollBoard.projectId + '/issue/' + issueId + '/lane/' + laneId).replace('//', '/'),
-              data:{providerToken:TrollBoard.providerToken, providerId:'github', organizationId: TrollBoard.ownerId},
+              data: data,
               context:this,
               dataType:'json',
-              type: 'POST',
               error:function () {
                 console.log('Ups... :(');
               }
@@ -95,8 +97,9 @@
 
       <div id="core" style="margin-top: -90px;">
         <a href="#" class="btn btn-danger" id="wTakeaTour" style="top: 40px;">${name}</a>
+        <a href="https://github.com/${session.trollboardProfile.ownerId}/${name}/issues/new" class="btn btn-danger" target="_blank" style="top: 40px;">New issue</a>
 
-        <div class="row-fluid">
+        <div class="row-fluid" style="overflow-x:auto;overflow-y:hidden;">
           <g:each in="${lanes}" var="lane">
             <div class="wServerStatus mojitoPanel span2"
                  id="wServerStatus1">
@@ -121,7 +124,7 @@
                     <g:set var="milestoneClass"
                            value="${issue.milestone ? ' milestone-' + issue.milestone.number : ''}"/>
                     <li class="no-style">
-                      <div class="issue-id" style="display: none;">${issue.id}</div>
+                      <div class="issue-id" style="display: none;">${issue.number}</div>
 
                       <div style="position: relative;margin-left: 0px;"
                            class="issue mojitoPanel mojitoPanel-dark span12${milestoneClass}">

@@ -20,7 +20,6 @@ class StartController {
     def organizations = apiUserProfileService.getTeams(providerId, accessToken)
 
     session.trollboardProfile.ownerId = profile.username
-//    println "PROFILE USER: $profile.username"
 
     [profile: profile, projects: projects, organizations: organizations]
   }
