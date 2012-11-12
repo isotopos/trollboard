@@ -38,7 +38,6 @@
               data: data,
               context:this,
               dataType:'json',
-              type: 'POST',
               error:function () {
                 console.log('Ups... :(');
               }
@@ -99,7 +98,7 @@
       <div id="core" style="margin-top: -90px;">
         <a href="#" class="btn btn-danger" id="wTakeaTour" style="top: 40px;">${name}</a>
 
-        <div class="row-fluid">
+        <div class="row-fluid" style="overflow-x:auto;overflow-y:hidden;">
           <g:each in="${lanes}" var="lane">
             <div class="wServerStatus mojitoPanel span2"
                  id="wServerStatus1">
