@@ -81,10 +81,14 @@ class ApiUserProfileService {
   }
 
   void makeLiveProject(String providerId, String tokenProvider, String organizationId, String projectId) {
-
     if (providerId == 'github') {
-      //Project p = new Project()
       gitHubRepositoryService.createHook(tokenProvider, organizationId, projectId)
+    }
+  }
+
+  void changeIssueLane(String providerId, String tokenProvider, String organizationId, String projectId, String issueId, String laneId) {
+    if (providerId == 'github') {
+      gitHubIssuesService.addLabelToIssue(tokenProvider, organizationId, projectId, issueId, laneId)
     }
   }
 }
