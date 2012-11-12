@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta content="trollboard" name="layout">
-  <link href="/trollboard/app/www/css/profile.css" rel="stylesheet" type="text/css"/>
+  <link href="/app/www/css/profile.css" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap-collapse.min.js')}"></script>
 </head>
 
