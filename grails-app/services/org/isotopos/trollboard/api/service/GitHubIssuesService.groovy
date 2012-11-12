@@ -104,23 +104,11 @@ class GitHubIssuesService implements IssuesService {
     }
 
     def labelsInRepo = labelService.getLabels(repositoryId)
-    println "label in repo ${labelsInRepo}"
-
     def labelsFromIssue = issue.labels
-    println "label in issue ${labelsFromIssue}"
-
     def labelsWithNoPrice = labelsFromIssue*.name.findAll { labelName -> !labelName.contains("\$") }
-
-    println "labelsWithNoPrice ${labelsWithNoPrice}"
-
     def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith((label+'\$').toUpperCase()) }
-
-    println "labelToAdd ${labelToAdd}"
-
     def newLabels = labelsWithNoPrice + labelToAdd
 
-    println "newLabel ${newLabels}"
-
-    labelService.setLabels(owner, repoId,issueId, newLabels)
+    labelService.setLabels(repositoryId, issueId, newLabels)
   }
 }
