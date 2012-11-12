@@ -16,8 +16,19 @@ class StartController {
     def accessToken = trollboardProfile.access_token
 
     def profile = apiUserProfileService.getUserProfile(providerId, accessToken)
-    def projects = apiUserProfileService.getProjects(providerId, accessToken)
-    def organizations = apiUserProfileService.getTeams(providerId, accessToken)
+
+    def projects
+    try{
+      projects = apiUserProfileService.getProjects(providerId, accessToken)
+    }catch (e){
+      log.error("ERROR get projects", e)
+    }
+    def organizations
+    try{
+      organizations= apiUserProfileService.getTeams(providerId, accessToken)
+    }catch (e){
+      log.error("ERROR get organizations", e)
+    }
 
     session.trollboardProfile.ownerId = profile.username
 

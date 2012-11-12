@@ -65,6 +65,7 @@
       <caption class="bottom-separator2"><h4>My projects:</h4></caption>
 
       <tbody>
+        <g:if test="${projects}">
         <g:each in="${projects}" var="p">
           <tr>
             <td>
@@ -84,16 +85,19 @@
             </td>
           </tr>
         </g:each>
+        </g:if>
       </tbody>
     </table>
     </div>
     </g:if>
+
 
     <div class="well">
       <table class="table table-bordered">
         <caption class="bottom-separator2"><h4>My organizations:</h4></caption>
 
         <tbody>
+        <g:if test="${organizations}">
           <g:each in="${organizations}" var="o" status="sto">
             <tr>
               <td>
@@ -129,6 +133,7 @@
               </td>
             </tr>
           </g:each>
+          </g:if>
         </tbody>
       </table>
     </div>
