@@ -11,32 +11,44 @@ class ProjectController {
   def apiUserProfileService
 
   def board() {
-    def organizationId = params.organization
-    def projectId = params.project
+    def trollboardProfile = session.trollboardProfile
 
-    def project = Project.findByProjectIdAndToken(projectId, session.trollboardProfile.access_token)
-    def lanes = projectLanes(projectId, organizationId)
-    def issues = projectIssues(projectId)
-    def lanesIssues = [] as Set
-    def model = [:]
-    model.lanes = lanes.collect { Lane lane ->
-      def laneIssues = issues.findAll { Issue issue ->
-        issue.labels*.name.contains(lane.label.name)
-      }.sort { Issue issue -> issue.number }
-      lanesIssues.addAll(laneIssues)
-      [lane: lane, issues: laneIssues]
+    if (!trollboardProfile) {
+      redirect uri: '/'
+      return
     }
-    if (model.lanes) {
-      def defaultLane = model.lanes.first()
-      defaultLane.issues.addAll(issues - lanesIssues)
-      defaultLane.issues.sort { Issue issue -> issue.number }
+
+    try {
+      def organizationId = params.organization
+      def projectId = params.project
+
+      def project = Project.findByProjectIdAndToken(projectId, trollboardProfile.access_token)
+      def lanes = projectLanes(projectId, organizationId)
+      def issues = projectIssues(projectId)
+      def lanesIssues = [] as Set
+      def model = [:]
+      model.lanes = lanes.collect { Lane lane ->
+        def laneIssues = issues.findAll { Issue issue ->
+          issue.labels*.name.contains(lane.label.name)
+        }.sort { Issue issue -> issue.number }
+        lanesIssues.addAll(laneIssues)
+        [lane: lane, issues: laneIssues]
+      }
+      if (model.lanes) {
+        def defaultLane = model.lanes.first()
+        defaultLane.issues.addAll(issues - lanesIssues)
+        defaultLane.issues.sort { Issue issue -> issue.number }
+      }
+      model.milestones = projectMilestones(projectId, organizationId).sort { Milestone milestone -> milestone.dueOn }
+      model.name = projectId
+      model.project = project
+      model.projectId = projectId
+      model.view = 'board'
+      model
+    }catch (e) {
+      flash.error =  e.message
+      redirect controller: 'start', action: 'profile'
     }
-    model.milestones = projectMilestones(projectId, organizationId).sort { Milestone milestone -> milestone.dueOn }
-    model.name = projectId
-    model.project = project
-    model.projectId = projectId
-    model.view = 'board'
-    model
   }
 
   def createAsync() {
@@ -45,7 +57,7 @@ class ProjectController {
     render project as JSON
   }
 
-  private List projectLanes(def projectId, def organizationId) {
+  private List projectLanes(def projectId, def organizationId) throws Exception  {
     def trollboardProfile = session.trollboardProfile
     def providerId = trollboardProfile.provider_id
     def tokenProvider = trollboardProfile.access_token
@@ -58,7 +70,7 @@ class ProjectController {
     lanes.sort { Lane lane -> lane.order }
   }
 
-  private List projectIssues(def projectId) {
+  private List projectIssues(def projectId) throws Exception  {
     def trollboardProfile = session.trollboardProfile
     def providerId = trollboardProfile.provider_id
     def tokenProvider = trollboardProfile.access_token
@@ -66,7 +78,7 @@ class ProjectController {
     apiUserProfileService.getIssues(providerId, tokenProvider, projectId)
   }
 
-  private List projectMilestones(def projectId, def organizationId) {
+  private List projectMilestones(def projectId, def organizationId) throws Exception  {
     def trollboardProfile = session.trollboardProfile
     def providerId = trollboardProfile.provider_id
     def tokenProvider = trollboardProfile.access_token

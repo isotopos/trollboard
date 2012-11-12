@@ -10,7 +10,7 @@ import org.eclipse.egit.github.core.RepositoryId
 class GitHubIssuesService implements IssuesService {
   def gitHubOrganizationService
 
-  List<Issue> getIssuesByOrganization(String token, String organizationId) {
+  List<Issue> getIssuesByOrganization(String token, String organizationId) throws Exception  {
     def issues = []
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
@@ -34,7 +34,7 @@ class GitHubIssuesService implements IssuesService {
     issues
   }
 
-  List<Issue> getIssues(String token, String projectId) {
+  List<Issue> getIssues(String token, String projectId) throws Exception  {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
@@ -52,7 +52,7 @@ class GitHubIssuesService implements IssuesService {
     issues
   }
 
-  void addLabelToIssue(String token, String owner, String repoId, String issueId, String label){
+  void addLabelToIssue(String token, String owner, String repoId, String issueId, String label) throws Exception {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 

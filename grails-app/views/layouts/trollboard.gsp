@@ -57,6 +57,12 @@
         </div>
       </div>
 
+      <g:if test="${flash.error}">
+        <div class="alert alert-error center top-separator6">
+          <h6>ERROR: ${flash.error}</h6>
+        </div>
+      </g:if>
+
       %{--<div class="container">--}%
       <g:layoutBody/>
       %{--</div>--}%
