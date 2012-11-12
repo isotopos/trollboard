@@ -117,7 +117,7 @@
               </div>
 
               <div class="mojitoPanelContent lane">
-                <div class="lane-id" style="display: none;">${lane.lane.label.name}</div>
+                <div class="lane-id" style="display: none;">${lane.lane.name}</div>
                 <ul class="sortable">
                   <g:each in="${lane.issues}" var="issue">
                     <!-- widget content -->
