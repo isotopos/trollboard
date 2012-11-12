@@ -65,7 +65,8 @@
       <script type="text/javascript">
         var TrollBoard = { appCtx: '${request.contextPath}',
           projectId: '${params.project}',
-          providerToken: '${session.trollboardProfile?.access_token}'
+          providerToken: '${session.trollboardProfile?.access_token}',
+          ownerId: '${session.trollboardProfile.ownerId}'
         };
       </script>
       <g:javascript library="application"/>

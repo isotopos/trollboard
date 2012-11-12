@@ -19,6 +19,8 @@ class StartController {
     def projects = apiUserProfileService.getProjects(providerId, accessToken)
     def organizations = apiUserProfileService.getTeams(providerId, accessToken)
 
+    trollboardProfile.ownerId = profile.name
+
     [profile: profile, projects: projects, organizations: organizations]
   }
 }
