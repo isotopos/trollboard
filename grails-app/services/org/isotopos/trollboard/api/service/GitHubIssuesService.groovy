@@ -60,7 +60,12 @@ class GitHubIssuesService implements IssuesService {
     org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
 
     //def issue = issueService.getIssue(owner,repoId,issueId)
-    def issue = issueService.getIssue(owner,repoId,issueId)
+    def issue
+    try {
+      issue = issueService.getIssue(owner,repoId,issueId)
+    } catch(Throwable pedosEnElissue) {
+      throw new RuntimeException("Can't get the issue ${issueId} from owner ${owner} and repo ${repoId}", pedosEnElissue)
+    }
 
     //def labelsInRepo = labelService.getLabels(owner, repoId)
     def labelsInRepo = labelService.getLabels(owner, repoId)
@@ -69,10 +74,41 @@ class GitHubIssuesService implements IssuesService {
 
     def labelsWithNoPrice = labelsFromIssue*.name.findAll { labelName -> !labelName.contains("\$") }
 
-    def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith(label+'\$') }
+    def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith((label+'\$').toUpperCase()) }
 
     def newLabels = labelsWithNoPrice + labelToAdd
 
     labelService.setLabels(owner, repoId,issueId, newLabels)
+  }
+
+
+  void addLabelToIssue2(String token, String owner, String repoId, String issueId, String label) throws Exception {
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+    org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
+
+    UserService userService = new UserService(client)
+    if (!owner) {
+      owner = userService.getUser().login
+    }
+
+    RepositoryId repositoryId = new RepositoryId(owner, repoId)
+
+    def issue
+    try {
+      issue = issueService.getIssue(repositoryId,issueId)
+    } catch(Throwable pedosEnElissue) {
+      throw new RuntimeException("Can't get the issue ${issueId} from owner ${owner} and repo ${repoId}", pedosEnElissue)
+    }
+
+    def labelsInRepo = labelService.getLabels(repositoryId)
+    def labelsFromIssue = issue.labels
+    def labelsWithNoPrice = labelsFromIssue*.name.findAll { labelName -> !labelName.contains("\$") }
+    def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith((label+'\$').toUpperCase()) }
+    def newLabels = labelsWithNoPrice + labelToAdd
+
+    labelService.setLabels(repositoryId, issueId, newLabels)
   }
 }
