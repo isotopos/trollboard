@@ -44,6 +44,7 @@ class ProjectController {
       model.project = project
       model.projectId = projectId
       model.view = 'board'
+      model.ownerId = organizationId ?: session.trollboardProfile.ownerId
       model
     }catch (e) {
       flash.error =  e.message
