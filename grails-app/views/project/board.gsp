@@ -37,7 +37,7 @@
               dataType:'json',
               type: 'POST',
               error:function () {
-                alert('Ups... :(');
+                console.log('Ups... :(');
               }
             });
           }
