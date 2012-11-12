@@ -33,6 +33,22 @@
             console.log(ui);
           }
         });
+        $('#commit-integration-btn').click(function() {
+         var response = confirm('Enabling commit integration allows TrollBoard to automatically track your commits. Would you like to allow it?');
+          if (response) {
+            $.ajax({
+              url:(TrollBoard.appCtx + '/v1/project/' + TrollBoard.projectId + '/live').replace('//', '/'),
+              data: {providerToken: TrollBoard.providerToken, providerId: 'github'},
+              context: this,
+              dataType:'json',
+              success: function() {
+                $(this).hide();
+              }
+            });
+          } else {
+            console.log(':(');
+          }
+        });
       });
     </script>
     <style type="text/css">

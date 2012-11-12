@@ -10,7 +10,8 @@
     <title><g:layoutTitle default="Trollboard"/></title>
     <!-- Bootstrap (responsive, with icons) full css -->
     <!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
-    <link href="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/css', file: 'bootstrap-combined.min.css')}" rel="stylesheet">
+    <link href="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/css', file: 'bootstrap-combined.min.css')}"
+          rel="stylesheet">
 
     <!-- Guidely css -->
     <link href="${g.resource(dir: 'app/www/js/vendor/guidely', file: 'guidely.css')}" rel="stylesheet" type="text/css"/>
@@ -19,7 +20,8 @@
     <link href="${g.resource(dir: 'app/www/css', file: 'monitoring.css')}" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor', file: 'jquery-1.8.2.min.js')}"></script>
-    <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap.min.js')}"></script>
+    <script type="text/javascript"
+            src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap.min.js')}"></script>
     <g:layoutHead/>
     <r:layoutResources/>
   </head>
@@ -43,31 +45,30 @@
                 <li><a href="#contact">Contact</a></li>
               </ul>
             </div>
-            <!--/.nav-collapse -->
-            <div class="btn-group pull-right">
-              <a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">
-                <i class="icon-user"></i> Super
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="/">Profile</a></li>
-                <li><a href="/">Settings</a></li>
-                <li><a href="#" class="cookie-delete">Delete Cookies</a></li>
-                <li class="divider"></li>
-                <li><a href="/logout">Logout</a></li>
-              </ul>
-            </div>
+          <!--/.nav-collapse -->
+            <g:if test="${view == 'board' && !project}">
+              <div id="commit-integration-btn" class="btn-group pull-right">
+                <a href="#" class="btn btn-info">
+                  <i class="icon-play"></i> Commit Integration
+                </a>
+              </div>
+            </g:if>
           </div>
         </div>
       </div>
-    </div>
 
-    %{--<div class="container">--}%
+      %{--<div class="container">--}%
       <g:layoutBody/>
-    %{--</div>--}%
+      %{--</div>--}%
 
-    <div class="footer" role="contentinfo"></div>
-    <g:javascript library="application"/>
-    <r:layoutResources/>
+      <div class="footer" role="contentinfo"></div>
+      <script type="text/javascript">
+        var TrollBoard = { appCtx: '${request.contextPath}',
+          projectId: '${params.project}',
+          providerToken: '${session.trollboardProfile?.access_token}'
+        };
+      </script>
+      <g:javascript library="application"/>
+      <r:layoutResources/>
   </body>
 </html>

@@ -14,6 +14,7 @@ class ProjectController {
     def organizationId = params.organization
     def projectId = params.project
 
+    def project = Project.findByProjectIdAndToken(projectId, session.trollboardProfile.access_token)
     def lanes = projectLanes(projectId, organizationId)
     def issues = projectIssues(projectId)
     def lanesIssues = [] as Set
@@ -32,6 +33,9 @@ class ProjectController {
     }
     model.milestones = projectMilestones(projectId, organizationId).sort { Milestone milestone -> milestone.dueOn }
     model.name = projectId
+    model.project = project
+    model.projectId = projectId
+    model.view = 'board'
     model
   }
 
