@@ -33,10 +33,9 @@ class CallbackController {
   }
 
   def receive(){
-    def providerId = params?.providerId ?: "github"
-    def tokenProvider = params?.providerToken
+    println params
     def payload = JSON.parse(params?.payload)
-    def project = gitHubCallbackService.processPayload(tokenProvider,providerId,payload)
+    def project = gitHubCallbackService.processPayload(payload)
     render((project ?: [:]) as JSON)
   }
 }

@@ -6,7 +6,6 @@ class CommitService {
     def issueStatus = []
 
     if(message) {
-      // "Fix #1 commit message"
       def rawIssueLabels = message =~ /\w+\D.[?=#]/
       def issueLabels = []
       rawIssueLabels.each { label ->
