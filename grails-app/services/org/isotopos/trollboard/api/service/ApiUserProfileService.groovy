@@ -88,7 +88,7 @@ class ApiUserProfileService {
 
   void changeIssueLane(String providerId, String tokenProvider, String organizationId, String projectId, String issueId, String laneId) throws Exception  {
     if (providerId == 'github') {
-      gitHubIssuesService.addLabelToIssue2(tokenProvider, organizationId, projectId, issueId, laneId)
+      gitHubIssuesService.addLabelToIssueUsingRepository(tokenProvider, organizationId, projectId, issueId, laneId)
     } else {
       throw new IllegalArgumentException("ProviderId missing or invalid ${providerId}")
     }
