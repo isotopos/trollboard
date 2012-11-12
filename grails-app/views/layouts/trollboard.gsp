@@ -34,27 +34,13 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </a>
-            <a href="#" class="brand">Trollboard</a>
+            <a href="http://trollboard.rs.af.cm/" class="brand">Trollboard</a>
 
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li class="active"><a href="#">Home</a></li>
+                <li class="active"><a href="http://trollboard.rs.af.cm/">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-              </ul>
-            </div>
-            <!--/.nav-collapse -->
-            <div class="btn-group pull-right">
-              <a href="#" data-toggle="dropdown" class="btn btn-info dropdown-toggle">
-                <i class="icon-user"></i> Super
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                <li><a href="/">Profile</a></li>
-                <li><a href="/">Settings</a></li>
-                <li><a href="#" class="cookie-delete">Delete Cookies</a></li>
-                <li class="divider"></li>
-                <li><a href="/logout">Logout</a></li>
               </ul>
             </div>
           </div>
