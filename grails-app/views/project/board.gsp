@@ -15,10 +15,10 @@
           var milestone = $milestonSelector.val();
           if (milestone != 'null') {
             var issueByMilestoneSelector = '.milestone-' + milestone;
-            $('.issue').hide();
+            $('li > .issue').hide();
             $(issueByMilestoneSelector).show();
           } else {
-            $('.issue').show();
+            $('li > .issue').show();
           }
         });
 
