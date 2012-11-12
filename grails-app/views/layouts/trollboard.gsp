@@ -39,8 +39,8 @@
             <div class="nav-collapse collapse">
               <ul class="nav">
                 <li class="active"><a href="http://trollboard.rs.af.cm/">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="http://trollboard.rs.af.cm/#about">About</a></li>
+                <li><a href="http://trollboard.rs.af.cm/#contact">Contact</a></li>
               </ul>
             </div>
           </div>
