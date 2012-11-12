@@ -88,7 +88,7 @@ class GitHubRepositoryService implements RepositoryService {
     if (!user) {
       user = userService.getUser().login
     }
-    println 'project: ' + projectId
+
     RepositoryId repositoryId = new RepositoryId(user, projectId)
 
     def ghLabels = labelService.getLabels(repositoryId)
