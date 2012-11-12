@@ -16,11 +16,19 @@ class ProjectController {
 
     def lanes = projectLanes(projectId, organizationId)
     def issues = projectIssues(projectId)
+    def lanesIssues = [] as Set
     def model = [:]
     model.lanes = lanes.collect { Lane lane ->
-      [lane: lane, issues: issues.findAll {
-        Issue issue -> issue.labels*.name.contains(lane.label.name)
-      }.sort { Issue issue -> issue.number }]
+      def laneIssues = issues.findAll { Issue issue ->
+        issue.labels*.name.contains(lane.label.name)
+      }.sort { Issue issue -> issue.number }
+      lanesIssues.addAll(laneIssues)
+      [lane: lane, issues: laneIssues]
+    }
+    if (model.lanes) {
+      def defaultLane = model.lanes.first()
+      defaultLane.issues.addAll(issues - lanesIssues)
+      defaultLane.issues.sort { Issue issue -> issue.number }
     }
     model.milestones = projectMilestones(projectId, organizationId).sort { Milestone milestone -> milestone.dueOn }
     model.name = projectId

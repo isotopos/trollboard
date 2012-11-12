@@ -15,10 +15,10 @@
           var milestone = $milestonSelector.val();
           if (milestone != 'null') {
             var issueByMilestoneSelector = '.milestone-' + milestone;
-            $('.issue').hide();
+            $('li > .issue').hide();
             $(issueByMilestoneSelector).show();
           } else {
-            $('.issue').show();
+            $('li > .issue').show();
           }
         });
 
@@ -121,7 +121,8 @@
                         </a> <strong>${issue.title}</strong>
                       </span>
 
-                      <div style="margin-top:5px;font-size:12px;" title="${issue.body}">${StringUtils.abbreviate(issue.body, 10)}</div>
+                      <div style="margin-top:5px;font-size:12px;" title="${issue.body}">${StringUtils.abbreviate(issue.body, 60)}</div>
+                      %{--<div style="margin-top:5px;font-size:12px;" title="${issue.body}">${issue.body}</div>--}%
                       <div style="margin-top:5px;text-align: right">
                         <img height="24" width="24" src="${issue.user.avatar}" alt="${issue.user.username}" title="${issue.user.username}"/>
                       </div>
