@@ -98,6 +98,7 @@
 
       <div id="core" style="margin-top: -90px;">
         <a href="#" class="btn btn-danger" id="wTakeaTour" style="top: 40px;">${name}</a>
+        <a href="https://github.com/${session.trollboardProfile.ownerId}/${name}/issues/new" class="btn btn-danger" target="_blank" style="top: 40px;">New issue</a>
 
         <div class="row-fluid">
           <g:each in="${lanes}" var="lane">
