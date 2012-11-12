@@ -16,19 +16,39 @@
     </div>
     <div class="mojitoPanelContent">
       <div class="well-large center">
-        <img src="${profile?.avatar}" class="img-rounded"/>
+        <img src="${profile?.avatar}" class="img-rounded" height="110%" width="110%"/>
       </div>
 
       <div class="well-large sidebar-nav ">
-        <div class="center bottom-separator2">
+        <div class="center bottom-separator1">
           <span>${profile.name}</span>
         </div>
-        <ul class="nav nav-list">
-          <li class="nav-header">Github profile</li>
-          <li><a href="${profile.resourceUri}" target="_blank">
+        <div class="bottom-separator1">
+          <span><a href="${profile.resourceUri}" target="_blank">
             ${profile.username}
-          </a></li>
-        </ul>
+          </a></span>
+        </div>
+        <div class="bottom-separator1">
+          <i class="icon-globe"></i> <span>${profile.location}</span>
+        </div>
+        <div class="bottom-separator1">
+          <span><i class="icon-hand-right"></i> Following: ${profile.following}</span>
+        </div>
+        <div class="bottom-separator1">
+          <span><i class="icon-hand-left"></i> Followers: ${profile.followers}</span>
+        </div>
+        <div class="bottom-separator1">
+          <span><i class="icon-eye-open"></i> Public repositories: ${profile.publicRepos}</span>
+        </div>
+        <div class="bottom-separator1">
+          <span><i class="icon-eye-close"></i> Private repository: ${profile.totalPrivateRepos}</span>
+        </div>
+        <div class="bottom-separator1">
+          <span><i class="icon-eye-open"></i> Public Gists: ${profile.publicGists}</span>
+        </div>
+        <div class="bottom-separator1">
+          <span><i class="icon-eye-close"></i> Private Gists: ${profile.privateGists}</span>
+        </div>
       </div>
     </div>
 
@@ -36,21 +56,74 @@
   </div>
 
 
-  <div class="span7">
-    <ul class="nav nav-list bottom-separator2">
-      <li class="nav-header"><h5>My projects:</h5></li>
-      <g:each in="${projects}" var="p">
-        <li><a href="${p.website}">${p.name}</a></li>
-      </g:each>
-    </ul>
+  <div class="span8">
 
-    <ul class="nav nav-list">
-      <li class="nav-header"><h5>My organizations:</h5></li>
-      <g:each in="${organizations}" var="o">
-        <li><a href="${o.user.username}">${o.user.username}</a></li>
-      </g:each>
-    </ul>
-  </div>
+    <g:if test="${projects}">
+    <div class="well">
+    <table class="table table-bordered">
+      <caption class="bottom-separator2"><h4>My projects:</h4></caption>
+
+      <tbody>
+        <g:each in="${projects}" var="p">
+          <tr>
+            <td>
+              <div class="bottom-separator1">
+                <div class="project span7">
+                  <i class="<g:if test="${p.isPrivate}">icon-folder-close</g:if>
+                  <g:else>icon-folder-open</g:else>"></i> &nbsp;
+                  <a href="${p.website}">${p.name}</a>
+                </div>
+                <g:if test="${p.language}">
+                <div class="pagination-right extras span2">
+                  <i class="icon-pencil"></i> ${p.language}
+                </div>
+                </g:if>
+              </div>
+              <span>&nbsp; ${p.description}</span>
+            </td>
+          </tr>
+        </g:each>
+      </tbody>
+    </table>
+    </div>
+    </g:if>
+
+    <div class="well">
+      <table class="table table-bordered">
+        <caption class="bottom-separator2"><h4>My organizations:</h4></caption>
+
+        <tbody>
+          <g:each in="${organizations}" var="o">
+            <tr>
+              <td>
+                <div class="organization span7">
+                  <img src="${o.user.avatar}" class="img-rounded" height="50px" width="50px"/>
+                  <a href="${o.user.username}">${o.user.username}</a>
+                </div>
+                <div class="pagination-right span2">
+                  <i class="icon-chevron-down"></i>
+                </div>
+              <g:if test="${organizations.projects}">
+              <table class="table table-condensed">
+                <tbody>
+                <g:each in="${o.projects}" var="pro">
+                  <tr><td class="none-border-left">
+                    <span class="left-separator2">
+                      <g:if test="${pro.isPrivate}"><i class="icon-folder-close"></i></g:if>
+                      <g:else><i class="icon-folder-open"></i></g:else>
+                      ${pro.name}
+                    </span>
+                  </td></tr>
+                </g:each>
+                </tbody>
+              </table>
+              </g:if>
+              </td>
+            </tr>
+          </g:each>
+        </tbody>
+      </table>
+    </div>
 
   </div>
 </body>
