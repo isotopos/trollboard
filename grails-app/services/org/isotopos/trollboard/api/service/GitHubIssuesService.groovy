@@ -81,8 +81,7 @@ class GitHubIssuesService implements IssuesService {
     labelService.setLabels(owner, repoId,issueId, newLabels)
   }
 
-
-  void addLabelToIssue2(String token, String owner, String repoId, String issueId, String label) throws Exception {
+  void addLabelToIssueUsingRepository(String token, String owner, String repoId, String issueId, String label) throws Exception {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
