@@ -3,6 +3,7 @@
 <head>
   <meta content="trollboard" name="layout">
   <link href="/trollboard/app/www/css/profile.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap-collapse.min.js')}"></script>
 </head>
 
 <body>
@@ -93,30 +94,37 @@
         <caption class="bottom-separator2"><h4>My organizations:</h4></caption>
 
         <tbody>
-          <g:each in="${organizations}" var="o">
+          <g:each in="${organizations}" var="o" status="sto">
             <tr>
               <td>
-                <div class="organization span7">
-                  <img src="${o.user.avatar}" class="img-rounded" height="50px" width="50px"/>
-                  <a href="${o.user.username}">${o.user.username}</a>
-                </div>
-                <div class="pagination-right span2">
-                  <i class="icon-chevron-down"></i>
+                <div class="bottom-separator2">
+                  <div class="organization span7">
+                    <img src="${o.user.avatar}" class="img-rounded" height="50px" width="50px"/>
+                    <a href="${o.user.username}">${o.user.username}</a>
+                  </div>
+                  <div class="pagination-right span2">
+                    <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#organization-projects-${sto}">
+                    <i class="icon-chevron-down" ></i>
+                    </button>
+                  </div>
                 </div>
               <g:if test="${organizations.projects}">
-              <table class="table table-condensed">
-                <tbody>
-                <g:each in="${o.projects}" var="pro">
-                  <tr><td class="none-border-left">
-                    <span class="left-separator2">
-                      <g:if test="${pro.isPrivate}"><i class="icon-folder-close"></i></g:if>
-                      <g:else><i class="icon-folder-open"></i></g:else>
-                      ${pro.name}
-                    </span>
-                  </td></tr>
-                </g:each>
-                </tbody>
-              </table>
+                <div class="collapse" id="organization-projects-${sto}">
+                  <table class="table table-condensed " >
+                    <tbody>
+                    <g:each in="${o.projects}" var="pro" >
+                      <tr><td class="none-border-left">
+                        <div class="left-separator2">
+                          <g:if test="${pro.isPrivate}"><i class="icon-folder-close"></i></g:if>
+                          <g:else><i class="icon-folder-open"></i></g:else>
+                          <a href="#">${pro.name}</a>
+                        </div>
+                        <span class="left-separator3">&nbsp; ${pro.description}</span>
+                      </td></tr>
+                    </g:each>
+                    </tbody>
+                  </table>
+                </div>
               </g:if>
               </td>
             </tr>
