@@ -7,3 +7,12 @@
 .bottom-separator2 {
   padding-bottom: 20px;
 }
+.none-border-left {
+  border-left-width: 0px !important;
+}
+.left-separator1 {
+  padding-left: 10px;
+}
+.left-separator2 {
+  padding-left: 20px;
+}

@@ -15,11 +15,23 @@ class GitHubUtils {
   static UserProfile fromGitHubUserProfile(User user) {
     if (user) {
       UserProfile userProfile = new UserProfile()
+      userProfile.id = user.id
       userProfile.avatar = user.avatarUrl
       userProfile.isOrganization = user.type == User.TYPE_ORG
       userProfile.name = user.name
       userProfile.resourceUri = user.htmlUrl
       userProfile.username = user.login
+      userProfile.url = user.url
+      userProfile.location = user.location
+      userProfile.company = user.company
+      userProfile.blog = user.blog
+      userProfile.followers = user.followers
+      userProfile.following = user.following
+      userProfile.ownedPrivateRepos = user.ownedPrivateRepos
+      userProfile.publicRepos = user.publicRepos
+      userProfile.privateGists = user.privateGists
+      userProfile.publicGists = user.publicGists
+      userProfile.totalPrivateRepos = user.totalPrivateRepos
 
       userProfile
     } else {
