@@ -72,7 +72,7 @@
                 <div class="project span7">
                   <i class="<g:if test="${p.isPrivate}">icon-folder-close</g:if>
                   <g:else>icon-folder-open</g:else>"></i> &nbsp;
-                  <a href="${p.website}">${p.name}</a>
+                  <a href="/board/${p.name}">${p.name}</a>
                 </div>
                 <g:if test="${p.language}">
                 <div class="pagination-right extras span2">
@@ -100,7 +100,7 @@
                 <div class="bottom-separator2">
                   <div class="organization span7">
                     <img src="${o.user.avatar}" class="img-rounded" height="50px" width="50px"/>
-                    <a href="${o.user.username}">${o.user.username}</a>
+                    <a href="javascript: $('#organization-projects-${sto}').collapse('toggle');" >${o.user.username}</a>
                   </div>
                   <div class="pagination-right span2">
                     <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#organization-projects-${sto}">
@@ -117,7 +117,7 @@
                         <div class="left-separator2">
                           <g:if test="${pro.isPrivate}"><i class="icon-folder-close"></i></g:if>
                           <g:else><i class="icon-folder-open"></i></g:else>
-                          <a href="#">${pro.name}</a>
+                          <a href="/board/${pro.name}">${pro.name}</a>
                         </div>
                         <span class="left-separator3">&nbsp; ${pro.description}</span>
                       </td></tr>
