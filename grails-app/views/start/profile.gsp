@@ -72,7 +72,7 @@
                 <div class="project span7">
                   <i class="<g:if test="${p.isPrivate}">icon-folder-close</g:if>
                   <g:else>icon-folder-open</g:else>"></i> &nbsp;
-                  <a href="/board/${p.name}">${p.name}</a>
+                  <a href="${g.createLink(mapping: 'projectBoard', params: [project: p.name])}">${p.name}</a>
                 </div>
                 <g:if test="${p.language}">
                 <div class="pagination-right extras span2">
@@ -117,7 +117,7 @@
                         <div class="left-separator2">
                           <g:if test="${pro.isPrivate}"><i class="icon-folder-close"></i></g:if>
                           <g:else><i class="icon-folder-open"></i></g:else>
-                          <a href="/board/${pro.name}">${pro.name}</a>
+                          <a href="${g.createLink(mapping: 'organizationProjectBoard', params: [organization: o.user.username, project: pro.name])}">${pro.name}</a>
                         </div>
                         <span class="left-separator3">&nbsp; ${pro.description}</span>
                       </td></tr>
