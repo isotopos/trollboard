@@ -1,6 +1,7 @@
 package org.isotopos.trollboard.utils
 
-import grails.converters.JSON
+import grails.converters.deep.JSON
+import org.codehaus.groovy.grails.web.json.JSONElement
 
 class CallbackController {
 
@@ -35,8 +36,13 @@ class CallbackController {
   def receive() {
     def providerId = params?.providerId ?: "github"
     def tokenProvider = params?.providerToken
-    def payload = JSON.parse(params?.payload)
-    def project = gitHubCallbackService.processPayload(tokenProvider, providerId, payload)
-    render((project ?: [:]) as JSON)
+    println params
+    if(params?.payload){
+      def payload = JSON.parse(params.payload)  
+      def project = gitHubCallbackService.processPayload(tokenProvider, providerId, payload)
+      render project as JSON
+    }else{
+      render ([:]) as JSON
+    }
   }
 }
