@@ -59,21 +59,29 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
-github.uri.login.oauth = '/login/oauth/access_token'
-client.id = '28e0b526536000c59092'
-state = 'trollboarders'
-client.secret = '9f094c887723847f42f6816d11d355d5ecfa7b6f'
-
-
 environments {
-    development {
-        grails.logging.jul.usebridge = true
-        grails.serverURL = "http://localhost/trollboard"
-    }
-    production {
-        grails.logging.jul.usebridge = false
-        grails.serverURL = "http://trollboard.rs.af.cm"
-    }
+  development {
+    grails.logging.jul.usebridge = true
+    grails.serverURL = "http://localhost/trollboard"
+    github.uri.login.oauth = '/login/oauth/access_token'
+    client.id = 'f48b45502411ae9113fc'
+    state = 'trollboarders'
+    client.secret = 'd3622817594c7e2be18d4d44f78dd09e6ae2d067'
+  }
+  test{
+    github.uri.login.oauth = '/login/oauth/access_token'
+    client.id = 'f48b45502411ae9113fc'
+    state = 'trollboarders'
+    client.secret = 'd3622817594c7e2be18d4d44f78dd09e6ae2d067'
+  }
+  production {
+    grails.logging.jul.usebridge = false
+    grails.serverURL = "http://trollboard.rs.af.cm"
+    github.uri.login.oauth = '/login/oauth/access_token'
+    client.id = '28e0b526536000c59092'
+    state = 'trollboarders'
+    client.secret = '9f094c887723847f42f6816d11d355d5ecfa7b6f'
+  }
 }
 
 // log4j configuration
