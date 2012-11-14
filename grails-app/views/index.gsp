@@ -140,7 +140,8 @@
     <div class="strip">
       <div class="row">
         <div class="span12">
-          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=${session.trollboardProfile.client_id}&state=${session.trollboardProfile.state}&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Log In with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
+          <g:set var="config" value="${grailsApplication.config}"/>
+          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=${config?.client?.id}&state=${config?.state}&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Log In with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
           <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Log In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
           <span class="call-to-action">Use your existing accounts to sign in to TrollBoard</span>
           <p>*Don't worry, we are good kids and only will use your token for play with you.</p>
