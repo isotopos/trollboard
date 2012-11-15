@@ -26,6 +26,9 @@ class UrlMappings {
 //    userProfile: "/user/$id"(controller: 'start', action: 'profile')
     name projectBoard: "/board/$project"(controller: 'project', action: 'board')
     name organizationProjectBoard: "/board/$organization/$project"(controller: 'project', action: 'board')
+    name callbackReceivePayload: "/callback/receive"(controller: 'callback'){
+      action = [GET:"receive",POST:"receive"]
+    }
 
     "/v1/organization/$id"(controller: 'userProfile', action: 'projects')
     "/"(view: "/index")
