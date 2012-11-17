@@ -10,3 +10,4 @@ target
 /trollboard.iws
 /trollboard.ipr
 /.gradle/
+devDb.trace.db

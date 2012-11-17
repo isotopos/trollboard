@@ -8,7 +8,6 @@ class GitHubCallbackService implements CallbackService {
   def commitService
 
   Project processPayload(String tokenProvider, String providerId, payload) {
-    println payload.dump()
     Project project = Project.findByProviderIdAndProjectId(providerId,payload.repository.name)
     if(project){
       payload?.commits?.each{ commit ->
