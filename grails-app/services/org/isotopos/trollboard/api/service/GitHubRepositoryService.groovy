@@ -172,7 +172,8 @@ class GitHubRepositoryService implements RepositoryService {
 
     def projects = []
     repositories.each {
-      projects << GitHubUtils.fromGitHubRepository(it)
+      if(!it.fork)
+        projects << GitHubUtils.fromGitHubRepository(it)
     }
 
     projects
