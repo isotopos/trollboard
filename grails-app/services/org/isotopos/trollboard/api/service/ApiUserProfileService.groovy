@@ -34,9 +34,9 @@ class ApiUserProfileService {
 
 
 
-  List<Issue> getIssues(String providerId, String token, String project) throws Exception  {
+  List<Issue> getIssues(String providerId, String token, String project, String organization = '') throws Exception  {
     if (providerId == 'github') {
-      return gitHubIssuesService.getIssues(token, project)
+      return gitHubIssuesService.getIssues(token, project, organization)
     }
 
     null
