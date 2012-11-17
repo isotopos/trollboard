@@ -34,21 +34,27 @@ class GitHubIssuesService implements IssuesService {
     issues
   }
 
-  List<Issue> getIssues(String token, String projectId) throws Exception  {
+  List<Issue> getIssues(String token, String projectId, String organizationId) throws Exception  {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
-
-    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
-
     UserService userService = new UserService(client)
     String userId = userService.getUser().login
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+    org.eclipse.egit.github.core.service.RepositoryService repositoryService = new org.eclipse.egit.github.core.service.RepositoryService(client)
 
-    def isssues = issueService.getIssues(userId, projectId, [:])
+    def isssues = []
+    if(organizationId){
+      def repository = repositoryService.getRepository(organizationId,projectId)
+      isssues = issueService.getIssues(repository, [:])
+    }else{
+      isssues = issueService.getIssues(userId, projectId, [:])
+    }
+        
     def issues = []
     isssues.each {
       issues << GitHubUtils.fromGitHubIssue(it)
     }
-
+    
     issues
   }
 
