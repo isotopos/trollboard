@@ -12,19 +12,18 @@ class ProjectController {
 
   def board() {
     def trollboardProfile = session.trollboardProfile
-
     if (!trollboardProfile) {
       redirect uri: '/'
       return
     }
 
     try {
-      def organizationId = params.organization
+      def organizationId = params?.organization ?: ''
       def projectId = params.project
 
       def project = Project.findByProjectIdAndToken(projectId, trollboardProfile.access_token)
       def lanes = projectLanes(projectId, organizationId)
-      def issues = projectIssues(projectId)
+      def issues = projectIssues(projectId,organizationId)
       def lanesIssues = [] as Set
       def model = [:]
       model.lanes = lanes.collect { Lane lane ->
@@ -71,12 +70,12 @@ class ProjectController {
     lanes.sort { Lane lane -> lane.order }
   }
 
-  private List projectIssues(def projectId) throws Exception  {
+  private List projectIssues(def projectId,organizationId='') throws Exception  {
     def trollboardProfile = session.trollboardProfile
     def providerId = trollboardProfile.provider_id
     def tokenProvider = trollboardProfile.access_token
 
-    apiUserProfileService.getIssues(providerId, tokenProvider, projectId)
+    apiUserProfileService.getIssues(providerId, tokenProvider, projectId, organizationId)
   }
 
   private List projectMilestones(def projectId, def organizationId) throws Exception  {
