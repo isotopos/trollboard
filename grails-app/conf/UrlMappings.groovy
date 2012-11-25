@@ -21,7 +21,14 @@ class UrlMappings {
     "/v1/project/$projectId/lanes"(controller: 'userProfile', action: 'projectLanes')
     "/v1/project/$projectId/live"(controller: 'userProfile', action: 'projectLive')
 
+    "/v1/project/$projectId/issue/$issueId/lane/$laneId"(controller: 'userProfile', action: 'changeIssueLane')
 
+//    userProfile: "/user/$id"(controller: 'start', action: 'profile')
+    name projectBoard: "/board/$project"(controller: 'project', action: 'board')
+    name organizationProjectBoard: "/board/$organization/$project"(controller: 'project', action: 'board')
+    name callbackReceivePayload: "/callback/receive"(controller: 'callback'){
+      action = [GET:"receive",POST:"receive"]
+    }
 
     "/v1/organization/$id"(controller: 'userProfile', action: 'projects')
     "/"(view: "/index")

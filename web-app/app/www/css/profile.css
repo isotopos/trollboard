@@ -1,0 +1,21 @@
+.top-separator6 {
+  padding-top: 60px;
+}
+.bottom-separator1 {
+  padding-bottom: 10px;
+}
+.bottom-separator2 {
+  padding-bottom: 20px;
+}
+.none-border-left {
+  border-left-width: 0px !important;
+}
+.left-separator1 {
+  padding-left: 10px;
+}
+.left-separator2 {
+  padding-left: 20px;
+}
+.left-separator3 {
+  padding-left: 30px;
+}

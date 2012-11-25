@@ -10,62 +10,72 @@
     <title><g:layoutTitle default="Trollboard"/></title>
     <!-- Bootstrap (responsive, with icons) full css -->
     <!-- For newer version or CDN,  please visit http://www.bootstrapcdn.com/ -->
-    <link href="app/www/js/vendor/bootstrap/2.1.1/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/css', file: 'bootstrap-combined.min.css')}"
+          rel="stylesheet">
 
     <!-- Guidely css -->
-    <link href="app/www/js/vendor/guidely/guidely.css" rel="stylesheet" type="text/css"/>
+    <link href="${g.resource(dir: 'app/www/js/vendor/guidely', file: 'guidely.css')}" rel="stylesheet" type="text/css"/>
 
     <!-- Mojitoring css -->
-    <link href="app/www/css/monitoring.css" rel="stylesheet" type="text/css"/>
+    <link href="${g.resource(dir: 'app/www/css', file: 'monitoring.css')}" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor', file: 'jquery-1.8.2.min.js')}"></script>
+    <script type="text/javascript"
+            src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap.min.js')}"></script>
     <g:layoutHead/>
     <r:layoutResources/>
   </head>
 
-  <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar" type="button">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="./index.html" class="brand">Bootstrap</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active">
-                <a href="./index.html">Home</a>
-              </li>
-              <li class="">
-                <a href="./getting-started.html">Get started</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">Scaffolding</a>
-              </li>
-              <li class="">
-                <a href="./base-css.html">Base CSS</a>
-              </li>
-              <li class="">
-                <a href="./components.html">Components</a>
-              </li>
-              <li class="">
-                <a href="./javascript.html">JavaScript</a>
-              </li>
-              <li class="">
-                <a href="./customize.html">Customize</a>
-              </li>
-            </ul>
+  <body class="irongrip">
+    <div>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a href="http://trollboard.rs.af.cm/" class="brand">Trollboard</a>
+
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="http://trollboard.rs.af.cm/#about">About</a></li>
+                <li><a href="http://trollboard.rs.af.cm/#contact">Contact</a></li>
+              </ul>
+            </div>
+          <!--/.nav-collapse -->
+            <g:if test="${view == 'board' && !project}">
+              <div id="commit-integration-btn" class="btn-group pull-right">
+                <a href="#" class="btn btn-info">
+                  <i class="icon-play"></i> Commit Integration
+                </a>
+              </div>
+            </g:if>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="container">
+      <g:if test="${flash.error}">
+        <div class="alert alert-error center top-separator6">
+          <h6>ERROR: ${flash.error}</h6>
+        </div>
+      </g:if>
+
+      %{--<div class="container">--}%
       <g:layoutBody/>
-    </div>
+      %{--</div>--}%
 
-    <div class="footer" role="contentinfo"></div>
-    <g:javascript library="application"/>
-    <r:layoutResources/>
+      <div class="footer" role="contentinfo"></div>
+      <script type="text/javascript">
+        var TrollBoard = { appCtx: '${request.contextPath}',
+          projectId: '${params.project}',
+          providerToken: '${session.trollboardProfile?.access_token}',
+          ownerId: '${session.trollboardProfile.ownerId}'
+        };
+      </script>
+      <g:javascript library="application"/>
+      <r:layoutResources/>
   </body>
 </html>

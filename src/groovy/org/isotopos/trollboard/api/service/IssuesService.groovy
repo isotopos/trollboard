@@ -10,7 +10,7 @@ import org.isotopos.trollboard.api.Issue
  * To change this template use File | Settings | File Templates.
  */
 interface IssuesService {
-  List<Issue> getIssues(String token, String projectId)
+  List<Issue> getIssues(String token, String projectId, String organizationId)
   List<Issue> getIssuesByOrganization(String token, String organizationId)
   void addLabelToIssue(String token, String owner, String repoId, String issueId, String label)
 }

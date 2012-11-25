@@ -12,7 +12,7 @@ class GitHubIssuesService implements IssuesService {
   def gitHubOrganizationService
   def gitHubRepositoryService
 
-  List<Issue> getIssuesByOrganization(String token, String organizationId) {
+  List<Issue> getIssuesByOrganization(String token, String organizationId) throws Exception  {
     def issues = []
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
@@ -36,25 +36,31 @@ class GitHubIssuesService implements IssuesService {
     issues
   }
 
-  List<Issue> getIssues(String token, String projectId) {
+  List<Issue> getIssues(String token, String projectId, String organizationId) throws Exception  {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
-
-    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
-
     UserService userService = new UserService(client)
     String userId = userService.getUser().login
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+    org.eclipse.egit.github.core.service.RepositoryService repositoryService = new org.eclipse.egit.github.core.service.RepositoryService(client)
 
-    def isssues = issueService.getIssues(userId, projectId, [:])
+    def isssues = []
+    if(organizationId){
+      def repository = repositoryService.getRepository(organizationId,projectId)
+      isssues = issueService.getIssues(repository, [:])
+    }else{
+      isssues = issueService.getIssues(userId, projectId, [:])
+    }
+        
     def issues = []
     isssues.each {
       issues << GitHubUtils.fromGitHubIssue(it)
     }
-
+    
     issues
   }
 
-  void addLabelToIssue(String token, String owner, String repoId, String issueId, String label){
+  void addLabelToIssue(String token, String owner, String repoId, String issueId, String label) throws Exception {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
@@ -62,7 +68,12 @@ class GitHubIssuesService implements IssuesService {
     org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
 
     //def issue = issueService.getIssue(owner,repoId,issueId)
-    def issue = issueService.getIssue(owner,repoId,issueId)
+    def issue
+    try {
+      issue = issueService.getIssue(owner,repoId,issueId)
+    } catch(Throwable pedosEnElissue) {
+      throw new RuntimeException("Can't get the issue ${issueId} from owner ${owner} and repo ${repoId}", pedosEnElissue)
+    }
     //def labelsInRepo = labelService.getLabels(owner, repoId)
     def labelsInRepo = labelService.getLabels(owner, repoId)    
     def labelsFromIssue = issue.labels
@@ -83,5 +94,35 @@ class GitHubIssuesService implements IssuesService {
 
   def obtenerPrioridad(lane) {
     lane.substring(lane.indexOf('\$'), lane.length()).replace('\$','')
+  }
+
+  void addLabelToIssueUsingRepository(String token, String owner, String repoId, String issueId, String label) throws Exception {
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+    org.eclipse.egit.github.core.service.LabelService labelService = new org.eclipse.egit.github.core.service.LabelService(client)
+
+    UserService userService = new UserService(client)
+    if (!owner) {
+      owner = userService.getUser().login
+    }
+
+    RepositoryId repositoryId = new RepositoryId(owner, repoId)
+
+    def issue
+    try {
+      issue = issueService.getIssue(repositoryId,issueId)
+    } catch(Throwable pedosEnElissue) {
+      throw new RuntimeException("Can't get the issue ${issueId} from owner ${owner} and repo ${repoId}", pedosEnElissue)
+    }
+
+    def labelsInRepo = labelService.getLabels(repositoryId)
+    def labelsFromIssue = issue.labels
+    def labelsWithNoPrice = labelsFromIssue*.name.findAll { labelName -> !labelName.contains("\$") }
+    def labelToAdd = labelsInRepo*.name.find { labelName -> labelName.toUpperCase().startsWith((label+'\$').toUpperCase()) }
+    def newLabels = labelsWithNoPrice + labelToAdd
+
+    labelService.setLabels(repositoryId, issueId, newLabels)
   }
 }

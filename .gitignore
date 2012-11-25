@@ -1,8 +1,13 @@
 *.swp
 .idea
 target
-Trollboard-grailsPlugins.iml
-Trollboard.iml
+*.iml
+*.iml
 *.sublime-*
 /devDb.lock.db
 /devDb.h2.db
+
+/trollboard.iws
+/trollboard.ipr
+/.gradle/
+devDb.trace.db

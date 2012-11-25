@@ -135,4 +135,24 @@ class UserProfileController {
     render([done: true] as JSON)
   }
 
+  def changeIssueLane() {
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def projectId = params.projectId
+    def organizationId = params.organizationId
+
+    def issueId = params.issueId
+    def laneId = params.laneId
+
+    try {
+      apiUserProfileService.changeIssueLane(providerId, tokenProvider, organizationId, projectId, issueId, laneId)
+    } catch (Throwable pedos) {
+      response.status = 400
+      render([done: false, message: pedos.message ?: pedos.cause?.message] as JSON)
+      return
+    }
+
+    render([done: true] as JSON)
+  }
+
 }

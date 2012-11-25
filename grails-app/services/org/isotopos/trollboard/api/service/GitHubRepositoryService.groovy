@@ -26,7 +26,7 @@ class GitHubRepositoryService implements RepositoryService {
     [color: '00901A', name: 'Live$6'],
   ]
 
-  void addDefaultLabels(String token, String user, String proyectId) {
+  void addDefaultLabels(String token, String user, String proyectId) throws Exception  {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
@@ -55,7 +55,7 @@ class GitHubRepositoryService implements RepositoryService {
 
   }
 
-  List<Milestone> getMilestones(String token, String user, String projectId) {
+  List<Milestone> getMilestones(String token, String user, String projectId) throws Exception  {
     def result = []
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
@@ -76,7 +76,7 @@ class GitHubRepositoryService implements RepositoryService {
     result
   }
 
-  List<Label> getLabels(String token, String user, String projectId) {
+  List<Label> getLabels(String token, String user, String projectId) throws Exception  {
     def result = []
 
     GitHubClient client = new GitHubClient()
@@ -88,6 +88,7 @@ class GitHubRepositoryService implements RepositoryService {
     if (!user) {
       user = userService.getUser().login
     }
+
     RepositoryId repositoryId = new RepositoryId(user, projectId)
 
     def ghLabels = labelService.getLabels(repositoryId)
@@ -99,7 +100,7 @@ class GitHubRepositoryService implements RepositoryService {
     result
   }
 
-  List<Lane> getLanes(String token, String user, String projectId) {
+  List<Lane> getLanes(String token, String user, String projectId) throws Exception  {
     def result = []
 
     def labels = this.getLabels(token, user, projectId)
@@ -124,7 +125,7 @@ class GitHubRepositoryService implements RepositoryService {
     result
   }
 
-  void createHook(String token, String user, String projectId) {
+  void createHook(String token, String user, String projectId) throws Exception  {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
@@ -162,7 +163,7 @@ class GitHubRepositoryService implements RepositoryService {
 
   }
 
-  List<Project> getProjects(String token) {
+  List<Project> getProjects(String token) throws Exception  {
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
@@ -171,7 +172,8 @@ class GitHubRepositoryService implements RepositoryService {
 
     def projects = []
     repositories.each {
-      projects << GitHubUtils.fromGitHubRepository(it)
+      if(!it.fork)
+        projects << GitHubUtils.fromGitHubRepository(it)
     }
 
     projects

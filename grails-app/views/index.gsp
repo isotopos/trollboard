@@ -96,11 +96,11 @@
                     <img src="assets/slide-half-3.png" alt=""/>
                   </div>
                   <div class="span4 animated fadeInDownBig">
-                    <h2>You choose</h2>
-                    <p>Maybe you love GitHub or Bitbucket, still using them with us no problem.</p>
-                    <p>With TrollBoard your loving social coding tool will be better than ever.</p>
-                    <p>Our awesome issue board is designed to improve your workflow, gain visibility, track your activities with no pain and less effort, TrollBoard is a kick ass tool, you will love us.</p>
-
+                    <h2>&nbsp;</h2>
+                    <p>What are you using? Github or Bitbucket, it doesn't matter use it even better.</p>
+                    <p>Do it everything in the commit.</p>
+                    <p>Improve your workflow, gain visibility, track your activities with no pain and less effort.</p>
+                    <p>Do it fun. Kick ass project managers with effective and live communication.</p>
                     %{--<p>This is what you are looking for, this is us, this is TrollBoard.</p>--}%
                     <a class="btn btn-primary" href="#">Start Now!</a>
                   </div>
@@ -115,7 +115,7 @@
                 <div class="row">
                   <div class="span6 animated rotateInDownLeft">
                     <div class="video-container">
-                      <iframe src="https://player.vimeo.com/video/46992613?title=0&amp;byline=0&amp;portrait=0" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+                      <iframe width="500" height="281" src="http://www.youtube.com/embed/nOaU5b_ethI" frameborder="0" allowfullscreen></iframe>
                     </div>
                   </div>
                   <div class="span4 animated rotateInUpLeft">
@@ -140,7 +140,8 @@
     <div class="strip">
       <div class="row">
         <div class="span12">
-          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=28e0b526536000c59092&state=trollboarders&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Log In with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
+          <g:set var="config" value="${grailsApplication.config}"/>
+          <a class="btn btn-red btn-large" href="https://github.com/login/oauth/authorize?client_id=${config?.client?.id}&state=${config?.state}&scope=user,public_repo,repo,repo:status,delete_repo,notifications,gist">Log In with GitHub <i class="icon-github-sign icon-white icon-large"></i></a>
           <a class="btn btn-inverse btn-large anchorLink disabled" href="#"> Log In with Bitbucket <i class="icon-share-alt icon-white"></i></a>
           <span class="call-to-action">Use your existing accounts to sign in to TrollBoard</span>
           <p>*Don't worry, we are good kids and only will use your token for play with you.</p>
