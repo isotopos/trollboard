@@ -49,7 +49,7 @@
           if (response) {
             $.ajax({
               url:(TrollBoard.appCtx + '/v1/project/' + TrollBoard.projectId + '/live').replace('//', '/'),
-              data:{providerToken:TrollBoard.providerToken, providerId:'github'},
+              data:{providerToken:TrollBoard.providerToken, providerId:'github',projectId:'${projectId}',organizationId:'${ownerId}'},
               context:this,
               dataType:'json',
               success:function () {
