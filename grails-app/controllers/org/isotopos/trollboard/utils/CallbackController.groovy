@@ -38,7 +38,7 @@ class CallbackController {
     def tokenProvider = params?.providerToken
     if(params?.payload){
       def payload = JSON.parse(params.payload)  
-      def project = gitHubCallbackService.processPayload(tokenProvider, providerId, payload)
+      def project = gitHubCallbackService.processPayload(payload)
       render project as JSON
     }else{
       render ([:]) as JSON
