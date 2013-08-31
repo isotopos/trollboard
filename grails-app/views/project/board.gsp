@@ -158,13 +158,15 @@
                           <div style="margin-top:5px;font-size:12px;"
                                title="${issue.body}">${StringUtils.abbreviate(issue.body, 60)}</div>
                           %{--<div style="margin-top:5px;font-size:12px;" title="${issue.body}">${issue.body}</div>--}%
-                          <div style="margin-top:5px;text-align: right">
-                            <div style="font-size:12px;"> commits : ${issue.numberOfCommits ?: 0} </div>
-                            <br />
-                            <img height="24" width="24" src="${issue.user.avatar}" alt="${issue.user.username}"
+                          <div >  
+                              <div class="span4">
+                                <span class="label" style="font-size:12px;"> commits : ${issue.numberOfCommits ?: 0} </span>
+                              </div>
+                              <div class="span8" style="text-align: right">
+                                <img height="24" width="24" src="${issue.user.avatar}" alt="${issue.user.username}"
                                  title="${issue.user.username}"/>
+                              </div>
                           </div>
-                        </div>
                       </div>
 
 
