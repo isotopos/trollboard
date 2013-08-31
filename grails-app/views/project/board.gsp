@@ -60,6 +60,10 @@
             console.log(':(');
           }
         });
+        $("a.assignToMe").click(function(){
+          var me = $("div.myavatar").clone().removeClass("hide").removeClass("myavatar");
+          $(this).parent().html(me.html());
+        });
       });
     </script>
     <style type="text/css">
@@ -143,7 +147,8 @@
                               <img height="24" width="24"
                                    src="https://secure.gravatar.com/avatar/9b855cf7a35aad6843b9ce0c826c038a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
                                    alt="Not assigned">
-                              <span style="font-size: 12px;">Not Assigned</span>
+                              <span style="font-size: 12px;">Not Assigned - </span>
+                              <a id="assignToMe${issue.number}" class="btn btn-primary btn-mini assignToMe" align="right" href="#"><i class="icon-user icon-white"></i> Assign to me</a>
                             </div>
                           </g:else>
                         %{--<i class="icon-random"></i>${issue.number}--}%
@@ -191,6 +196,11 @@
           </g:each>
         </div>
       </div>
+    </div>
+    <div class="hide myavatar">
+      <img height="24" width="24" src="${profile?.avatar}"
+      alt="${profile.username}">
+      <span style="font-size: 12px;">${profile.username}</span>
     </div>
   </body>
 </html>
