@@ -95,7 +95,6 @@ class ApiUserProfileService {
   }
 
   void changeIssueAssigneeToMe(String providerId, String tokenProvider, String organizationId, String projectId, String issueId) throws Exception {
-    println "changeIssueAssigneeToMe"
     if (providerId == 'github') {
       gitHubIssuesService.assignIssueToCurrentUser(tokenProvider, organizationId, projectId, issueId)
     } else {

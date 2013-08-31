@@ -128,7 +128,6 @@ class GitHubIssuesService implements IssuesService {
   }
 
   void assignIssueToCurrentUser(String token, String owner, String repoId, String issueId) throws Exception {
-    println "LLEGO *****"
     GitHubClient client = new GitHubClient()
     client.setOAuth2Token(token)
 
