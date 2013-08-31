@@ -155,4 +155,11 @@ class UserProfileController {
     render([done: true] as JSON)
   }
 
+  def assignToMe(){
+    def projectId = params.projectId
+    def issueId = params.issueId
+    println projectId
+    println issueId 
+    render([:] as JSON)
+  }
 }
