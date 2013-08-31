@@ -61,8 +61,20 @@
           }
         });
         $("a.assignToMe").click(function(){
+          var issueId = $(this).attr("id").substring("assignToMe".length);
           var me = $("div.myavatar").clone().removeClass("hide").removeClass("myavatar");
           $(this).parent().html(me.html());
+          var data = {providerToken:TrollBoard.providerToken, providerId:'github'};
+          if (organizationId && organizationId != '') data.organizationId = organizationId;
+          $.ajax({
+            url:(TrollBoard.appCtx + '/v1/project/' + TrollBoard.projectId + '/issue/' + issueId + '/assignToMe').replace('//', '/'),
+            data: data,
+            context:this,
+            dataType:'json',
+            error:function () {
+              console.log('Ups... :(');
+            }
+          });
         });
       });
     </script>
