@@ -22,6 +22,7 @@ class UrlMappings {
     "/v1/project/$projectId/live"(controller: 'userProfile', action: 'projectLive')
 
     "/v1/project/$projectId/issue/$issueId/lane/$laneId"(controller: 'userProfile', action: 'changeIssueLane')
+    "/v1/project/$projectId/issue/$issueId/assignToMe"(controller: 'userProfile', action: 'assignToMe')
 
 //    userProfile: "/user/$id"(controller: 'start', action: 'profile')
     name projectBoard: "/board/$project"(controller: 'project', action: 'board')
