@@ -20,7 +20,9 @@ class ProjectController {
     try {
       def organizationId = params?.organization ?: ''
       def projectId = params.project
-
+      def providerId = trollboardProfile.provider_id
+      def accessToken = trollboardProfile.access_token
+      def profile = apiUserProfileService.getUserProfile(providerId, accessToken)
       def project = Project.findByProjectIdAndToken(projectId, trollboardProfile.access_token)
       def lanes = projectLanes(projectId, organizationId)
       def issues = projectIssues(projectId,organizationId)
@@ -44,6 +46,7 @@ class ProjectController {
       model.projectId = projectId
       model.view = 'board'
       model.ownerId = organizationId ?: session.trollboardProfile.ownerId
+      model.profile = profile
       model
     }catch (e) {
       flash.error =  e.message
