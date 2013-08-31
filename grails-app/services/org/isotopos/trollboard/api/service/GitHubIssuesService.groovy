@@ -44,6 +44,7 @@ class GitHubIssuesService implements IssuesService {
     String userId = userService.getUser().login
     org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
     org.eclipse.egit.github.core.service.RepositoryService repositoryService = new org.eclipse.egit.github.core.service.RepositoryService(client)
+    org.eclipse.egit.github.core.service.CommitService commitService = new org.eclipse.egit.github.core.service.CommitService(client)
 
     def isssues = []
     if(organizationId){
@@ -52,10 +53,21 @@ class GitHubIssuesService implements IssuesService {
     }else{
       isssues = issueService.getIssues(userId, projectId, [:])
     }
-        
+
+    def repository = repositoryService.getRepository(organizationId,projectId)
+    def commits = commitService.getCommits(repository)
+    def commitsWithIssue = commits.findAll { repositoryCommit ->
+      repositoryCommit.commit.message.contains("#")
+    }
+
     def issues = []
     isssues.each {
-      issues << GitHubUtils.fromGitHubIssue(it)
+      Issue issue = GitHubUtils.fromGitHubIssue(it)
+      def issueCommits = commitsWithIssue.findAll { repositoryCommit ->
+        repositoryCommit.commit.message.findAll(~/\d+/).contains( issue.number.toString() )
+      }
+      issue.numberOfCommits = issueCommits.size()
+      issues << issue
     }
     
     issues
