@@ -5,6 +5,7 @@ import org.eclipse.egit.github.core.service.UserService
 import org.isotopos.trollboard.api.Issue
 import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.Lane
+import org.isotopos.trollboard.api.UserProfile
 import org.isotopos.trollboard.api.service.github.GitHubUtils
 import org.eclipse.egit.github.core.RepositoryId
 
@@ -124,5 +125,29 @@ class GitHubIssuesService implements IssuesService {
     def newLabels = labelsWithNoPrice + labelToAdd
 
     labelService.setLabels(repositoryId, issueId, newLabels)
+  }
+
+  void assignIssueToCurrentUser(String token, String owner, String repoId, String issueId) throws Exception {
+    println "LLEGO *****"
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+
+    UserService userService = new UserService(client)
+    if (!owner) {
+      owner = userService.getUser().login
+    }
+
+    RepositoryId repositoryId = new RepositoryId(owner, repoId)
+
+    def issue
+    try {
+      issue = issueService.getIssue(repositoryId,issueId)
+    } catch(Throwable pedosEnElissue) {
+      throw new RuntimeException("Can't get the issue ${issueId} from owner ${owner} and repo ${repoId}", pedosEnElissue)
+    }
+    issue.assignee = userService.getUser()
+    issueService.editIssue(owner, repoId, issue)
   }
 }
