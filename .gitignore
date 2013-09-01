@@ -6,7 +6,7 @@ target
 *.sublime-*
 /devDb.lock.db
 /devDb.h2.db
-
+.rvmrc
 /trollboard.iws
 /trollboard.ipr
 /.gradle/
