@@ -25,6 +25,7 @@ class Issue {
   UserProfile user
   List<Label> labels
   Milestone milestone
+  Integer numberOfCommits
   /*
 	private ;
 

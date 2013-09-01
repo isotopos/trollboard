@@ -60,6 +60,22 @@
             console.log(':(');
           }
         });
+        $("a.assignToMe").click(function(){
+          var issueId = $(this).attr("id").substring("assignToMe".length);
+          var me = $("div.myavatar").clone().removeClass("hide").removeClass("myavatar");
+          $(this).parent().html(me.html());
+          var data = {providerToken:TrollBoard.providerToken, providerId:'github'};
+          if (organizationId && organizationId != '') data.organizationId = organizationId;
+          $.ajax({
+            url:(TrollBoard.appCtx + '/v1/project/' + TrollBoard.projectId + '/issue/' + issueId + '/assignToMe').replace('//', '/'),
+            data: data,
+            context:this,
+            dataType:'json',
+            error:function () {
+              console.log('Ups... :(');
+            }
+          });
+        });
       });
     </script>
     <style type="text/css">
@@ -143,7 +159,8 @@
                               <img height="24" width="24"
                                    src="https://secure.gravatar.com/avatar/9b855cf7a35aad6843b9ce0c826c038a?d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
                                    alt="Not assigned">
-                              <span style="font-size: 12px;">Not Assigned</span>
+                              <span style="font-size: 12px;">Not Assigned - </span>
+                              <a id="assignToMe${issue.number}" class="btn btn-primary btn-mini assignToMe" align="right" href="#"><i class="icon-user icon-white"></i> Assign to me</a>
                             </div>
                           </g:else>
                         %{--<i class="icon-random"></i>${issue.number}--}%
@@ -158,11 +175,15 @@
                           <div style="margin-top:5px;font-size:12px;"
                                title="${issue.body}">${StringUtils.abbreviate(issue.body, 60)}</div>
                           %{--<div style="margin-top:5px;font-size:12px;" title="${issue.body}">${issue.body}</div>--}%
-                          <div style="margin-top:5px;text-align: right">
-                            <img height="24" width="24" src="${issue.user.avatar}" alt="${issue.user.username}"
+                          <div >  
+                              <div class="span4">
+                                <span class="label" style="font-size:12px;"> commits : ${issue.numberOfCommits ?: 0} </span>
+                              </div>
+                              <div class="span8" style="text-align: right">
+                                <img height="24" width="24" src="${issue.user.avatar}" alt="${issue.user.username}"
                                  title="${issue.user.username}"/>
+                              </div>
                           </div>
-                        </div>
                       </div>
 
 
@@ -191,6 +212,11 @@
           </g:each>
         </div>
       </div>
+    </div>
+    <div class="hide myavatar">
+      <img height="24" width="24" src="${profile?.avatar}"
+      alt="${profile.username}">
+      <span style="font-size: 12px;">${profile.username}</span>
     </div>
   </body>
 </html>

@@ -5,6 +5,7 @@ import org.eclipse.egit.github.core.service.UserService
 import org.isotopos.trollboard.api.Issue
 import org.isotopos.trollboard.api.Project
 import org.isotopos.trollboard.api.Lane
+import org.isotopos.trollboard.api.UserProfile
 import org.isotopos.trollboard.api.service.github.GitHubUtils
 import org.eclipse.egit.github.core.RepositoryId
 
@@ -43,6 +44,7 @@ class GitHubIssuesService implements IssuesService {
     String userId = userService.getUser().login
     org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
     org.eclipse.egit.github.core.service.RepositoryService repositoryService = new org.eclipse.egit.github.core.service.RepositoryService(client)
+    org.eclipse.egit.github.core.service.CommitService commitService = new org.eclipse.egit.github.core.service.CommitService(client)
 
     def isssues = []
     if(organizationId){
@@ -51,10 +53,21 @@ class GitHubIssuesService implements IssuesService {
     }else{
       isssues = issueService.getIssues(userId, projectId, [:])
     }
-        
+
+    def repository = repositoryService.getRepository(organizationId,projectId)
+    def commits = commitService.getCommits(repository)
+    def commitsWithIssue = commits.findAll { repositoryCommit ->
+      repositoryCommit.commit.message.contains("#")
+    }
+
     def issues = []
     isssues.each {
-      issues << GitHubUtils.fromGitHubIssue(it)
+      Issue issue = GitHubUtils.fromGitHubIssue(it)
+      def issueCommits = commitsWithIssue.findAll { repositoryCommit ->
+        repositoryCommit.commit.message.findAll(~/\d+/).contains( issue.number.toString() )
+      }
+      issue.numberOfCommits = issueCommits.size()
+      issues << issue
     }
     
     issues
@@ -124,5 +137,28 @@ class GitHubIssuesService implements IssuesService {
     def newLabels = labelsWithNoPrice + labelToAdd
 
     labelService.setLabels(repositoryId, issueId, newLabels)
+  }
+
+  void assignIssueToCurrentUser(String token, String owner, String repoId, String issueId) throws Exception {
+    GitHubClient client = new GitHubClient()
+    client.setOAuth2Token(token)
+
+    org.eclipse.egit.github.core.service.IssueService issueService = new org.eclipse.egit.github.core.service.IssueService(client)
+
+    UserService userService = new UserService(client)
+    if (!owner) {
+      owner = userService.getUser().login
+    }
+
+    RepositoryId repositoryId = new RepositoryId(owner, repoId)
+
+    def issue
+    try {
+      issue = issueService.getIssue(repositoryId,issueId)
+    } catch(Throwable pedosEnElissue) {
+      throw new RuntimeException("Can't get the issue ${issueId} from owner ${owner} and repo ${repoId}", pedosEnElissue)
+    }
+    issue.assignee = userService.getUser()
+    issueService.editIssue(owner, repoId, issue)
   }
 }

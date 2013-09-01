@@ -155,4 +155,13 @@ class UserProfileController {
     render([done: true] as JSON)
   }
 
+  def assignToMe(){
+    def providerId = params.providerId
+    def tokenProvider = params.providerToken
+    def organizationId = params.organizationId
+    def projectId = params.projectId
+    def issueId = params.issueId
+    apiUserProfileService.changeIssueAssigneeToMe(providerId, tokenProvider, organizationId, projectId, issueId)
+    render([:] as JSON)
+  }
 }
