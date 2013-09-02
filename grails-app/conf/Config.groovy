@@ -76,7 +76,7 @@ environments {
   }
   production {
     grails.logging.jul.usebridge = false
-    grails.serverURL = "http://trollboard.rs.af.cm"
+    grails.serverURL = "http://trollboard.ap01.aws.af.cm"
     github.uri.login.oauth = '/login/oauth/access_token'
     client.id = '28e0b526536000c59092'
     state = 'trollboarders'
