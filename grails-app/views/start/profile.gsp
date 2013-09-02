@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta content="trollboard" name="layout">
-  <link href="/app/www/css/profile.css" rel="stylesheet" type="text/css"/>
+  <link href="${createLinkTo(dir:'/app/www/css/',file:'profile.css')}" rel="stylesheet" type="text/css"/>
   <script type="text/javascript" src="${g.resource(dir: 'app/www/js/vendor/bootstrap/2.1.1/js', file: 'bootstrap-collapse.min.js')}"></script>
 </head>
 
@@ -17,7 +17,7 @@
     </div>
     <div class="mojitoPanelContent">
       <div class="well-large center">
-        <img src="${profile?.avatar}" class="img-rounded" height="110%" width="110%"/>
+        <img src="${profile?.avatar}" class="img-rounded" height="100%" width="100%"/>
       </div>
 
       <div class="well-large sidebar-nav ">
@@ -104,7 +104,7 @@
                 <div class="bottom-separator2">
                   <div class="organization span7">
                     <img src="${o.user.avatar}" class="img-rounded" height="50px" width="50px"/>
-                    <a href="javascript: $('#organization-projects-${sto}').collapse('toggle');" >${o.user.username}</a>
+                    <a href="#organization-projects-${sto}" class="collapses" >${o.user.username}</a>
                   </div>
                   <div class="pagination-right span2">
                     <button type="button" class="btn btn-link" data-toggle="collapse" data-target="#organization-projects-${sto}">
@@ -137,7 +137,16 @@
         </tbody>
       </table>
     </div>
-
+  
   </div>
+  <script type="text/javascript">
+  $(function(){
+    $("a.collapses").click(function(){
+      var clicked = $(this).attr('href');
+      $(clicked).collapse('toggle');
+      return false;
+    });
+  });
+  </script>
 </body>
 </html>

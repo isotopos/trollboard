@@ -54,7 +54,7 @@ class GitHubIssuesService implements IssuesService {
       isssues = issueService.getIssues(userId, projectId, [:])
     }
 
-    def repository = repositoryService.getRepository(organizationId,projectId)
+    def repository = repositoryService.getRepository(organizationId ?: userId,projectId)
     def commits = commitService.getCommits(repository)
     def commitsWithIssue = commits.findAll { repositoryCommit ->
       repositoryCommit.commit.message.contains("#")
